@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="bn" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EduQuest Global — Your Journey to Global Education</title>
+  <meta name="description" content="EduQuest Global helps Bangladeshi students study abroad with IELTS prep, admissions, visa, bank support, travel & accommodation." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Tailwind config: enable dark mode via class
+    tailwind.config = { darkMode: 'class' }
+  </script>
+  <style>
+    :root{
+      --lg-white: 255,255,255;
+      --lg-ink: 2,6,23; /* slate-950 */
+      --lg-tint: 255,255,255;
+      --lg-shadow: 15,23,42; /* slate-800 */
+    }
+    body { font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
+
+    .hero-video-bg { position: relative; height: 90vh; overflow: hidden; }
+    #heroVideo {
+      position: absolute; top: 50%; left: 50%;
+      min-width: 100%; min-height: 100%;
+      width: auto; height: auto;
+      z-index: -1; transform: translate(-50%, -50%);
+      object-fit: cover;
+    }
+
+    /* Hero overlay — richer gradient */
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(1200px 600px at 20% 20%, rgba(15,23,42,0.7), rgba(15,23,42,0) 55%),
+        radial-gradient(900px 600px at 80% 80%, rgba(15,23,42,0.85), rgba(15,23,42,0) 55%),
+        linear-gradient(180deg, rgba(15,23,42,0.72), rgba(15,23,42,0.92));
+    }
+
+    /* Liquid Glass — Apple-style translucent panels */
+    .liquid-glass{
+      position: relative;
+      background: linear-gradient(180deg, rgba(var(--lg-white),0.65) 0%, rgba(var(--lg-white),0.35) 100%);
+      backdrop-filter: saturate(140%) blur(18px);
+      -webkit-backdrop-filter: saturate(140%) blur(18px);
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.55);
+      box-shadow:
+        0 1px 0 rgba(255,255,255,0.6) inset,
+        0 0 0 0.5px rgba(15,23,42,0.08),
+        0 8px 24px rgba(var(--lg-shadow),0.12);
+      overflow: hidden;
+      isolation: isolate;
+    }
+    .liquid-glass::before{
+      content:""; position:absolute; inset:0 0 auto 0; height:55%;
+      background: linear-gradient(180deg, rgba(255,255,255,0.45), rgba(255,255,255,0));
+      pointer-events:none;
+    }
+    .liquid-glass::after{
+      content:""; position:absolute; inset:-150% -50% auto -50%; height:300%; transform:rotate(8deg);
+      background: radial-gradient(60% 60% at 50% 50%, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0) 60%);
+      animation: lg-shimmer 9s linear infinite;
+      mix-blend-mode: soft-light; pointer-events:none; opacity:.35;
+    }
+    @keyframes lg-shimmer{
+      from{ transform:translateX(-20%) rotate(8deg);}
+      to{ transform:translateX(20%) rotate(8deg);}
+    }
+
+    .dark .liquid-glass{
+      background: linear-gradient(180deg, rgba(var(--lg-ink),0.55) 0%, rgba(var(--lg-ink),0.35) 100%);
+      border-color: rgba(255,255,255,0.18);
+      box-shadow:
+        0 1px 0 rgba(255,255,255,0.06) inset,
+        0 0 0 0.5px rgba(255,255,255,0.06),
+        0 12px 28px rgba(0,0,0,0.45);
+    }
+
+    .liquid-card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.7));
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.6);
+      border-radius: 18px;
+      box-shadow: 0 1px 0 rgba(255,255,255,0.7) inset, 0 10px 24px rgba(15,23,42,0.08);
+    }
+    .dark .liquid-card{
+      background: linear-gradient(180deg, rgba(2,6,23,0.75), rgba(2,6,23,0.55));
+      border-color: rgba(255,255,255,0.12);
+      box-shadow: 0 1px 0 rgba(255,255,255,0.05) inset, 0 12px 28px rgba(0,0,0,0.45);
+    }
+
+    /* Hero floating cards */
+    .float-slow { animation: float-slow 14s ease-in-out infinite; }
+    .float-slower { animation: float-slower 18s ease-in-out infinite; }
+
+    @keyframes float-slow{
+      0%,100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+    @keyframes float-slower{
+      0%,100% { transform: translateY(4px); }
+      50% { transform: translateY(-12px); }
+    }
+
+    /* Little scroll indicator */
+    .scroll-indicator {
+      position: absolute; bottom: 1.75rem; left: 50%;
+      transform: translateX(-50%);
+      display: inline-flex; flex-direction: column; align-items: center;
+      gap: 0.35rem; font-size: 0.75rem;
+      color: rgba(248,250,252,0.85);
+    }
+    .scroll-indicator-dot{
+      width: 3px; height: 14px;
+      border-radius: 999px;
+      background: rgba(248,250,252,0.8);
+      animation: scroll-dot 1.6s ease-in-out infinite;
+    }
+    @keyframes scroll-dot{
+      0%{ transform: translateY(0); opacity: 1; }
+      60%{ transform: translateY(6px); opacity: 0.2; }
+      100%{ transform: translateY(0); opacity: 0; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .float-slow, .float-slower, .liquid-glass::after,
+      .scroll-indicator-dot { animation: none !important; }
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100">
+  <!-- Header -->
+  <header class="sticky top-0 z-50 border-b border-slate-200/60 dark:border-slate-800/60 bg-white/80 dark:bg-slate-950/80 backdrop-blur">
+    <nav class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex h-16 items-center justify-between">
+        <a href="index.html" class="flex items-center gap-3">
+          <img src="images/logo.jpg" alt="EduQuest Global Logo" class="w-10 h-10 rounded-xl shadow-sm" loading="eager" />
+          <span class="text-xl sm:text-2xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-indigo-500 dark:from-blue-300 dark:to-indigo-200">
+            EduQuest Global
+          </span>
+        </a>
+
+        <!-- Desktop nav -->
+        <div class="hidden md:flex items-center gap-6">
+          <a href="index.html" class="font-medium text-blue-700 dark:text-blue-300">Home</a>
+          <a href="about.html" class="font-medium hover:text-blue-600">About Us</a>
+          <div class="relative group">
+            <a href="services.html" class="font-medium hover:text-blue-600 flex items-center">
+              Services
+              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </a>
+            <div class="absolute hidden group-hover:block mt-3 w-72 shadow-xl p-2 liquid-glass">
+              <a href="services.html#ielts" class="flex items-start gap-3 px-4 py-3 rounded-xl hover:bg-white/60 dark:hover:bg-slate-900/50">
+                <span class="font-semibold">IELTS Preparation</span>
+                <span class="text-slate-500 dark:text-slate-400 text-sm">Classes & mock tests</span>
+              </a>
+              <a href="services.html#admissions" class="flex items-start gap-3 px-4 py-3 rounded-xl hover:bg-white/60 dark:hover:bg-slate-900/50">
+                <span class="font-semibold">Admissions Assistance</span>
+                <span class="text-slate-500 dark:text-slate-400 text-sm">SOP/CV & applications</span>
+              </a>
+              <a href="services.html#visa" class="flex items-start gap-3 px-4 py-3 rounded-xl hover:bg-white/60 dark:hover:bg-slate-900/50">
+                <span class="font-semibold">Visa Guidance</span>
+                <span class="text-slate-500 dark:text-slate-400 text-sm">Docs & interview prep</span>
+              </a>
+              <a href="services.html#bank" class="flex items-start gap-3 px-4 py-3 rounded-xl hover:bg-white/60 dark:hover:bg-slate-900/50">
+                <span class="font-semibold">Bank Support & Finance</span>
+                <span class="text-slate-500 dark:text-slate-400 text-sm">Solvency & FOREX</span>
+              </a>
+              <a href="services.html#travel" class="flex items-start gap-3 px-4 py-3 rounded-xl hover:bg-white/60 dark:hover:bg-slate-900/50">
+                <span class="font-semibold">Travel & Accommodation</span>
+                <span class="text-slate-500 dark:text-slate-400 text-sm">Flights & housing</span>
+              </a>
+            </div>
+          </div>
+          <a href="destinations.html" class="font-medium hover:text-blue-600">Destinations</a>
+          <a href="moi.html" class="font-medium hover:text-blue-600">Study with MOI</a>
+          <a href="contact.html" class="font-medium hover:text-blue-600">Contact</a>
+        </div>
+
+        <div class="hidden md:flex items-center gap-3">
+          <a href="contact.html" class="inline-flex items-center rounded-full bg-amber-400 text-slate-900 font-bold py-2 px-4 hover:bg-amber-300 transition shadow">
+            Apply Now
+          </a>
+          <button id="themeToggle" class="size-9 grid place-items-center rounded-full border border-slate-300/60 dark:border-slate-700/60 hover:bg-slate-100 dark:hover:bg-slate-800" aria-label="Toggle dark mode">
+            <svg id="themeIcon" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Mobile -->
+        <div class="md:hidden flex items-center gap-2">
+          <button id="themeToggleSm" class="size-9 grid place-items-center rounded-full border border-slate-300/60 dark:border-slate-700/60" aria-label="Toggle dark mode">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"/>
+            </svg>
+          </button>
+          <button id="mobile-menu-button" class="p-2 rounded-lg border border-slate-300/60 dark:border-slate-700/60" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <div id="mobile-menu" class="md:hidden hidden border-t border-slate-200/60 dark:border-slate-800/60 bg-white/90 dark:bg-slate-950/90 backdrop-blur">
+      <div class="max-w-screen-xl mx-auto px-4 py-4 grid gap-3">
+        <a href="index.html" class="py-2">Home</a>
+        <a href="about.html" class="py-2">About Us</a>
+        <a href="services.html" class="py-2">Services</a>
+        <a href="destinations.html" class="py-2">Destinations</a>
+        <a href="moi.html" class="py-2">Study with MOI</a>
+        <a href="contact.html" class="py-2">Contact Us</a>
+        <a href="contact.html" class="mt-2 inline-flex justify-center rounded-full bg-amber-400 text-slate-900 font-bold py-2 px-4 hover:bg-amber-300 transition">
+          Apply Now
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero-video-bg">
+      <video autoplay muted loop playsinline id="heroVideo" poster="images/hero_poster.jpg">
+        <source src="videos/hero_video.mp4" type="video/mp4" />
+      </video>
+      <div class="hero-overlay"></div>
+
+      <div class="relative max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col justify-center">
+        <div class="grid md:grid-cols-2 gap-10 items-center text-white">
+          <!-- Left hero content -->
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/25 text-[11px] uppercase tracking-[0.22em] mb-4">
+              <span class="size-2 rounded-full bg-emerald-400"></span>
+              <span>Dhaka → Global Classroom</span>
+            </div>
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight drop-shadow mb-4">
+              Your Journey to <span class="text-amber-300">Global Education</span> Starts Here.
+            </h1>
+            <p class="text-sm md:text-base lg:text-lg mb-6 max-w-xl text-blue-100/90">
+              From first counseling to visa & arrival — we design a complete roadmap for Bangladeshi students to reach top universities worldwide.
+            </p>
+
+            <div class="flex flex-wrap items-center gap-3 mb-5">
+              <a href="contact.html" class="inline-flex items-center gap-2 rounded-full bg-amber-400 text-slate-900 font-bold py-2.5 px-6 hover:bg-amber-300 transition shadow-lg">
+                Book a Free Consultation
+              </a>
+              <a href="#services" class="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 backdrop-blur px-5 py-2.5 hover:bg-white/15 transition text-sm">
+                Explore Services
+                <span class="text-xs">↓</span>
+              </a>
+            </div>
+
+            <!-- Stats row -->
+            <div class="flex flex-wrap gap-6 text-xs sm:text-sm text-blue-100/90">
+              <div>
+                <p class="font-bold text-base sm:text-lg text-white">500+ <span class="text-amber-300">students</span></p>
+                <p class="opacity-80">Guided for higher studies</p>
+              </div>
+              <div>
+                <p class="font-bold text-base sm:text-lg text-white">10+ Countries</p>
+                <p class="opacity-80">UK, Australia, Europe & more</p>
+              </div>
+              <div>
+                <p class="font-bold text-base sm:text-lg text-white">End-to-End</p>
+                <p class="opacity-80">IELTS to visa & travel</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right floating glass stack -->
+          <div class="hidden md:flex justify-end">
+            <div class="relative w-full max-w-md">
+              <div class="liquid-glass p-5 sm:p-6 float-slow">
+                <p class="text-xs uppercase tracking-[0.22em] text-slate-500 mb-2">Featured Route</p>
+                <h3 class="text-lg font-semibold text-slate-900 dark:text-slate-50 mb-1">
+                  UK Master's with MOI (No IELTS)
+                </h3>
+                <p class="text-xs text-slate-600 dark:text-slate-300 mb-3">
+                  Use Medium of Instruction (MOI) to access UK universities without IELTS, depending on your profile and university policy.
+                </p>
+                <div class="flex items-center gap-3 text-[11px] text-slate-500 dark:text-slate-400">
+                  <span class="px-2 py-1 rounded-full bg-emerald-100/80 text-emerald-900 font-semibold text-[10px] dark:bg-emerald-400/15 dark:text-emerald-200">
+                    Popular Option
+                  </span>
+                  <span>Ideal for English-medium & EM students</span>
+                </div>
+              </div>
+
+              <div class="liquid-glass p-4 sm:p-5 absolute -bottom-8 -left-4 sm:-left-8 float-slower hidden lg:block">
+                <p class="text-xs text-slate-500 dark:text-slate-400 mb-1">Student Highlight</p>
+                <p class="text-sm text-slate-800 dark:text-slate-100 italic">
+                  “EduQuest handled everything — from course choice to visa. I just followed their roadmap.”
+                </p>
+                <p class="mt-2 text-[11px] text-slate-500 dark:text-slate-400">— Anika, UK (MOI Route)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scroll hint -->
+        <div class="scroll-indicator hidden sm:inline-flex">
+          <span class="text-[10px] tracking-[0.25em] uppercase">Scroll</span>
+          <span class="scroll-indicator-dot"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-20 bg-white dark:bg-slate-950">
+      <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl font-extrabold text-blue-900 dark:text-blue-200 mb-4">
+          Our Core Services
+        </h2>
+        <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-12 text-sm sm:text-base">
+          From exam prep to visa stamping, we keep everything under one umbrella so that you and your family stay stress-free throughout the journey.
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+          <a href="services.html#ielts" class="group rounded-2xl p-6 hover:-translate-y-1 hover:shadow-xl transition liquid-card text-left">
+            <div class="text-2xl mb-3">📚</div>
+            <h3 class="text-lg font-semibold text-blue-800 dark:text-blue-300">IELTS Preparation</h3>
+            <p class="text-sm text-slate-500 dark:text-slate-400 mt-2">
+              Structured classes, mocks, feedback — target 6.5+ and 7.0+.
+            </p>
+          </a>
+          <a href="services.html#admissions" class="group rounded-2xl p-6 hover:-translate-y-1 hover:shadow-xl transition liquid-card text-left">
+            <div class="text-2xl mb-3">🎓</div>
+            <h3 class="text-lg font-semibold text-blue-800 dark:text-blue-300">Admissions</h3>
+            <p class="text-sm text-slate-500 dark:text-slate-400 mt-2">
+              SOP, CV, course & country matching, application submission.
+            </p>
+          </a>
+          <a href="services.html#visa" class="group rounded-2xl p-6 hover:-translate-y-1 hover:shadow-xl transition liquid-card text-left">
+            <div class="text-2xl mb-3">🛂</div>
+            <h3 class="text-lg font-semibold text-blue-800 dark:text-blue-300">Visa Guidance</h3>
+            <p class="text-sm text-slate-500 dark:text-slate-400 mt-2">
+              File preparation, documentation, mock interviews, full review.
+            </p>
+          </a>
+          <a href="services.html#bank" class="group rounded-2xl p-6 hover:-translate-y-1 hover:shadow-xl transition liquid-card text-left">
+            <div class="text-2xl mb-3">🏦</div>
+            <h3 class="text-lg font-semibold text-blue-800 dark:text-blue-300">Bank Support</h3>
+            <p class="text-sm text-slate-500 dark:text-slate-400 mt-2">
+              Fund planning, solvency, tuition fee payment, FOREX guidance.
+            </p>
+          </a>
+          <a href="services.html#travel" class="group rounded-2xl p-6 hover:-translate-y-1 hover:shadow-xl transition liquid-card text-left">
+            <div class="text-2xl mb-3">✈️</div>
+            <h3 class="text-lg font-semibold text-blue-800 dark:text-blue-300">Travel & Stay</h3>
+            <p class="text-sm text-slate-500 dark:text-slate-400 mt-2">
+              Flights, accommodation, airport pickup & pre-departure support.
+            </p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- MOI Promo -->
+    <section class="bg-blue-50 dark:bg-slate-900 py-20">
+      <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row items-center gap-10">
+          <div class="md:w-1/2">
+            <img src="images/moi_promo.jpg" alt="Study in the UK with MOI" class="rounded-2xl shadow-2xl w-full" loading="lazy" />
+          </div>
+          <div class="md:w-1/2">
+            <h2 class="text-3xl font-extrabold text-blue-900 dark:text-blue-200 mb-4">
+              Study in the UK with MOI — No IELTS Needed (Case-by-Case)
+            </h2>
+            <p class="text-slate-700 dark:text-slate-300 mb-4 text-sm sm:text-base">
+              If your previous education was in English, selected UK universities may accept Medium of Instruction (MOI) as proof of language proficiency.
+            </p>
+            <ul class="list-disc list-inside text-sm text-slate-700 dark:text-slate-300 mb-6">
+              <li>Ideal for English-medium / English-version / many private university graduates</li>
+              <li>Faster processing by skipping IELTS prep & exam</li>
+              <li>Eligibility depends on university, course and intake</li>
+            </ul>
+            <a href="moi.html" class="inline-flex items-center rounded-full bg-blue-800 text-white font-bold py-3 px-8 hover:bg-blue-700 transition">
+              Learn About MOI Route
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bank Support -->
+    <section class="bg-white dark:bg-slate-950 py-20">
+      <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row-reverse items-center gap-10">
+          <div class="md:w-1/2">
+            <img src="images/bank_support.jpg" alt="Bank Support for Students" class="rounded-2xl shadow-2xl w-full" loading="lazy" />
+          </div>
+          <div class="md:w-1/2">
+            <h2 class="text-3xl font-extrabold text-blue-900 dark:text-blue-200 mb-4">
+              Complete Bank & Financial Support For Students
+            </h2>
+            <p class="text-slate-700 dark:text-slate-300 mb-4 text-sm sm:text-base">
+              One of the biggest concerns for any family is finance. We help you structure funds, show required proofs and move money in a compliant way.
+            </p>
+            <ul class="list-disc list-inside text-sm text-slate-700 dark:text-slate-300 mb-6">
+              <li>Tuition fee payment, bank solvency & statements</li>
+              <li>Scholarship awareness & budgeting guidance</li>
+              <li>Forex & international transaction support</li>
+            </ul>
+            <a href="services.html#bank" class="inline-flex items-center rounded-full bg-amber-400 text-slate-900 font-bold py-3 px-8 hover:bg-amber-300 transition">
+              Secure Your Funds
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Destinations -->
+    <section class="py-20 bg-slate-50 dark:bg-slate-950">
+      <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl font-extrabold text-blue-900 dark:text-blue-200 mb-3">
+          Featured Destinations
+        </h2>
+        <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-10 text-sm sm:text-base">
+          Choose from student-favorite destinations with strong career opportunities, post-study work options and vibrant student life.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <a href="destinations.html#uk" class="group relative rounded-2xl overflow-hidden shadow-lg">
+            <img src="images/destination_uk.jpg" alt="Study in the United Kingdom" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/65 to-black/10 flex items-end p-6">
+              <div>
+                <h3 class="text-white text-2xl font-bold">United Kingdom</h3>
+                <p class="text-white/85 text-sm mt-1">1-year Master's, 2-year PSW & world-class universities.</p>
+              </div>
+            </div>
+          </a>
+          <a href="destinations.html#australia" class="group relative rounded-2xl overflow-hidden shadow-lg">
+            <img src="images/destination_australia.jpg" alt="Study in Australia" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/65 to-black/10 flex items-end p-6">
+              <div>
+                <h3 class="text-white text-2xl font-bold">Australia</h3>
+                <p class="text-white/85 text-sm mt-1">High standard of living & PR-friendly pathways.</p>
+              </div>
+            </div>
+          </a>
+          <a href="destinations.html#germany" class="group relative rounded-2xl overflow-hidden shadow-lg">
+            <img src="images/destination_germany.jpg" alt="Study in Germany" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/65 to-black/10 flex items-end p-6">
+              <div>
+                <h3 class="text-white text-2xl font-bold">Germany</h3>
+                <p class="text-white/85 text-sm mt-1">Low/no tuition at many public universities.</p>
+              </div>
+            </div>
+          </a>
+        </div>
+        <a href="destinations.html" class="mt-10 inline-block rounded-full bg-blue-800 text-white font-bold py-3 px-8 hover:bg-blue-700 transition">
+          View All Destinations
+        </a>
+      </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="py-20 bg-blue-50 dark:bg-slate-900">
+      <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col lg:flex-row items-start gap-10 mb-10">
+          <div class="lg:w-1/3">
+            <h2 class="text-3xl font-extrabold text-blue-900 dark:text-blue-200 mb-4">
+              Why Choose EduQuest Global?
+            </h2>
+            <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base">
+              You are not just a file number for us. We treat every case as a unique story — and design realistic, honest strategies that match your background and dreams.
+            </p>
+          </div>
+          <div class="lg:w-2/3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+            <div class="rounded-2xl p-6 border border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/50">
+              <h3 class="text-lg font-bold text-blue-800 dark:text-blue-300 mb-1">Experienced Counselors</h3>
+              <p class="text-slate-600 dark:text-slate-400 text-sm">
+                Get guidance from professionals who understand both Bangladeshi context and international admission trends.
+              </p>
+            </div>
+            <div class="rounded-2xl p-6 border border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/50">
+              <h3 class="text-lg font-bold text-blue-800 dark:text-blue-300 mb-1">Personalized Roadmap</h3>
+              <p class="text-slate-600 dark:text-slate-400 text-sm">
+                No copy-paste approach — we plan country, course & timeline specially for you.
+              </p>
+            </div>
+            <div class="rounded-2xl p-6 border border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/50">
+              <h3 class="text-lg font-bold text-blue-800 dark:text-blue-300 mb-1">Visa-Focused Planning</h3>
+              <p class="text-slate-600 dark:text-slate-400 text-sm">
+                We keep visa requirements in mind from day one to avoid unnecessary refusals.
+              </p>
+            </div>
+            <div class="rounded-2xl p-6 border border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/50">
+              <h3 class="text-lg font-bold text-blue-800 dark:text-blue-300 mb-1">End-to-End Support</h3>
+              <p class="text-slate-600 dark:text-slate-400 text-sm">
+                From counseling to pre-departure & beyond — one team, one plan, one journey.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- University Partners -->
+    <section class="py-20 bg-white dark:bg-slate-950">
+      <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl font-extrabold text-blue-900 dark:text-blue-200 mb-6">
+          Some of Our Featured Partners
+        </h2>
+        <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-10 text-sm sm:text-base">
+          We work with a wide network of reputed universities. Here are just a few names familiar to Bangladeshi students:
+        </p>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 items-center text-sm sm:text-base">
+          <p class="text-slate-500 dark:text-slate-400 font-semibold">University of Aberdeen</p>
+          <p class="text-slate-500 dark:text-slate-400 font-semibold">University of Exeter</p>
+          <p class="text-slate-500 dark:text-slate-400 font-semibold">Kingston University</p>
+          <p class="text-slate-500 dark:text-slate-400 font-semibold">Aston University</p>
+          <p class="text-slate-500 dark:text-slate-400 font-semibold">University of Essex</p>
+          <p class="text-slate-500 dark:text-slate-400 font-semibold">University of Surrey</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="bg-blue-50 dark:bg-slate-900 py-20">
+      <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col lg:flex-row items-start gap-10 mb-10">
+          <div class="lg:w-1/3">
+            <h2 class="text-3xl font-extrabold text-blue-900 dark:text-blue-200 mb-4">
+              What Our Students Say
+            </h2>
+            <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base">
+              Real journeys, real struggles, real success. These stories show what happens when proper guidance meets genuine effort.
+            </p>
+          </div>
+          <div class="lg:w-2/3 grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="p-6 rounded-2xl shadow liquid-card">
+              <p class="text-slate-700 dark:text-slate-300 italic mb-4 text-sm">
+                "EduQuest Global made my dream of studying in the UK a reality. Their end-to-end support was phenomenal!"
+              </p>
+              <h4 class="font-bold text-blue-800 dark:text-blue-300 text-sm">— Anika Rahman</h4>
+              <p class="text-[11px] text-slate-500 dark:text-slate-400">MSc, United Kingdom</p>
+            </div>
+            <div class="p-6 rounded-2xl shadow liquid-card">
+              <p class="text-slate-700 dark:text-slate-300 italic mb-4 text-sm">
+                "Applying through MOI seemed complicated, but their expert counselors made it incredibly simple. Thank you!"
+              </p>
+              <h4 class="font-bold text-blue-800 dark:text-blue-300 text-sm">— Fahim Hasan</h4>
+              <p class="text-[11px] text-slate-500 dark:text-slate-400">MOI Route, UK</p>
+            </div>
+            <div class="p-6 rounded-2xl shadow liquid-card">
+              <p class="text-slate-700 dark:text-slate-300 italic mb-4 text-sm">
+                "The bank support service was a lifesaver. It made my financial process so smooth and tension-free."
+              </p>
+              <h4 class="font-bold text-blue-800 dark:text-blue-300 text-sm">— Sadia Islam</h4>
+              <p class="text-[11px] text-slate-500 dark:text-slate-400">Australia</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="bg-gradient-to-br from-blue-800 to-indigo-700 text-white">
+      <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
+        <h2 class="text-3xl font-extrabold mb-4">
+          Ready to Start Your Journey?
+        </h2>
+        <p class="mb-8 max-w-2xl mx-auto text-white/90 text-sm sm:text-base">
+          Don’t keep your dream on hold. Let’s sit together, understand your profile and plan a realistic, powerful pathway to your dream country — In shaa Allah.
+        </p>
+        <a href="contact.html" class="inline-flex items-center rounded-full bg-amber-400 text-slate-900 font-bold py-3 px-8 hover:bg-amber-300 transition shadow">
+          Contact Us Now
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-slate-950 text-slate-200">
+    <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <h3 class="text-xl font-extrabold mb-4">EduQuest Global</h3>
+          <p class="text-slate-400">Guiding you to success.</p>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+          <ul class="space-y-2 text-sm">
+            <li><a href="about.html" class="hover:text-amber-400">About Us</a></li>
+            <li><a href="services.html" class="hover:text-amber-400">Services</a></li>
+            <li><a href="destinations.html" class="hover:text-amber-400">Destinations</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Contact Info</h3>
+          <p class="text-slate-400 text-sm">Dhaka Office, Bangladesh</p>
+          <p class="text-slate-400 text-sm">Phone: +880 1345-572203</p>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Follow Us</h3>
+          <div class="flex gap-4 text-sm">
+            <a href="#" class="hover:text-amber-400">Facebook</a>
+            <a href="#" class="hover:text-amber-400">Instagram</a>
+          </div>
+        </div>
+      </div>
+      <div class="mt-10 border-t border-slate-800 pt-6 text-center text-slate-400 text-sm">
+        <p>&copy; <span id="year"></span> EduQuest Global. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile menu toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileMenuButton?.addEventListener('click', () => {
+      const expanded = mobileMenuButton.getAttribute('aria-expanded') === 'true' || false;
+      mobileMenuButton.setAttribute('aria-expanded', (!expanded).toString());
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Dark mode (persisted)
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const storedTheme = localStorage.getItem('theme');
+    if (!storedTheme && prefersDark) document.documentElement.classList.add('dark');
+    if (storedTheme === 'dark') document.documentElement.classList.add('dark');
+
+    function toggleTheme(){
+      const isDark = document.documentElement.classList.toggle('dark');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    }
+    document.getElementById('themeToggle')?.addEventListener('click', toggleTheme);
+    document.getElementById('themeToggleSm')?.addEventListener('click', toggleTheme);
+  </script>
+</body>
+</html>
