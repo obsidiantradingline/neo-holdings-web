@@ -1,481 +1,907 @@
 <!DOCTYPE html>
-<html lang="bn" class="scroll-smooth">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Services - EduQuest Global</title>
-  <meta name="description" content="EduQuest Global provides IELTS preparation, admissions assistance, visa guidance, bank support and travel & accommodation services for Bangladeshi students." />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = { darkMode: 'class' }
-  </script>
-  <style>
-    :root{
-      --lg-white: 255,255,255;
-      --lg-ink: 2,6,23; /* slate-950 */
-      --lg-tint: 255,255,255; /* top highlight */
-      --lg-shadow: 15,23,42; /* slate-800 */
-    }
-    body { font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Divisions & Services - Neo Holdings</title>
+    <meta name="description" content="Explore Neo Holdings' capabilities in Heavy Machinery Indenting, Civil Construction, and Industrial Supply Chain management.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 
-    /* Liquid Glass — Apple-style translucent panels */
-    .liquid-glass{
-      position: relative;
-      background: linear-gradient(180deg, rgba(var(--lg-white),0.65) 0%, rgba(var(--lg-white),0.35) 100%);
-      backdrop-filter: saturate(140%) blur(18px);
-      -webkit-backdrop-filter: saturate(140%) blur(18px);
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,0.55);
-      box-shadow:
-        0 1px 0 rgba(255,255,255,0.6) inset,
-        0 0 0 0.5px rgba(15,23,42,0.08),
-        0 8px 24px rgba(var(--lg-shadow),0.12);
-      overflow: hidden;
-      isolation: isolate;
-    }
-    .liquid-glass::before{
-      content:""; position:absolute; inset:0 0 auto 0; height:55%;
-      background: linear-gradient(180deg, rgba(255,255,255,0.45), rgba(255,255,255,0));
-      pointer-events:none;
-    }
-    .liquid-glass::after{
-      content:""; position:absolute; inset:-150% -50% auto -50%; height:300%; transform:rotate(8deg);
-      background: radial-gradient(60% 60% at 50% 50%, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0) 60%);
-      animation: lg-shimmer 9s linear infinite;
-      mix-blend-mode: soft-light; pointer-events:none; opacity:.35;
-    }
-    @keyframes lg-shimmer{
-      from{ transform:translateX(-20%) rotate(8deg);}
-      to{ transform:translateX(20%) rotate(8deg);}
-    }
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
-    .dark .liquid-glass{
-      background: linear-gradient(180deg, rgba(var(--lg-ink),0.55) 0%, rgba(var(--lg-ink),0.35) 100%);
-      border-color: rgba(255,255,255,0.18);
-      box-shadow:
-        0 1px 0 rgba(255,255,255,0.06) inset,
-        0 0 0 0.5px rgba(255,255,255,0.06),
-        0 12px 28px rgba(0,0,0,0.45);
-    }
+    <style>
+        /* --- RESET & BASE STYLES (aligned with index/projects) --- */
+        :root {
+            --primary-color: #003366; /* Deep Corporate Blue */
+            --secondary-color: #ff6600; /* Industrial Orange */
+            --text-color: #1f2933;
+            --muted-text: #6b7280;
+            --light-bg: #f4f6f8;
+            --white: #ffffff;
+            --border-color: #e0e0e0;
+            --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.18);
+            --transition: all 0.25s ease;
+            --radius-lg: 16px;
+        }
 
-    .liquid-card{
-      background: linear-gradient(180deg, rgba(255,255,255,0.8), rgba(255,255,255,0.6));
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(255,255,255,0.6);
-      border-radius: 18px;
-      box-shadow: 0 1px 0 rgba(255,255,255,0.7) inset, 0 10px 24px rgba(15,23,42,0.08);
-    }
-    .dark .liquid-card{
-      background: linear-gradient(180deg, rgba(2,6,23,0.75), rgba(2,6,23,0.55));
-      border-color: rgba(255,255,255,0.12);
-      box-shadow: 0 1px 0 rgba(255,255,255,0.05) inset, 0 12px 28px rgba(0,0,0,0.45);
-    }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    @media (prefers-reduced-motion: reduce) {
-      .liquid-glass::after { transition: none !important; animation: none !important; }
-    }
-  </style>
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul { list-style: none; }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* --- BUTTONS --- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 28px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 999px;
+            cursor: pointer;
+            text-align: center;
+            border: 2px solid transparent;
+            white-space: nowrap;
+        }
+
+        .btn i { font-size: 18px; }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--secondary-color), #ff8533);
+            color: var(--white);
+            box-shadow: 0 12px 30px rgba(255, 102, 0, 0.35);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 18px 45px rgba(255, 102, 0, 0.5);
+        }
+
+        .btn-quote {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 8px 18px;
+            border-radius: 999px;
+            font-weight: 500;
+            font-size: 14px;
+            border: 1px solid rgba(0, 0, 0, 0.02);
+        }
+
+        .btn-quote:hover {
+            background-color: #002244;
+            transform: translateY(-1px);
+        }
+
+        .btn-white {
+            background-color: var(--white);
+            color: var(--primary-color);
+            border: 2px solid var(--white);
+        }
+
+        .btn-white:hover {
+            background-color: transparent;
+            color: var(--white);
+        }
+
+        /* --- HEADER & NAV (same as index/projects) --- */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 10px 0;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 900;
+            color: var(--primary-color);
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            font-size: 28px;
+            padding: 6px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, rgba(0, 51, 102, 0.15), rgba(255, 102, 0, 0.18));
+        }
+
+        .logo span.sub {
+            font-size: 11px;
+            font-weight: 500;
+            color: var(--muted-text);
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            padding: 6px 10px;
+            border-radius: 999px;
+            background-color: #ffffff;
+        }
+
+        .nav-links a.link {
+            font-weight: 500;
+            font-size: 14px;
+            color: var(--text-color);
+            position: relative;
+            padding: 6px 10px;
+            border-radius: 999px;
+        }
+
+        .nav-links a.link::after {
+            content: "";
+            position: absolute;
+            left: 14px;
+            right: 14px;
+            bottom: 4px;
+            height: 2px;
+            border-radius: 999px;
+            background: linear-gradient(90deg, var(--secondary-color), #ffaa55);
+            opacity: 0;
+            transform: scaleX(0.6);
+            transition: var(--transition);
+        }
+
+        .nav-links a.link:hover {
+            color: var(--primary-color);
+            background-color: rgba(15, 23, 42, 0.03);
+        }
+
+        .nav-links a.link:hover::after {
+            opacity: 1;
+            transform: scaleX(1);
+        }
+
+        .nav-links a.link.active {
+            color: var(--primary-color);
+            background-color: rgba(15, 23, 42, 0.04);
+        }
+
+        .nav-links a.link.active::after {
+            opacity: 1;
+            transform: scaleX(1);
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            font-size: 28px;
+            color: var(--primary-color);
+            cursor: pointer;
+        }
+
+        /* --- PAGE HERO (Services) --- */
+        .service-hero {
+            position: relative;
+            background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.15), transparent 55%),
+                        radial-gradient(circle at bottom right, rgba(255, 102, 0, 0.2), transparent 55%),
+                        linear-gradient(120deg, #020617, #02132f),
+                        url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            min-height: 360px;
+            display: flex;
+            align-items: center;
+            color: var(--white);
+        }
+
+        .service-hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.78), rgba(15, 23, 42, 0.82));
+        }
+
+        .service-hero-inner {
+            position: relative;
+            max-width: 880px;
+            margin: 0 auto;
+            padding: 50px 0;
+            text-align: left;
+        }
+
+        .breadcrumb {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            opacity: 0.78;
+            margin-bottom: 10px;
+        }
+
+        .service-hero h1 {
+            font-size: clamp(32px, 3.3vw, 44px);
+            font-weight: 800;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        .service-hero p {
+            font-size: 16px;
+            max-width: 620px;
+            opacity: 0.94;
+            margin-bottom: 20px;
+        }
+
+        .hero-meta-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            font-size: 13px;
+        }
+
+        .hero-meta-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 12px;
+            border-radius: 999px;
+            border: 1px solid rgba(148, 163, 184, 0.7);
+            background-color: rgba(15, 23, 42, 0.65);
+        }
+
+        .hero-meta-pill i {
+            font-size: 16px;
+            color: #a5b4fc;
+        }
+
+        /* --- SECTION INTRO (short) --- */
+        .services-intro {
+            padding: 60px 0 10px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .section-subtitle {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            color: var(--secondary-color);
+            margin-bottom: 6px;
+        }
+
+        .section-header h2 {
+            font-size: 28px;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+        }
+
+        .section-header p {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 15px;
+            color: var(--muted-text);
+        }
+
+        .section-header::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--secondary-color), #ffb380);
+            margin: 18px auto 0;
+            border-radius: 999px;
+        }
+
+        /* --- DIVISION SECTIONS --- */
+        .division-section {
+            padding: 70px 0;
+            border-bottom: 1px solid rgba(226, 232, 240, 0.9);
+        }
+
+        .division-section:nth-of-type(odd) {
+            background-color: #ffffff;
+        }
+
+        .division-section:nth-of-type(even) {
+            background-color: var(--light-bg);
+        }
+
+        .division-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+            gap: 50px;
+            align-items: center;
+        }
+
+        .division-section:nth-of-type(even) .division-grid {
+            direction: rtl; /* flip columns */
+        }
+
+        .division-section:nth-of-type(even) .division-content,
+        .division-section:nth-of-type(even) .division-img {
+            direction: ltr;
+        }
+
+        .division-label {
+            color: var(--secondary-color);
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            font-size: 13px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .division-content h2 {
+            font-size: 26px;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .division-content p {
+            font-size: 15px;
+            color: var(--muted-text);
+            margin-bottom: 20px;
+        }
+
+        .capability-list {
+            margin-top: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .capability-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px 14px;
+            border-radius: 14px;
+            background-color: rgba(248, 250, 252, 0.98);
+            border: 1px solid rgba(226, 232, 240, 0.9);
+            box-shadow: 0 8px 16px rgba(15, 23, 42, 0.04);
+        }
+
+        .division-section:nth-of-type(even) .capability-item {
+            background-color: #ffffff;
+        }
+
+        .capability-icon {
+            font-size: 24px;
+            color: var(--secondary-color);
+            margin-top: 2px;
+        }
+
+        .capability-text h5 {
+            font-size: 15px;
+            color: var(--primary-color);
+            margin-bottom: 3px;
+        }
+
+        .capability-text p {
+            font-size: 13px;
+            margin-bottom: 0;
+            color: #6b7280;
+        }
+
+        .division-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .division-badge {
+            font-size: 11px;
+            padding: 4px 10px;
+            border-radius: 999px;
+            border: 1px solid rgba(148, 163, 184, 0.8);
+            background-color: #ffffff;
+            color: #4b5563;
+        }
+
+        .division-img img {
+            border-radius: 18px;
+            box-shadow: 0 16px 40px rgba(15, 23, 42, 0.18);
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            min-height: 320px;
+        }
+
+        /* --- CTA --- */
+        .service-cta {
+            background: radial-gradient(circle at top right, rgba(96, 165, 250, 0.18), transparent 60%),
+                        linear-gradient(135deg, #020617, #020617 55%, #0b1120);
+            color: var(--white);
+            padding: 72px 0 76px;
+            text-align: center;
+        }
+
+        .service-cta h2 {
+            font-size: 28px;
+            margin-bottom: 14px;
+        }
+
+        .service-cta p {
+            max-width: 560px;
+            margin: 0 auto 24px;
+            opacity: 0.9;
+            font-size: 15px;
+        }
+
+        /* --- FOOTER (same family as index/projects) --- */
+        footer {
+            background-color: #020617;
+            color: #9ca3af;
+            padding: 70px 0 22px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            color: var(--white);
+            font-size: 18px;
+            margin-bottom: 18px;
+            font-weight: 600;
+        }
+
+        .footer-col p {
+            margin-bottom: 14px;
+            font-size: 14px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #9ca3af;
+            font-size: 14px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--secondary-color);
+            padding-left: 4px;
+        }
+
+        .contact-info li {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+        }
+
+        .contact-info i {
+            color: var(--secondary-color);
+            margin-top: 3px;
+        }
+
+        .copyright {
+            border-top: 1px solid #1f2937;
+            padding-top: 18px;
+            text-align: center;
+            font-size: 13px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .copyright-links a {
+            margin-left: 18px;
+            color: #9ca3af;
+            font-size: 13px;
+        }
+
+        .copyright-links a:hover {
+            color: var(--white);
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 1100px) {
+            .nav-links { gap: 10px; }
+        }
+
+        @media (max-width: 992px) {
+            .division-grid {
+                grid-template-columns: minmax(0, 1fr);
+                gap: 36px;
+            }
+
+            .division-section:nth-of-type(even) .division-grid {
+                direction: ltr;
+            }
+
+            .division-img img {
+                min-height: 260px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-right { gap: 8px; }
+
+            .nav-links {
+                display: none; /* Hidden by default on mobile */
+                flex-direction: column;
+                position: absolute;
+                top: 64px;
+                left: 0;
+                width: 100%;
+                background-color: #ffffff;
+                padding: 14px 0 10px;
+                box-shadow: 0 5px 10px rgba(15, 23, 42, 0.15);
+                text-align: center;
+                border-radius: 0 0 16px 16px;
+            }
+
+            .nav-links.active { display: flex; }
+
+            .nav-links a {
+                margin: 2px 14px;
+                justify-content: center;
+            }
+
+            .btn-quote { display: none; }
+
+            .menu-toggle { display: block; }
+
+            .service-hero-inner {
+                text-align: center;
+            }
+
+            .service-hero p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-meta-row {
+                justify-content: center;
+            }
+
+            .copyright {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .copyright-links a {
+                margin: 0 10px;
+            }
+        }
+    </style>
 </head>
-<body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100">
-  <!-- Header -->
-  <header class="sticky top-0 z-50 border-b border-slate-200/60 dark:border-slate-800/60 bg-white/80 dark:bg-slate-950/80 backdrop-blur">
-    <nav class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex h-16 items-center justify-between">
-        <a href="index.html" class="flex items-center gap-3">
-          <img src="images/logo.jpg" alt="EduQuest Global Logo" class="w-10 h-10 rounded-xl shadow-sm" loading="eager" />
-          <span class="text-xl sm:text-2xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-indigo-500 dark:from-blue-300 dark:to-indigo-200">EduQuest Global</span>
-        </a>
+<body>
 
-        <!-- Desktop nav -->
-        <div class="hidden md:flex items-center gap-6">
-          <a href="index.html" class="font-medium hover:text-blue-600">Home</a>
-          <a href="about.html" class="font-medium hover:text-blue-600">About Us</a>
-          <div class="relative group">
-            <a href="services.html" class="font-medium text-blue-700 dark:text-blue-300 flex items-center">
-              Services
-              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-              </svg>
-            </a>
-            <div class="absolute hidden group-hover:block mt-3 w-72 shadow-xl p-2 liquid-glass">
-              <a href="#ielts" class="flex items-start gap-3 px-4 py-3 rounded-xl hover:bg-white/60 dark:hover:bg-slate-900/50">
-                <span class="font-semibold">IELTS Preparation</span>
-                <span class="text-slate-500 dark:text-slate-400 text-sm">Classes & mock tests</span>
-              </a>
-              <a href="#admissions" class="flex items-start gap-3 px-4 py-3 rounded-xl hover:bg-white/60 dark:hover:bg-slate-900/50">
-                <span class="font-semibold">Admissions Assistance</span>
-                <span class="text-slate-500 dark:text-slate-400 text-sm">SOP/CV & applications</span>
-              </a>
-              <a href="#visa" class="flex items-start gap-3 px-4 py-3 rounded-xl hover:bg-white/60 dark:hover:bg-slate-900/50">
-                <span class="font-semibold">Visa Guidance</span>
-                <span class="text-slate-500 dark:text-slate-400 text-sm">Docs & interview prep</span>
-              </a>
-              <a href="#bank" class="flex items-start gap-3 px-4 py-3 rounded-xl hover:bg-white/60 dark:hover:bg-slate-900/50">
-                <span class="font-semibold">Bank Support & Finance</span>
-                <span class="text-slate-500 dark:text-slate-400 text-sm">Solvency & FOREX</span>
-              </a>
-              <a href="#travel" class="flex items-start gap-3 px-4 py-3 rounded-xl hover:bg-white/60 dark:hover:bg-slate-900/50">
-                <span class="font-semibold">Travel & Accommodation</span>
-                <span class="text-slate-500 dark:text-slate-400 text-sm">Flights & housing</span>
-              </a>
+    <!-- HEADER -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">
+                    <i class="ph-fill ph-buildings"></i>
+                    <div>
+                        Neo Holdings
+                        <div class="sub">Engineering • Indenting • Supply</div>
+                    </div>
+                </a>
+
+                <div class="nav-right">
+                    <div class="menu-toggle" id="mobile-menu">
+                        <i class="ph ph-list"></i>
+                    </div>
+                    <div class="nav-links" id="nav-links">
+                        <a href="index.html" class="link">Home</a>
+                        <a href="about.html" class="link">About Us</a>
+                        <a href="services.html" class="link active">Services</a>
+                        <a href="machinery-indenting.html" class="link">Machinery Indenting</a>
+                        <a href="civil-construction.html" class="link">Civil Construction</a>
+                        <a href="industrial-supply.html" class="link">Industrial Supply</a>
+                        <a href="projects.html" class="link">Projects</a>
+                        <a href="contact.html" class="link">Contact Us</a>
+                    </div>
+                    <a href="contact.html" class="btn-quote">
+                        Request a Quote
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="service-hero">
+        <div class="container">
+            <div class="service-hero-inner">
+                <div class="breadcrumb">Home · Services</div>
+                <h1>Our Capabilities</h1>
+                <p>End-to-end industrial solutions for Bangladesh’s mega-projects—spanning heavy machinery, construction, and supply chain.</p>
+                <div class="hero-meta-row">
+                    <div class="hero-meta-pill">
+                        <i class="ph-fill ph-crane-tower"></i>
+                        EPC &amp; Civil Execution
+                    </div>
+                    <div class="hero-meta-pill">
+                        <i class="ph-fill ph-gear-six"></i>
+                        Global Machinery Indenting
+                    </div>
+                    <div class="hero-meta-pill">
+                        <i class="ph-fill ph-truck"></i>
+                        Nationwide Supply Network
+                    </div>
+                </div>
             </div>
-          </div>
-          <a href="destinations.html" class="font-medium hover:text-blue-600">Destinations</a>
-          <a href="moi.html" class="font-medium hover:text-blue-600">Study with MOI</a>
-          <a href="contact.html" class="font-medium hover:text-blue-600">Contact</a>
         </div>
-
-        <div class="hidden md:flex items-center gap-3">
-          <a href="contact.html" class="inline-flex items-center rounded-full bg-amber-400 text-slate-900 font-bold py-2 px-4 hover:bg-amber-300 transition shadow">
-            Apply Now
-          </a>
-          <button id="themeToggle" class="size-9 grid place-items-center rounded-full border border-slate-300/60 dark:border-slate-700/60 hover:bg-slate-100 dark:hover:bg-slate-800" aria-label="Toggle dark mode">
-            <svg id="themeIcon" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"/>
-            </svg>
-          </button>
-        </div>
-
-        <!-- Mobile -->
-        <div class="md:hidden flex items-center gap-2">
-          <button id="themeToggleSm" class="size-9 grid place-items-center rounded-full border border-slate-300/60 dark:border-slate-700/60" aria-label="Toggle dark mode">
-            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"/>
-            </svg>
-          </button>
-          <button id="mobile-menu-button" class="p-2 rounded-lg border border-slate-300/60 dark:border-slate-700/60" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-            </svg>
-          </button>
-        </div>
-      </div>
-    </nav>
-
-    <div id="mobile-menu" class="md:hidden hidden border-t border-slate-200/60 dark:border-slate-800/60 bg-white/90 dark:bg-slate-950/90 backdrop-blur">
-      <div class="max-w-screen-xl mx-auto px-4 py-4 grid gap-3">
-        <a href="index.html" class="py-2">Home</a>
-        <a href="about.html" class="py-2">About Us</a>
-        <a href="services.html" class="py-2 font-semibold text-blue-700 dark:text-blue-300">Services</a>
-        <a href="destinations.html" class="py-2">Destinations</a>
-        <a href="moi.html" class="py-2">Study with MOI</a>
-        <a href="contact.html" class="py-2">Contact Us</a>
-        <a href="contact.html" class="mt-2 inline-flex justify-center rounded-full bg-amber-400 text-slate-900 font-bold py-2 px-4 hover:bg-amber-300 transition">
-          Apply Now
-        </a>
-      </div>
-    </div>
-  </header>
-
-  <main>
-    <!-- Hero / Intro -->
-    <section class="bg-gradient-to-br from-blue-900 via-slate-900 to-slate-950 text-white">
-      <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
-        <div class="grid md:grid-cols-2 gap-10 items-center">
-          <div>
-            <p class="uppercase tracking-[0.2em] text-xs text-blue-200/80 mb-4">End-to-End Student Services</p>
-            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight mb-4">
-              সবকিছু এক জায়গায় — <span class="text-amber-300">EduQuest Global Services</span>
-            </h1>
-            <p class="text-sm sm:text-base text-blue-100/90 mb-6 max-w-xl">
-              IELTS থেকে শুরু করে ভিসা, ব্যাংক সাপোর্ট, ফ্লাইট, হাউজিং — সবকিছু আমরা একসাথে ম্যানেজ করি,
-              যেন আপনি শুধু আপনার স্বপ্ন আর স্টাডির দিকে ফোকাস করতে পারেন।
-            </p>
-
-            <!-- Quick service pills -->
-            <div class="flex flex-wrap gap-2 mb-6">
-              <a href="#ielts" class="px-4 py-2 rounded-full bg-white/10 border border-white/20 text-xs sm:text-sm hover:bg-white/20 transition">IELTS Preparation</a>
-              <a href="#admissions" class="px-4 py-2 rounded-full bg-white/10 border border-white/20 text-xs sm:text-sm hover:bg-white/20 transition">Admissions</a>
-              <a href="#visa" class="px-4 py-2 rounded-full bg-white/10 border border-white/20 text-xs sm:text-sm hover:bg-white/20 transition">Visa Guidance</a>
-              <a href="#bank" class="px-4 py-2 rounded-full bg-white/10 border border-white/20 text-xs sm:text-sm hover:bg-white/20 transition">Bank Support</a>
-              <a href="#travel" class="px-4 py-2 rounded-full bg-white/10 border border-white/20 text-xs sm:text-sm hover:bg-white/20 transition">Travel & Stay</a>
-            </div>
-
-            <div class="flex flex-wrap gap-3">
-              <a href="contact.html" class="inline-flex items-center rounded-full bg-amber-400 text-slate-900 font-bold py-2.5 px-6 hover:bg-amber-300 transition shadow">
-                Book a Free Consultation
-              </a>
-              <a href="#ielts" class="inline-flex items-center rounded-full border border-white/30 bg-white/5 px-6 py-2.5 hover:bg-white/10 transition text-sm">
-                Explore All Services
-              </a>
-            </div>
-          </div>
-
-          <div class="liquid-glass p-6 sm:p-8">
-            <h2 class="text-lg font-semibold text-slate-900 dark:text-slate-50 mb-4">
-              আমরা কীভাবে আপনাকে হেল্প করি?
-            </h2>
-            <dl class="space-y-4 text-sm sm:text-base text-slate-700 dark:text-slate-300">
-              <div class="flex gap-3">
-                <dt class="font-semibold min-w-[110px]">১. Planning</dt>
-                <dd>Country, course আর university সিলেকশনে expert counseling।</dd>
-              </div>
-              <div class="flex gap-3">
-                <dt class="font-semibold min-w-[110px]">২. Application</dt>
-                <dd>SOP, CV, LOR, application portal — সব আমরা গাইড করি।</dd>
-              </div>
-              <div class="flex gap-3">
-                <dt class="font-semibold min-w-[110px]">৩. Finance & Visa</dt>
-                <dd>Bank solvency, tuition fee payment, visa file & interview prep।</dd>
-              </div>
-              <div class="flex gap-3">
-                <dt class="font-semibold min-w-[110px]">৪. Pre-Departure</dt>
-                <dd>Flight, accommodation, airport pickup, on-arrival গাইডলাইন।</dd>
-              </div>
-            </dl>
-          </div>
-        </div>
-      </div>
     </section>
 
-    <!-- Service Sections -->
-    <section class="py-16 bg-white dark:bg-slate-950">
-      <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+    <!-- SHORT INTRO -->
+    <section class="services-intro">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-subtitle">Service Portfolio</div>
+                <h2>Three Divisions, One Integrated Partner</h2>
+                <p>Neo Holdings brings together specialized teams in machinery, construction, and industrial supply—so clients can work with a single dependable partner from concept to commissioning.</p>
+            </div>
+        </div>
+    </section>
 
-        <!-- IELTS -->
-        <section id="ielts" class="scroll-mt-24">
-          <div class="grid md:grid-cols-2 gap-10 items-center">
-            <div class="liquid-card p-6 sm:p-8">
-              <h2 class="text-2xl sm:text-3xl font-extrabold text-blue-900 dark:text-blue-200 mb-3">
-                IELTS Preparation — Target 6.5+ & 7.0+
-              </h2>
-              <p class="text-slate-600 dark:text-slate-300 mb-4 text-sm sm:text-base">
-                Structured কোর্স, নিয়মিত mock test আর personalized feedback দিয়ে আমরা আপনাকে desired band score-এর দিকে নিয়ে যাই।
-              </p>
-              <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-slate-600 dark:text-slate-300">
-                <li>✔ Regular & Weekend Batches</li>
-                <li>✔ Module-wise Grammar & Vocabulary</li>
-                <li>✔ Full-Length Mock Exams</li>
-                <li>✔ One-to-one Speaking Feedback</li>
-                <li>✔ Writing Task 1 & 2 Checking</li>
-                <li>✔ Complete Study Materials</li>
-              </ul>
-              <a href="contact.html" class="inline-flex mt-5 rounded-full bg-blue-800 text-white font-semibold text-sm py-2.5 px-6 hover:bg-blue-700 transition">
-                Join IELTS Batch
-              </a>
-            </div>
-            <div class="space-y-4 text-sm sm:text-base text-slate-600 dark:text-slate-300">
-              <h3 class="text-lg font-semibold text-blue-800 dark:text-blue-300">কাদের জন্য এই কোর্স?</h3>
-              <p>যারা UK, Australia, Canada, Europe বা অন্য দেশে admission অথবা visa requirement fulfill করতে চান।</p>
-              <h3 class="text-lg font-semibold text-blue-800 dark:text-blue-300">কোর্স Duration & Format</h3>
-              <ul class="list-disc list-inside space-y-1">
-                <li>Course Duration: ৬–৮ সপ্তাহ</li>
-                <li>Class Mode: Offline / Online (Hybrid)</li>
-                <li>Language Support: বাংলা + English mix explain</li>
-              </ul>
-            </div>
-          </div>
-        </section>
+    <!-- DIVISION 1: HEAVY MACHINERY & INDENTING -->
+    <section class="division-section" id="machinery">
+        <div class="container">
+            <div class="division-grid">
+                <div class="division-content">
+                    <div class="division-label">Division 01 · Machinery &amp; Indenting</div>
+                    <h2>Heavy Machinery &amp; Indenting</h2>
+                    <p>As a leading indenting house, Neo Holdings connects Bangladeshi industries with the world’s best machinery manufacturers. We handle the entire procurement lifecycle—from sourcing and LC opening to port clearance and on-site installation.</p>
+                    
+                    <div class="capability-list">
+                        <div class="capability-item">
+                            <div class="capability-icon"><i class="ph-fill ph-truck"></i></div>
+                            <div class="capability-text">
+                                <h5>Earth Moving Equipment</h5>
+                                <p>Excavators, bulldozers, cranes, and wheel loaders tailored for mega-projects and government infrastructure packages.</p>
+                            </div>
+                        </div>
+                        <div class="capability-item">
+                            <div class="capability-icon"><i class="ph-fill ph-robot"></i></div>
+                            <div class="capability-text">
+                                <h5>Factory Automation Lines</h5>
+                                <p>Complete production and packaging lines for FMCG, beverages, and general manufacturing.</p>
+                            </div>
+                        </div>
+                        <div class="capability-item">
+                            <div class="capability-icon"><i class="ph-fill ph-lightning"></i></div>
+                            <div class="capability-text">
+                                <h5>Industrial Power Solutions</h5>
+                                <p>Heavy-duty generators, transformers, and substations to ensure uninterrupted power for industrial facilities.</p>
+                            </div>
+                        </div>
+                    </div>
 
-        <!-- Admissions -->
-        <section id="admissions" class="scroll-mt-24">
-          <div class="grid md:grid-cols-2 gap-10 items-center">
-            <div class="order-2 md:order-1 space-y-4 text-sm sm:text-base text-slate-600 dark:text-slate-300">
-              <h2 class="text-2xl sm:text-3xl font-extrabold text-blue-900 dark:text-blue-200">
-                Admissions Assistance — From Dhaka to Your Dream University
-              </h2>
-              <p>
-                Country research থেকে শুরু করে final offer letter পাওয়া পর্যন্ত পুরো admission journey তে আমরা আপনার পাশে থাকি।
-              </p>
-              <ul class="list-disc list-inside space-y-1">
-                <li>Profile evaluation & course shortlisting</li>
-                <li>University & country wise requirement analysis</li>
-                <li>Application portal filling & document upload</li>
-                <li>Scholarship & fee waiver guidance</li>
-                <li>Offer letter & CAS/COE follow-up</li>
-              </ul>
-            </div>
-            <div class="order-1 md:order-2 liquid-card p-6 sm:p-8">
-              <h3 class="text-lg font-semibold text-blue-800 dark:text-blue-300 mb-3">SOP, CV & LOR Support</h3>
-              <p class="text-slate-600 dark:text-slate-300 mb-3">
-                Strong SOP, professional CV আর relevant LOR আপনার applicationকে অনেক বেশি powerful করে তোলে।
-              </p>
-              <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-300">
-                <li>✦ Personalized Story-based SOP Drafting</li>
-                <li>✦ Professional Academic/Job Profile Based CV</li>
-                <li>✦ LOR template & guidance for teachers/employers</li>
-              </ul>
-              <a href="contact.html" class="inline-flex mt-5 rounded-full bg-amber-400 text-slate-900 font-semibold text-sm py-2.5 px-6 hover:bg-amber-300 transition">
-                Start Application
-              </a>
-            </div>
-          </div>
-        </section>
+                    <div class="division-badges">
+                        <span class="division-badge">LC Handling &amp; Documentation</span>
+                        <span class="division-badge">Global OEM Network</span>
+                        <span class="division-badge">Installation &amp; Commissioning Support</span>
+                    </div>
+                </div>
 
-        <!-- Visa -->
-        <section id="visa" class="scroll-mt-24">
-          <div class="grid md:grid-cols-2 gap-10 items-center">
-            <div class="liquid-card p-6 sm:p-8">
-              <h2 class="text-2xl sm:text-3xl font-extrabold text-blue-900 dark:text-blue-200 mb-3">
-                Visa Guidance — File থেকে Interview পর্যন্ত
-              </h2>
-              <p class="text-slate-600 dark:text-slate-300 mb-4 text-sm sm:text-base">
-                Financial proof, visa forms, GTE/statement, interview — সবকিছু step-by-step গাইড করি যাতে আপনার visa chance maximize হয়।
-              </p>
-              <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-slate-600 dark:text-slate-300">
-                <li>✔ Document checklist (country-wise)</li>
-                <li>✔ Visa file preparation & review</li>
-                <li>✔ Visa form filling assistance</li>
-                <li>✔ GTE / visa explanation letter support</li>
-                <li>✔ Mock visa interview sessions</li>
-                <li>✔ Biometrics & medical guidance</li>
-              </ul>
+                <div class="division-img">
+                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Heavy Machinery Indenting">
+                </div>
             </div>
-            <div class="space-y-4 text-sm sm:text-base text-slate-600 dark:text-slate-300">
-              <h3 class="text-lg font-semibold text-blue-800 dark:text-blue-300">কেন professional visa guidance দরকার?</h3>
-              <p>একটি ছোট ভুলও অনেক সময় visa refusal-এর reason হতে পারে। তাই structured ও checked file থাকা খুব জরুরি।</p>
-              <a href="contact.html" class="inline-flex rounded-full bg-blue-800 text-white font-semibold text-sm py-2.5 px-6 hover:bg-blue-700 transition">
-                Discuss Your Visa Case
-              </a>
-            </div>
-          </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Bank Support -->
-        <section id="bank" class="scroll-mt-24">
-          <div class="grid md:grid-cols-2 gap-10 items-center">
-            <div>
-              <img src="images/bank_support.jpg" alt="Bank & Finance Support" class="rounded-2xl shadow-2xl w-full h-72 object-cover" loading="lazy" />
-            </div>
-            <div>
-              <h2 class="text-2xl sm:text-3xl font-extrabold text-blue-900 dark:text-blue-200 mb-3">
-                Complete Bank Support & Finance Solutions
-              </h2>
-              <p class="text-slate-600 dark:text-slate-300 mb-4 text-sm sm:text-base">
-                বিদেশে পড়াশোনার সময় সবচেয়ে বড় tension finances। আমরা আপনার tuition fees, bank solvency, fund movement —
-                সবকিছুর জন্য professional guideline দিয়ে থাকি।
-              </p>
-              <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-slate-700 dark:text-slate-300 mb-4">
-                <li>✔ Tuition Fees Payment Solutions</li>
-                <li>✔ Education Loan Guidance</li>
-                <li>✔ Scholarship Guidance & Information</li>
-                <li>✔ Forex & International Fund Transfers</li>
-                <li>✔ International Bank Account Setup</li>
-                <li>✔ Savings & Security Guidance</li>
-              </ul>
-              <a href="services.html#bank" class="inline-flex rounded-full bg-amber-400 text-slate-900 font-semibold text-sm py-2.5 px-6 hover:bg-amber-300 transition">
-                Get Bank Support
-              </a>
-            </div>
-          </div>
-        </section>
+    <!-- DIVISION 2: CONSTRUCTION & CIVIL ENGINEERING -->
+    <section class="division-section" id="construction">
+        <div class="container">
+            <div class="division-grid">
+                <div class="division-content">
+                    <div class="division-label">Division 02 · Construction &amp; Civil</div>
+                    <h2>Construction &amp; Civil Engineering</h2>
+                    <p>Neo Holdings acts as a general contractor and sub-contractor for major infrastructure initiatives. Our capability to mobilize resources quickly makes us a preferred partner for the PWD and private developers.</p>
+                    
+                    <div class="capability-list">
+                        <div class="capability-item">
+                            <div class="capability-icon"><i class="ph-fill ph-buildings"></i></div>
+                            <div class="capability-text">
+                                <h5>Commercial &amp; Residential Projects</h5>
+                                <p>High-rise structural construction, RCC works, and premium architectural finishing for urban developments.</p>
+                            </div>
+                        </div>
+                        <div class="capability-item">
+                            <div class="capability-icon"><i class="ph-fill ph-factory"></i></div>
+                            <div class="capability-text">
+                                <h5>Industrial Facilities</h5>
+                                <p>Steel structure factories, warehouses, and pre-engineered buildings (PEB) for manufacturing and logistics hubs.</p>
+                            </div>
+                        </div>
+                        <div class="capability-item">
+                            <div class="capability-icon"><i class="ph-fill ph-road-horizon"></i></div>
+                            <div class="capability-text">
+                                <h5>Infrastructure Works</h5>
+                                <p>Road works, bridge components, and large-scale site development under PWD and government specifications.</p>
+                            </div>
+                        </div>
+                    </div>
 
-        <!-- Travel & Accommodation -->
-        <section id="travel" class="scroll-mt-24">
-          <div class="grid md:grid-cols-2 gap-10 items-center">
-            <div class="space-y-4 text-sm sm:text-base text-slate-600 dark:text-slate-300">
-              <h2 class="text-2xl sm:text-3xl font-extrabold text-blue-900 dark:text-blue-200">
-                Travel & Accommodation — Landing থেকে Settling পর্যন্ত
-              </h2>
-              <p>
-                Visa পাওয়ার পরও journey শেষ না — বরং আসল life শুরু। তাই pre-departure থেকে on-arrival পর্যন্ত আমরা আপনার সাথে থাকি।
-              </p>
-              <ul class="list-disc list-inside space-y-1">
-                <li>Flight booking guidance & route suggestion</li>
-                <li>Airport pickup coordination (where available)</li>
-                <li>Initial temporary accommodation help</li>
-                <li>Student housing & shared flat options</li>
-                <li>Local transport & SIM guidance</li>
-              </ul>
-            </div>
-            <div class="liquid-card p-6 sm:p-8">
-              <h3 class="text-lg font-semibold text-blue-800 dark:text-blue-300 mb-3">Pre-Departure Briefing</h3>
-              <p class="text-slate-600 dark:text-slate-300 mb-3">
-                Luggage, documents, money, culture, part-time job — সবকিছু নিয়ে আমরা একটি structured pre-departure session arrange করি।
-              </p>
-              <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-300">
-                <li>✦ What to carry & what not to carry</li>
-                <li>✦ First ৭–১৪ দিনে কী কী করতে হবে</li>
-                <li>✦ Part-time job reality check & guidance</li>
-              </ul>
-              <a href="contact.html" class="inline-flex mt-5 rounded-full bg-blue-800 text-white font-semibold text-sm py-2.5 px-6 hover:bg-blue-700 transition">
-                Plan Your Departure
-              </a>
-            </div>
-          </div>
-        </section>
+                    <div class="division-badges">
+                        <span class="division-badge">PWD-Compliant Execution</span>
+                        <span class="division-badge">On-time Project Delivery</span>
+                        <span class="division-badge">Strict HSE Standards</span>
+                    </div>
+                </div>
 
-      </div>
+                <div class="division-img">
+                    <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Civil Construction Site">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DIVISION 3: SUPPLY CHAIN & DISTRIBUTION -->
+    <section class="division-section" id="supply-chain">
+        <div class="container">
+            <div class="division-grid">
+                <div class="division-content">
+                    <div class="division-label">Division 03 · Supply Chain &amp; Distribution</div>
+                    <h2>Supply Chain &amp; Distribution</h2>
+                    <p>A stopped supply chain means a stopped project. We ensure a continuous flow of essential materials for construction sites and factories, using a network optimized for both speed and volume.</p>
+                    
+                    <div class="capability-list">
+                        <div class="capability-item">
+                            <div class="capability-icon"><i class="ph-fill ph-package"></i></div>
+                            <div class="capability-text">
+                                <h5>Construction Materials</h5>
+                                <p>Bulk cement, steel rebar, stone chips, and aggregates delivered directly to your project sites.</p>
+                            </div>
+                        </div>
+                        <div class="capability-item">
+                            <div class="capability-icon"><i class="ph-fill ph-flask"></i></div>
+                            <div class="capability-text">
+                                <h5>Industrial Chemicals</h5>
+                                <p>Key raw materials and additives for FMCG processing, textiles, and other manufacturing sectors.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="division-badges">
+                        <span class="division-badge">Route-Optimised Distribution</span>
+                        <span class="division-badge">Bulk &amp; Scheduled Deliveries</span>
+                        <span class="division-badge">Nationwide Coverage</span>
+                    </div>
+                </div>
+
+                <div class="division-img">
+                    <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Industrial Supply Chain Warehouse">
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- CTA -->
-    <section class="bg-gradient-to-br from-blue-800 to-indigo-700 text-white">
-      <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
-        <h2 class="text-3xl font-extrabold mb-4">Which Service Do You Need Right Now?</h2>
-        <p class="mb-8 max-w-2xl mx-auto text-white/90">
-          শুধু একটা WhatsApp/Call বা form fill — তারপর থেকে পুরো process আমরা handle করে নেবো, ইনশাআল্লাহ।
-        </p>
-        <a href="contact.html" class="inline-flex items-center rounded-full bg-amber-400 text-slate-900 font-bold py-3 px-8 hover:bg-amber-300 transition shadow">
-          Talk to a Counselor
-        </a>
-      </div>
+    <section class="service-cta">
+        <div class="container">
+            <h2>Need a specific solution for your project?</h2>
+            <p>Whether it’s heavy machinery, civil works, or long-term material supply, our engineering and commercial teams are ready to support your next tender or expansion.</p>
+            <a href="contact.html" class="btn btn-white">
+                <i class="ph ph-paper-plane-right"></i>
+                Talk to an Expert
+            </a>
+        </div>
     </section>
-  </main>
 
-  <!-- Footer -->
-  <footer class="bg-slate-950 text-slate-200">
-    <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-        <div>
-          <h3 class="text-xl font-extrabold mb-4">EduQuest Global</h3>
-          <p class="text-slate-400">Guiding you to success.</p>
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Brand Col -->
+                <div class="footer-col">
+                    <h3>Neo Holdings</h3>
+                    <p>Building the backbone of Bangladesh’s industry through engineering excellence, global sourcing, and reliable supply chains.</p>
+                </div>
+
+                <!-- Links Col -->
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Our Services</a></li>
+                        <li><a href="projects.html">Projects &amp; Partners</a></li>
+                        <li><a href="#">Tender Notices</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Col -->
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="ph-fill ph-map-pin"></i>
+                            <span>Gulshan, Dhaka, Bangladesh</span>
+                        </li>
+                        <li>
+                            <i class="ph-fill ph-phone"></i>
+                            <span>+880 1700-000000</span>
+                        </li>
+                        <li>
+                            <i class="ph-fill ph-envelope-simple"></i>
+                            <span>info@neoholdings.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <div>&copy; 2025 Neo Holdings. All Rights Reserved.</div>
+                <div class="copyright-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
         </div>
-        <div>
-          <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
-          <ul class="space-y-2">
-            <li><a href="about.html" class="hover:text-amber-400">About Us</a></li>
-            <li><a href="services.html" class="hover:text-amber-400">Services</a></li>
-            <li><a href="destinations.html" class="hover:text-amber-400">Destinations</a></li>
-          </ul>
-        </div>
-        <div>
-          <h3 class="text-lg font-semibold mb-4">Contact Info</h3>
-          <p class="text-slate-400">Dhaka Office, Bangladesh</p>
-          <p class="text-slate-400">Phone: +880 1345-572203</p>
-        </div>
-        <div>
-          <h3 class="text-lg font-semibold mb-4">Follow Us</h3>
-          <div class="flex gap-4">
-            <a href="#" class="hover:text-amber-400">Facebook</a>
-            <a href="#" class="hover:text-amber-400">Instagram</a>
-          </div>
-        </div>
-      </div>
-      <div class="mt-10 border-t border-slate-800 pt-6 text-center text-slate-400">
-        <p>&copy; <span id="year"></span> EduQuest Global. All Rights Reserved.</p>
-      </div>
-    </div>
-  </footer>
+    </footer>
 
-  <!-- Scripts -->
-  <script>
-    // Year
-    document.getElementById('year').textContent = new Date().getFullYear();
+    <!-- SCRIPTS -->
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
 
-    // Mobile menu toggle
-    const mobileMenuButton = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-    mobileMenuButton?.addEventListener('click', () => {
-      const expanded = mobileMenuButton.getAttribute('aria-expanded') === 'true' || false;
-      mobileMenuButton.setAttribute('aria-expanded', (!expanded).toString());
-      mobileMenu.classList.toggle('hidden');
-    });
-
-    // Dark mode (persisted)
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const storedTheme = localStorage.getItem('theme');
-    if (!storedTheme && prefersDark) document.documentElement.classList.add('dark');
-    if (storedTheme === 'dark') document.documentElement.classList.add('dark');
-
-    function toggleTheme(){
-      const isDark = document.documentElement.classList.toggle('dark');
-      localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    }
-    document.getElementById('themeToggle')?.addEventListener('click', toggleTheme);
-    document.getElementById('themeToggleSm')?.addEventListener('click', toggleTheme);
-  </script>
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
 </body>
 </html>

@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Neo Holdings</title>
-    <meta name="description" content="Learn about Neo Holdings, a strategic partner in Bangladesh's industrial progress, driven by vision and defined by quality.">
+    <title>Industrial Supply & Distribution - Neo Holdings</title>
+    <meta name="description" content="Neo Holdings ensures continuous supply of construction materials, industrial inputs and chemicals through a reliable nationwide distribution network.">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,7 +15,7 @@
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
     <style>
-        /* --- GLOBAL DESIGN SYSTEM (same as index/services/projects/contact) --- */
+        /* --- GLOBAL DESIGN SYSTEM (same as other pages) --- */
         :root {
             --primary-color: #003366; /* Deep Corporate Blue */
             --secondary-color: #ff6600; /* Industrial Orange */
@@ -29,11 +29,7 @@
             --radius-lg: 16px;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         html { scroll-behavior: smooth; }
 
@@ -121,7 +117,7 @@
             color: var(--white);
         }
 
-        /* --- HEADER & NAV (global) --- */
+        /* --- HEADER & NAV --- */
         header {
             position: sticky;
             top: 0;
@@ -222,7 +218,6 @@
             transform: scaleX(1);
         }
 
-        /* Mobile Menu */
         .menu-toggle {
             display: none;
             font-size: 28px;
@@ -230,13 +225,13 @@
             cursor: pointer;
         }
 
-        /* --- HERO: ABOUT --- */
-        .about-hero {
+        /* --- HERO (SUPPLY) --- */
+        .supply-hero {
             position: relative;
             background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.16), transparent 55%),
                         radial-gradient(circle at bottom right, rgba(255, 102, 0, 0.22), transparent 55%),
-                        linear-gradient(125deg, #020617, #021130),
-                        url('https://images.unsplash.com/photo-1556761175-4b46a572b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+                        linear-gradient(135deg, #020617, #021130),
+                        url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
             min-height: 360px;
@@ -245,14 +240,14 @@
             color: var(--white);
         }
 
-        .about-hero::before {
+        .supply-hero::before {
             content: "";
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, rgba(15, 23, 42, 0.82), rgba(15, 23, 42, 0.86));
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.82), rgba(15, 23, 42, 0.87));
         }
 
-        .about-hero-inner {
+        .supply-hero-inner {
             position: relative;
             max-width: 880px;
             margin: 0 auto;
@@ -267,15 +262,15 @@
             margin-bottom: 10px;
         }
 
-        .about-hero h1 {
-            font-size: clamp(32px, 3.4vw, 44px);
+        .supply-hero h1 {
+            font-size: clamp(32px, 3.3vw, 44px);
             font-weight: 800;
             margin-bottom: 10px;
             text-transform: uppercase;
             letter-spacing: 0.06em;
         }
 
-        .about-hero p {
+        .supply-hero p {
             font-size: 16px;
             max-width: 620px;
             opacity: 0.94;
@@ -341,247 +336,306 @@
             border-radius: 999px;
         }
 
-        /* --- COMPANY STORY --- */
-        .story-section {
+        /* --- OVERVIEW SECTION --- */
+        .overview-section {
             padding: 70px 0 60px;
         }
 
-        .story-grid {
+        .overview-grid {
             display: grid;
             grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
             gap: 50px;
             align-items: center;
         }
 
-        .story-text h3 {
-            font-size: 26px;
+        .overview-text h3 {
+            font-size: 24px;
             color: var(--primary-color);
             margin-bottom: 8px;
         }
 
-        .story-text p {
+        .overview-text p {
             font-size: 15px;
             color: var(--muted-text);
             margin-bottom: 14px;
         }
 
-        .story-highlight {
-            margin-top: 8px;
+        .overview-highlight {
+            margin-top: 10px;
             padding-left: 10px;
             border-left: 3px solid var(--secondary-color);
             font-size: 14px;
             color: #4b5563;
         }
 
-        .story-meta-row {
+        .overview-bullets {
+            margin-top: 10px;
             display: flex;
-            flex-wrap: wrap;
-            gap: 18px;
-            margin-top: 14px;
-            font-size: 13px;
+            flex-direction: column;
+            gap: 10px;
         }
 
-        .story-meta-pill {
-            padding: 6px 12px;
-            border-radius: 999px;
-            background-color: #f3f4f6;
-            border: 1px solid rgba(209, 213, 219, 0.9);
+        .overview-item {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+            font-size: 14px;
         }
 
-        .story-visual img {
+        .overview-item i {
+            color: var(--secondary-color);
+            font-size: 18px;
+            margin-top: 1px;
+        }
+
+        .overview-visual img {
             border-radius: 18px;
             box-shadow: 0 16px 40px rgba(15, 23, 42, 0.18);
             width: 100%;
-            min-height: 280px;
+            min-height: 260px;
             object-fit: cover;
         }
 
-        /* --- MISSION & VISION --- */
-        .mv-section {
+        /* --- CATEGORIES (WHAT WE SUPPLY) --- */
+        .categories-section {
             padding: 70px 0;
             background-color: var(--light-bg);
         }
 
-        .mv-grid {
+        .categories-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 24px;
+            margin-top: 24px;
         }
 
-        .mv-card {
+        .category-card {
             background-color: #ffffff;
-            padding: 26px 24px 24px;
             border-radius: 18px;
+            padding: 22px 20px;
             border: 1px solid rgba(226, 232, 240, 0.9);
-            box-shadow: 0 14px 32px rgba(15, 23, 42, 0.06);
+            box-shadow: 0 12px 26px rgba(15, 23, 42, 0.06);
         }
 
-        .mv-card h3 {
-            font-size: 20px;
-            color: var(--primary-color);
-            margin-bottom: 8px;
+        .category-header {
             display: flex;
             align-items: center;
             gap: 10px;
+            margin-bottom: 8px;
         }
 
-        .mv-card h3 i {
-            font-size: 22px;
-            color: var(--secondary-color);
+        .category-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at 20% 0, rgba(59, 130, 246, 0.25), transparent 60%),
+                        linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.85));
+            color: #e5e7eb;
+            font-size: 20px;
         }
 
-        .mv-card p {
-            font-size: 14px;
-            color: var(--muted-text);
-        }
-
-        /* --- CORE VALUES --- */
-        .values-section {
-            padding: 70px 0;
-        }
-
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 24px;
-        }
-
-        .value-card {
-            text-align: left;
-            padding: 22px 20px;
-            border-radius: 16px;
-            border: 1px solid rgba(226, 232, 240, 0.9);
-            background-color: #ffffff;
-            transition: var(--transition);
-            box-shadow: 0 10px 24px rgba(15, 23, 42, 0.04);
-        }
-
-        .value-card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(248, 113, 113, 0.7);
-            box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
-        }
-
-        .value-icon {
-            font-size: 30px;
-            color: var(--secondary-color);
-            margin-bottom: 10px;
-        }
-
-        .value-card h4 {
-            font-size: 18px;
-            margin-bottom: 6px;
+        .category-card h3 {
+            font-size: 17px;
             color: var(--primary-color);
         }
 
-        .value-card p {
+        .category-card p {
             font-size: 14px;
             color: var(--muted-text);
+            margin-bottom: 8px;
         }
 
-        /* --- HIGHLIGHTS / METRICS --- */
-        .highlight-section {
-            padding: 60px 0;
+        .category-list {
+            margin-top: 6px;
+            font-size: 13px;
+            color: #4b5563;
+        }
+
+        .category-list li {
+            margin-bottom: 4px;
+        }
+
+        /* --- SUPPLY MODELS / CONTRACT TYPES --- */
+        .models-section {
+            padding: 70px 0;
+            background-color: #ffffff;
+        }
+
+        .models-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+            margin-top: 24px;
+        }
+
+        .model-card {
+            background-color: #ffffff;
+            border-radius: 18px;
+            padding: 20px 18px;
+            border: 1px solid rgba(226, 232, 240, 0.9);
+            box-shadow: 0 12px 24px rgba(15, 23, 42, 0.06);
+        }
+
+        .model-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            color: #6b7280;
+            margin-bottom: 4px;
+        }
+
+        .model-card h3 {
+            font-size: 16px;
+            color: var(--primary-color);
+            margin-bottom: 6px;
+        }
+
+        .model-card p {
+            font-size: 13px;
+            color: var(--muted-text);
+            margin-bottom: 8px;
+        }
+
+        .model-points {
+            font-size: 13px;
+            color: #4b5563;
+        }
+
+        .model-points li {
+            margin-bottom: 4px;
+        }
+
+        /* --- NETWORK / COVERAGE --- */
+        .network-section {
+            padding: 70px 0;
             background: radial-gradient(circle at top right, #e0f2fe 0, transparent 55%),
                         radial-gradient(circle at bottom left, #fee2e2 0, transparent 55%),
                         var(--light-bg);
         }
 
-        .highlight-grid {
+        .network-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 26px;
-            margin-top: 10px;
+            grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+            gap: 40px;
+            align-items: center;
         }
 
-        .highlight-card {
-            background-color: #ffffff;
-            border-radius: 18px;
-            padding: 20px 18px;
-            text-align: left;
-            box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+        .network-points {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .network-item {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+            font-size: 14px;
+            padding: 10px 10px;
+            border-radius: 12px;
+            background-color: #f9fafb;
             border: 1px solid rgba(226, 232, 240, 0.9);
         }
 
-        .highlight-number {
-            font-size: 26px;
-            font-weight: 800;
-            color: var(--primary-color);
-            margin-bottom: 4px;
+        .network-item i {
+            color: var(--secondary-color);
+            font-size: 18px;
+            margin-top: 1px;
         }
 
-        .highlight-label {
+        .network-visual {
+            border-radius: 18px;
+            background: linear-gradient(135deg, #020617, #0f172a);
+            padding: 20px 18px;
+            color: #e5e7eb;
+            box-shadow: 0 16px 32px rgba(15, 23, 42, 0.8);
+        }
+
+        .network-visual h3 {
+            font-size: 18px;
+            margin-bottom: 6px;
+        }
+
+        .network-visual p {
             font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            color: #6b7280;
-            margin-bottom: 4px;
+            opacity: 0.9;
         }
 
-        .highlight-desc {
-            font-size: 13px;
-            color: var(--muted-text);
+        .network-tags {
+            margin-top: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
         }
 
-        /* --- LEADERSHIP / TEAM (minimal placeholder) --- */
-        .team-section {
+        .network-tag {
+            font-size: 11px;
+            padding: 4px 10px;
+            border-radius: 999px;
+            border: 1px solid rgba(148, 163, 184, 0.9);
+        }
+
+        /* --- WHY NEO FOR SUPPLY --- */
+        .why-section {
             padding: 70px 0 60px;
             background-color: #ffffff;
         }
 
-        .team-grid {
+        .why-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 24px;
-            margin-top: 30px;
-        }
-
-        .team-card {
-            background-color: #ffffff;
-            border-radius: 18px;
-            box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
-            border: 1px solid rgba(226, 232, 240, 0.9);
-            overflow: hidden;
-            text-align: center;
-        }
-
-        .team-photo {
-            height: 180px;
-            background: linear-gradient(135deg, #020617, #0f172a);
-            display: flex;
+            grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+            gap: 40px;
             align-items: center;
-            justify-content: center;
+        }
+
+        .why-points {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .why-item {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+            font-size: 14px;
+            padding: 10px 10px;
+            border-radius: 12px;
+            background-color: #f9fafb;
+            border: 1px solid rgba(226, 232, 240, 0.9);
+        }
+
+        .why-item i {
+            color: var(--secondary-color);
+            font-size: 18px;
+            margin-top: 1px;
+        }
+
+        .why-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 14px;
+        }
+
+        .why-stat-card {
+            background-color: #020617;
             color: #e5e7eb;
+            border-radius: 16px;
+            padding: 14px 14px;
+            font-size: 13px;
         }
 
-        .team-photo i {
-            font-size: 54px;
-        }
-
-        .team-info {
-            padding: 16px 16px 18px;
-        }
-
-        .team-info h4 {
-            font-size: 17px;
-            color: var(--primary-color);
+        .why-stat-number {
+            font-size: 20px;
+            font-weight: 800;
             margin-bottom: 2px;
         }
 
-        .team-info span {
-            font-size: 13px;
-            color: var(--secondary-color);
-            font-weight: 500;
-        }
-
-        .team-note {
-            margin-top: 10px;
-            font-size: 11px;
-            color: #9ca3af;
-        }
-
         /* --- CTA --- */
-        .about-cta {
+        .cta-section {
             background: radial-gradient(circle at top right, rgba(96, 165, 250, 0.18), transparent 60%),
                         linear-gradient(135deg, #020617, #020617 55%, #0b1120);
             color: var(--white);
@@ -589,12 +643,12 @@
             text-align: center;
         }
 
-        .about-cta h2 {
+        .cta-section h2 {
             font-size: 28px;
             margin-bottom: 12px;
         }
 
-        .about-cta p {
+        .cta-section p {
             max-width: 560px;
             margin: 0 auto 24px;
             opacity: 0.9;
@@ -679,13 +733,15 @@
         }
 
         @media (max-width: 992px) {
-            .story-grid {
+            .overview-grid,
+            .network-grid,
+            .why-grid {
                 grid-template-columns: minmax(0, 1fr);
                 gap: 36px;
             }
 
-            .story-visual img {
-                min-height: 240px;
+            .overview-visual img {
+                min-height: 230px;
             }
         }
 
@@ -717,11 +773,11 @@
 
             .menu-toggle { display: block; }
 
-            .about-hero-inner {
+            .supply-hero-inner {
                 text-align: center;
             }
 
-            .about-hero p {
+            .supply-hero p {
                 margin-left: auto;
                 margin-right: auto;
             }
@@ -761,11 +817,11 @@
                     </div>
                     <div class="nav-links" id="nav-links">
                         <a href="index.html" class="link">Home</a>
-                        <a href="about.html" class="link active">About Us</a>
+                        <a href="about.html" class="link">About Us</a>
                         <a href="services.html" class="link">Services</a>
                         <a href="machinery-indenting.html" class="link">Machinery Indenting</a>
                         <a href="civil-construction.html" class="link">Civil Construction</a>
-                        <a href="industrial-supply.html" class="link">Industrial Supply</a>
+                        <a href="industrial-supply.html" class="link active">Industrial Supply</a>
                         <a href="projects.html" class="link">Projects</a>
                         <a href="contact.html" class="link">Contact Us</a>
                     </div>
@@ -778,189 +834,254 @@
     </header>
 
     <!-- HERO -->
-    <section class="about-hero">
+    <section class="supply-hero">
         <div class="container">
-            <div class="about-hero-inner">
-                <div class="breadcrumb">Home · About</div>
-                <h1>Driven by Vision. Defined by Quality.</h1>
-                <p>Neo Holdings is a strategic partner in Bangladesh’s industrial journey—bridging global technology with local execution.</p>
+            <div class="supply-hero-inner">
+                <div class="breadcrumb">Home · Industrial Supply</div>
+                <h1>Industrial Supply &amp; Distribution</h1>
+                <p>We ensure that your construction sites and factories never stop for want of critical materials and industrial inputs.</p>
                 <div class="hero-meta-row">
                     <div class="hero-meta-pill">
-                        <i class="ph-fill ph-flag"></i>
-                        PWD &amp; Govt. Enlisted
+                        <i class="ph-fill ph-bricks"></i>
+                        Construction Materials
                     </div>
                     <div class="hero-meta-pill">
-                        <i class="ph-fill ph-globe-hemisphere-east"></i>
-                        Global OEM Partnerships
+                        <i class="ph-fill ph-flask"></i>
+                        Industrial Chemicals
                     </div>
                     <div class="hero-meta-pill">
-                        <i class="ph-fill ph-hard-hat"></i>
-                        Engineering-Led Management
+                        <i class="ph-fill ph-truck"></i>
+                        Nationwide Distribution
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- COMPANY STORY -->
-    <section class="story-section" id="profile">
+    <!-- OVERVIEW -->
+    <section class="overview-section">
         <div class="container">
             <div class="section-header">
-                <div class="section-subtitle">Company Profile</div>
-                <h2>Who We Are</h2>
-                <p>Born out of Bangladesh’s accelerating industrial growth, Neo Holdings was created to support mega-projects with reliable engineering, machinery, and supply capabilities.</p>
+                <div class="section-subtitle">Division 03</div>
+                <h2>Supply Chain That Keeps Projects Moving</h2>
+                <p>A delayed consignment can stall an entire project. Our supply division is built to deliver the right materials, at the right time, to the right site.</p>
             </div>
 
-            <div class="story-grid">
-                <div class="story-text">
-                    <h3>Strategic Partner in National Development</h3>
-                    <p>Neo Holdings operates at the intersection of engineering, trade, and logistics. We are not just “vendors” – we work as long-term partners to public bodies, real estate groups, and industrial conglomerates.</p>
-                    <p>Our portfolio spans complex civil works, import of high-value capital machinery, and the management of intricate supply chains that keep factories and projects running on schedule.</p>
-                    <p>Behind every contract is a multidisciplinary team of engineers, procurement specialists, and logistics professionals who understand both international standards and local realities.</p>
+            <div class="overview-grid">
+                <div class="overview-text">
+                    <h3>From Bulk to Just-in-Time Deliveries</h3>
+                    <p>We work with developers, contractors and industrial clients to structure supply agreements that fit their cash flow and project timelines. Our team manages sourcing, logistics and on-site delivery so your engineers can focus on execution.</p>
+                    <p>Our experience ranges from bulk construction material supply to specialized industrial inputs and chemicals for FMCG and manufacturing plants.</p>
 
-                    <div class="story-highlight">
-                        From concept and tender preparation to execution and after-sales support – Neo Holdings provides a single point of accountability.
+                    <div class="overview-bullets">
+                        <div class="overview-item">
+                            <i class="ph-fill ph-check-circle"></i>
+                            <span>Coordinated deliveries aligned with your site work schedule or production plan.</span>
+                        </div>
+                        <div class="overview-item">
+                            <i class="ph-fill ph-check-circle"></i>
+                            <span>Pre-qualified vendors and transporters to maintain quality and reliability.</span>
+                        </div>
+                        <div class="overview-item">
+                            <i class="ph-fill ph-check-circle"></i>
+                            <span>Capability to support multi-location clients with centralized coordination.</span>
+                        </div>
                     </div>
 
-                    <div class="story-meta-row">
-                        <span class="story-meta-pill">Dhaka Headquarters</span>
-                        <span class="story-meta-pill">Serving PWD, Real Estate &amp; FMCG</span>
-                        <span class="story-meta-pill">Multi-division Industrial Group</span>
+                    <div class="overview-highlight">
+                        Our goal is simple: keep your sites supplied so your teams never lose a day due to material shortages.
                     </div>
                 </div>
 
-                <div class="story-visual">
-                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Neo Holdings Team Meeting">
+                <div class="overview-visual">
+                    <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Logistics trucks and industrial yard">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- MISSION & VISION -->
-    <section class="mv-section" id="mission-vision">
-        <div class="container">
-            <div class="mv-grid">
-                <div class="mv-card">
-                    <h3><i class="ph-fill ph-eye"></i> Our Vision</h3>
-                    <p>To be the most trusted name in Bangladesh’s engineering and supply sector—recognized for integrity, execution excellence, and sustainable growth.</p>
-                </div>
-                <div class="mv-card">
-                    <h3><i class="ph-fill ph-target"></i> Our Mission</h3>
-                    <p>To accelerate national development by delivering world-class construction, ensuring uninterrupted supply of industrial resources, and enabling access to cutting-edge global machinery.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CORE VALUES -->
-    <section class="values-section" id="values">
+    <!-- CATEGORIES: WHAT WE SUPPLY -->
+    <section class="categories-section" id="categories">
         <div class="container">
             <div class="section-header">
-                <div class="section-subtitle">Core Values</div>
-                <h2>The Principles That Guide Us</h2>
-                <p>Every decision we make is anchored in a clear set of non-negotiable values.</p>
+                <div class="section-subtitle">What We Supply</div>
+                <h2>Key Material &amp; Product Categories</h2>
+                <p>Representative categories of construction and industrial materials that we regularly supply to our clients.</p>
             </div>
 
-            <div class="values-grid">
-                <article class="value-card">
-                    <div class="value-icon"><i class="ph-fill ph-clipboard-text"></i></div>
-                    <h4>Compliance &amp; Governance</h4>
-                    <p>We strictly follow PWD, government regulations, and international quality standards across all projects and supplies.</p>
+            <div class="categories-grid">
+                <article class="category-card">
+                    <div class="category-header">
+                        <div class="category-icon"><i class="ph ph-bricks"></i></div>
+                        <h3>Construction Materials</h3>
+                    </div>
+                    <p>Bulk and project-specific materials for civil and infrastructure works.</p>
+                    <ul class="category-list">
+                        <li>• Cement (bulk &amp; bagged)</li>
+                        <li>• Steel rebar &amp; structural steel</li>
+                        <li>• Stone chips, sand &amp; aggregates</li>
+                        <li>• Bricks, blocks &amp; related items</li>
+                    </ul>
                 </article>
 
-                <article class="value-card">
-                    <div class="value-icon"><i class="ph-fill ph-globe"></i></div>
-                    <h4>Global Reach, Local Insight</h4>
-                    <p>Access to Tier-1 manufacturers worldwide, combined with deep understanding of local codes, permits, and practices.</p>
+                <article class="category-card">
+                    <div class="category-header">
+                        <div class="category-icon"><i class="ph ph-flask"></i></div>
+                        <h3>Industrial Chemicals</h3>
+                    </div>
+                    <p>Core raw materials and additives for FMCG, food, beverage and manufacturing.</p>
+                    <ul class="category-list">
+                        <li>• Food-grade ingredients &amp; additives *</li>
+                        <li>• Cleaning &amp; sanitation chemicals *</li>
+                        <li>• Process chemicals and auxiliaries *</li>
+                    </ul>
+                    <p style="font-size:11px;color:#9ca3af;margin-top:4px;">*Specific product list can be aligned as per your portfolio.</p>
                 </article>
 
-                <article class="value-card">
-                    <div class="value-icon"><i class="ph-fill ph-lightning"></i></div>
-                    <h4>Operational Efficiency</h4>
-                    <p>Streamlined logistics and project management that reduce downtime and keep critical timelines intact.</p>
-                </article>
-
-                <article class="value-card">
-                    <div class="value-icon"><i class="ph-fill ph-handshake"></i></div>
-                    <h4>Long-Term Partnership</h4>
-                    <p>We invest in trust, transparency, and repeat collaboration instead of transactional, one-off contracts.</p>
+                <article class="category-card">
+                    <div class="category-header">
+                        <div class="category-icon"><i class="ph ph-warehouse"></i></div>
+                        <h3>Factory &amp; MRO Supplies</h3>
+                    </div>
+                    <p>Day-to-day items required to keep plants running smoothly.</p>
+                    <ul class="category-list">
+                        <li>• Packaging materials (boxes, films, etc.)</li>
+                        <li>• Basic spares &amp; consumables</li>
+                        <li>• Safety gear &amp; PPE</li>
+                        <li>• General hardware &amp; tools</li>
+                    </ul>
                 </article>
             </div>
         </div>
     </section>
 
-    <!-- HIGHLIGHTS / METRICS (placeholder numbers) -->
-    <section class="highlight-section">
+    <!-- SUPPLY MODELS / CONTRACT TYPES -->
+    <section class="models-section" id="models">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-subtitle">Engagement Models</div>
+                <h2>How We Work With You</h2>
+                <p>We adapt our supply model to match your procurement style, risk profile and internal processes.</p>
+            </div>
+
+            <div class="models-grid">
+                <article class="model-card">
+                    <div class="model-label">Model 01</div>
+                    <h3>Project-Based Supply</h3>
+                    <p>Material supply linked to a specific project, with quantities and delivery schedule aligned to the project plan.</p>
+                    <ul class="model-points">
+                        <li>• BOQ-driven material list</li>
+                        <li>• Phased deliveries as per work fronts</li>
+                        <li>• Flexibility for variation orders</li>
+                    </ul>
+                </article>
+
+                <article class="model-card">
+                    <div class="model-label">Model 02</div>
+                    <h3>Rate Contract</h3>
+                    <p>Pre-agreed rates for defined items over a period, with call-off orders issued as needed.</p>
+                    <ul class="model-points">
+                        <li>• Rate stability for a defined tenure</li>
+                        <li>• Faster order processing</li>
+                        <li>• Suitable for recurring requirements</li>
+                    </ul>
+                </article>
+
+                <article class="model-card">
+                    <div class="model-label">Model 03</div>
+                    <h3>Annual Supply Agreement</h3>
+                    <p>Long-term supply partnership for multi-site clients, managed centrally with site-wise deliveries.</p>
+                    <ul class="model-points">
+                        <li>• Centralized commercial agreement</li>
+                        <li>• Site-wise logistics planning</li>
+                        <li>• Better predictability of cost &amp; availability</li>
+                    </ul>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- NETWORK / COVERAGE -->
+    <section class="network-section" id="network">
         <div class="container">
             <div class="section-header" style="margin-bottom: 26px;">
-                <div class="section-subtitle">Snapshot</div>
-                <h2>What We Stand On</h2>
-                <p>Representative figures that reflect Neo Holdings’ scale and reliability. You can replace these placeholders with real metrics later.</p>
+                <div class="section-subtitle">Network</div>
+                <h2>Coverage &amp; Logistics</h2>
+                <p>Optimized routes and a combination of owned and partner fleets allow us to cover multiple regions reliably.</p>
             </div>
 
-            <div class="highlight-grid">
-                <div class="highlight-card">
-                    <div class="highlight-number">10+</div>
-                    <div class="highlight-label">Key Sectors</div>
-                    <div class="highlight-desc">From infrastructure and real estate to FMCG and textiles.</div>
+            <div class="network-grid">
+                <div class="network-points">
+                    <div class="network-item">
+                        <i class="ph-fill ph-truck"></i>
+                        <span>Coordination of deliveries from multiple vendors to your sites, with a single point of accountability.</span>
+                    </div>
+                    <div class="network-item">
+                        <i class="ph-fill ph-map-pin"></i>
+                        <span>Ability to serve both urban and semi-urban locations with clear lead-time commitments.</span>
+                    </div>
+                    <div class="network-item">
+                        <i class="ph-fill ph-clock"></i>
+                        <span>Prioritization of critical-path materials to keep your most time-sensitive work fronts moving.</span>
+                    </div>
                 </div>
-                <div class="highlight-card">
-                    <div class="highlight-number">50+</div>
-                    <div class="highlight-label">Major Projects</div>
-                    <div class="highlight-desc">Delivered through our combined construction, machinery and supply divisions.</div>
-                </div>
-                <div class="highlight-card">
-                    <div class="highlight-number">24/7</div>
-                    <div class="highlight-label">Support</div>
-                    <div class="highlight-desc">Technical coordination during critical commissioning and handover stages.</div>
-                </div>
-                <div class="highlight-card">
-                    <div class="highlight-number">Nationwide</div>
-                    <div class="highlight-label">Reach</div>
-                    <div class="highlight-desc">Ability to mobilize resources across Bangladesh for urgent requirements.</div>
+
+                <div class="network-visual">
+                    <h3>Representative Coverage</h3>
+                    <p>Our current operations and partner network allow us to cover key industrial corridors in and around Dhaka, Chattogram and other major growth hubs. This footprint is expandable based on client requirements.</p>
+                    <div class="network-tags">
+                        <span class="network-tag">Dhaka &amp; Surrounding Regions</span>
+                        <span class="network-tag">Narayanganj &amp; Gazipur</span>
+                        <span class="network-tag">Savar &amp; Ashulia</span>
+                        <span class="network-tag">Chattogram Corridor *</span>
+                    </div>
+                    <p style="font-size:11px;color:#9ca3af;margin-top:6px;">*Additional regions can be added as per long-term agreements.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- TEAM / LEADERSHIP (lightweight placeholder) -->
-    <section class="team-section">
+    <!-- WHY NEO FOR SUPPLY -->
+    <section class="why-section">
         <div class="container">
-            <div class="section-header" style="margin-bottom: 28px;">
-                <div class="section-subtitle">Leadership</div>
-                <h2>Led by Experience</h2>
-                <p>A leadership team with a background across engineering, finance, and supply chain management.</p>
+            <div class="section-header" style="margin-bottom: 26px;">
+                <div class="section-subtitle">Why Neo Holdings</div>
+                <h2>Why Clients Trust Us With Supply</h2>
+                <p>Materials may be “commodities”, but a reliable supply partner is a strategic advantage.</p>
             </div>
 
-            <div class="team-grid">
-                <div class="team-card">
-                    <div class="team-photo">
-                        <i class="ph ph-user"></i>
+            <div class="why-grid">
+                <div class="why-points">
+                    <div class="why-item">
+                        <i class="ph-fill ph-shield-check"></i>
+                        <span>Structured documentation and billing that aligns with your finance and audit requirements.</span>
                     </div>
-                    <div class="team-info">
-                        <h4>[Name Placeholder]</h4>
-                        <span>Managing Director</span>
-                        <div class="team-note">Replace with actual profile details.</div>
+                    <div class="why-item">
+                        <i class="ph-fill ph-scales"></i>
+                        <span>Transparent weighing, quantity verification and quality checks at dispatch and delivery.</span>
                     </div>
-                </div>
-                <div class="team-card">
-                    <div class="team-photo">
-                        <i class="ph ph-user"></i>
+                    <div class="why-item">
+                        <i class="ph-fill ph-handshake"></i>
+                        <span>Focus on long-term partnerships instead of one-off material lots.</span>
                     </div>
-                    <div class="team-info">
-                        <h4>[Name Placeholder]</h4>
-                        <span>Director, Engineering</span>
-                        <div class="team-note">Can highlight core technical expertise.</div>
+                    <div class="why-item">
+                        <i class="ph-fill ph-gauge"></i>
+                        <span>Integration with your project and production teams for realistic lead-time and buffer planning.</span>
                     </div>
                 </div>
-                <div class="team-card">
-                    <div class="team-photo">
-                        <i class="ph ph-user"></i>
+
+                <div class="why-stats">
+                    <div class="why-stat-card">
+                        <div class="why-stat-number">Multi-Site</div>
+                        <div>Experience supporting clients with multiple plants and projects.</div>
                     </div>
-                    <div class="team-info">
-                        <h4>[Name Placeholder]</h4>
-                        <span>Head of Procurement</span>
-                        <div class="team-note">Focus on global sourcing &amp; OEM relations.</div>
+                    <div class="why-stat-card">
+                        <div class="why-stat-number">Daily</div>
+                        <div>Dispatch capability for high-frequency requirements.</div>
+                    </div>
+                    <div class="why-stat-card">
+                        <div class="why-stat-number">Single Desk</div>
+                        <div>Dedicated coordination for all your supply needs.</div>
                     </div>
                 </div>
             </div>
@@ -968,13 +1089,13 @@
     </section>
 
     <!-- CTA -->
-    <section class="about-cta">
+    <section class="cta-section">
         <div class="container">
-            <h2>Want to explore a long-term partnership?</h2>
-            <p>Whether you represent a government department, a developer, or an industrial group, our team is ready to align with your roadmap.</p>
+            <h2>Looking for a reliable supply partner?</h2>
+            <p>Share your material list, forecast or BOQ and our supply chain team will prepare a tailored proposal for your projects and plants.</p>
             <a href="contact.html" class="btn btn-white">
                 <i class="ph ph-paper-plane-right"></i>
-                Talk to Our Team
+                Talk to the Supply Team
             </a>
         </div>
     </section>

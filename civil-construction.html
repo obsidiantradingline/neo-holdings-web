@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Neo Holdings</title>
-    <meta name="description" content="Learn about Neo Holdings, a strategic partner in Bangladesh's industrial progress, driven by vision and defined by quality.">
+    <title>Civil Construction - Neo Holdings</title>
+    <meta name="description" content="Neo Holdings executes civil construction projects including roads, bridges, high-rise structures, industrial facilities and PWD-compliant works across Bangladesh.">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,7 +15,7 @@
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
     <style>
-        /* --- GLOBAL DESIGN SYSTEM (same as index/services/projects/contact) --- */
+        /* --- GLOBAL DESIGN SYSTEM (same as other pages) --- */
         :root {
             --primary-color: #003366; /* Deep Corporate Blue */
             --secondary-color: #ff6600; /* Industrial Orange */
@@ -29,11 +29,7 @@
             --radius-lg: 16px;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         html { scroll-behavior: smooth; }
 
@@ -121,7 +117,7 @@
             color: var(--white);
         }
 
-        /* --- HEADER & NAV (global) --- */
+        /* --- HEADER & NAV --- */
         header {
             position: sticky;
             top: 0;
@@ -222,7 +218,6 @@
             transform: scaleX(1);
         }
 
-        /* Mobile Menu */
         .menu-toggle {
             display: none;
             font-size: 28px;
@@ -230,13 +225,13 @@
             cursor: pointer;
         }
 
-        /* --- HERO: ABOUT --- */
-        .about-hero {
+        /* --- HERO (CIVIL) --- */
+        .civil-hero {
             position: relative;
             background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.16), transparent 55%),
                         radial-gradient(circle at bottom right, rgba(255, 102, 0, 0.22), transparent 55%),
                         linear-gradient(125deg, #020617, #021130),
-                        url('https://images.unsplash.com/photo-1556761175-4b46a572b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+                        url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
             min-height: 360px;
@@ -245,14 +240,14 @@
             color: var(--white);
         }
 
-        .about-hero::before {
+        .civil-hero::before {
             content: "";
             position: absolute;
             inset: 0;
             background: linear-gradient(135deg, rgba(15, 23, 42, 0.82), rgba(15, 23, 42, 0.86));
         }
 
-        .about-hero-inner {
+        .civil-hero-inner {
             position: relative;
             max-width: 880px;
             margin: 0 auto;
@@ -267,15 +262,15 @@
             margin-bottom: 10px;
         }
 
-        .about-hero h1 {
-            font-size: clamp(32px, 3.4vw, 44px);
+        .civil-hero h1 {
+            font-size: clamp(32px, 3.3vw, 44px);
             font-weight: 800;
             margin-bottom: 10px;
             text-transform: uppercase;
             letter-spacing: 0.06em;
         }
 
-        .about-hero p {
+        .civil-hero p {
             font-size: 16px;
             max-width: 620px;
             opacity: 0.94;
@@ -341,247 +336,291 @@
             border-radius: 999px;
         }
 
-        /* --- COMPANY STORY --- */
-        .story-section {
+        /* --- OVERVIEW SECTION --- */
+        .overview-section {
             padding: 70px 0 60px;
         }
 
-        .story-grid {
+        .overview-grid {
             display: grid;
             grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
             gap: 50px;
             align-items: center;
         }
 
-        .story-text h3 {
-            font-size: 26px;
+        .overview-text h3 {
+            font-size: 24px;
             color: var(--primary-color);
             margin-bottom: 8px;
         }
 
-        .story-text p {
+        .overview-text p {
             font-size: 15px;
             color: var(--muted-text);
             margin-bottom: 14px;
         }
 
-        .story-highlight {
-            margin-top: 8px;
+        .overview-bullets {
+            margin-top: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .overview-item {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+            font-size: 14px;
+        }
+
+        .overview-item i {
+            color: var(--secondary-color);
+            font-size: 18px;
+            margin-top: 1px;
+        }
+
+        .overview-highlight {
+            margin-top: 10px;
             padding-left: 10px;
             border-left: 3px solid var(--secondary-color);
             font-size: 14px;
             color: #4b5563;
         }
 
-        .story-meta-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 18px;
-            margin-top: 14px;
-            font-size: 13px;
-        }
-
-        .story-meta-pill {
-            padding: 6px 12px;
-            border-radius: 999px;
-            background-color: #f3f4f6;
-            border: 1px solid rgba(209, 213, 219, 0.9);
-        }
-
-        .story-visual img {
+        .overview-visual img {
             border-radius: 18px;
             box-shadow: 0 16px 40px rgba(15, 23, 42, 0.18);
             width: 100%;
-            min-height: 280px;
+            min-height: 260px;
             object-fit: cover;
         }
 
-        /* --- MISSION & VISION --- */
-        .mv-section {
+        /* --- CAPABILITIES --- */
+        .capabilities-section {
             padding: 70px 0;
             background-color: var(--light-bg);
         }
 
-        .mv-grid {
+        .capabilities-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 24px;
+            margin-top: 24px;
         }
 
-        .mv-card {
+        .capability-card {
             background-color: #ffffff;
-            padding: 26px 24px 24px;
             border-radius: 18px;
+            padding: 22px 20px;
             border: 1px solid rgba(226, 232, 240, 0.9);
-            box-shadow: 0 14px 32px rgba(15, 23, 42, 0.06);
+            box-shadow: 0 12px 26px rgba(15, 23, 42, 0.06);
         }
 
-        .mv-card h3 {
-            font-size: 20px;
-            color: var(--primary-color);
-            margin-bottom: 8px;
+        .capability-header {
             display: flex;
             align-items: center;
             gap: 10px;
+            margin-bottom: 8px;
         }
 
-        .mv-card h3 i {
-            font-size: 22px;
-            color: var(--secondary-color);
+        .capability-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at 20% 0, rgba(59, 130, 246, 0.25), transparent 60%),
+                        linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.85));
+            color: #e5e7eb;
+            font-size: 20px;
         }
 
-        .mv-card p {
-            font-size: 14px;
-            color: var(--muted-text);
-        }
-
-        /* --- CORE VALUES --- */
-        .values-section {
-            padding: 70px 0;
-        }
-
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 24px;
-        }
-
-        .value-card {
-            text-align: left;
-            padding: 22px 20px;
-            border-radius: 16px;
-            border: 1px solid rgba(226, 232, 240, 0.9);
-            background-color: #ffffff;
-            transition: var(--transition);
-            box-shadow: 0 10px 24px rgba(15, 23, 42, 0.04);
-        }
-
-        .value-card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(248, 113, 113, 0.7);
-            box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
-        }
-
-        .value-icon {
-            font-size: 30px;
-            color: var(--secondary-color);
-            margin-bottom: 10px;
-        }
-
-        .value-card h4 {
-            font-size: 18px;
-            margin-bottom: 6px;
+        .capability-card h3 {
+            font-size: 17px;
             color: var(--primary-color);
         }
 
-        .value-card p {
+        .capability-card p {
             font-size: 14px;
+            color: var(--muted-text);
+            margin-bottom: 8px;
+        }
+
+        .capability-list {
+            margin-top: 6px;
+            font-size: 13px;
+            color: #4b5563;
+        }
+
+        .capability-list li {
+            margin-bottom: 4px;
+        }
+
+        /* --- PROCESS / DELIVERY --- */
+        .process-section {
+            padding: 70px 0;
+            background-color: #ffffff;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 22px;
+            margin-top: 24px;
+        }
+
+        .process-card {
+            background-color: #ffffff;
+            border-radius: 18px;
+            padding: 20px 18px;
+            border: 1px solid rgba(226, 232, 240, 0.9);
+            box-shadow: 0 12px 24px rgba(15, 23, 42, 0.06);
+        }
+
+        .process-step {
+            width: 30px;
+            height: 30px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, var(--secondary-color), #ff9b4b);
+            color: #111827;
+            font-weight: 700;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 8px;
+        }
+
+        .process-card h3 {
+            font-size: 16px;
+            color: var(--primary-color);
+            margin-bottom: 4px;
+        }
+
+        .process-card p {
+            font-size: 13px;
             color: var(--muted-text);
         }
 
-        /* --- HIGHLIGHTS / METRICS --- */
-        .highlight-section {
-            padding: 60px 0;
+        .process-note {
+            margin-top: 18px;
+            font-size: 12px;
+            color: #6b7280;
+            max-width: 720px;
+        }
+
+        /* --- SAFETY & COMPLIANCE --- */
+        .safety-section {
+            padding: 70px 0;
             background: radial-gradient(circle at top right, #e0f2fe 0, transparent 55%),
                         radial-gradient(circle at bottom left, #fee2e2 0, transparent 55%),
                         var(--light-bg);
         }
 
+        .safety-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+            gap: 40px;
+            align-items: center;
+        }
+
+        .safety-points {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .safety-item {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+            font-size: 14px;
+            padding: 10px 10px;
+            border-radius: 12px;
+            background-color: #f9fafb;
+            border: 1px solid rgba(226, 232, 240, 0.9);
+        }
+
+        .safety-item i {
+            color: var(--secondary-color);
+            font-size: 18px;
+            margin-top: 1px;
+        }
+
+        .safety-visual {
+            border-radius: 18px;
+            background: linear-gradient(135deg, #020617, #0f172a);
+            padding: 20px 18px;
+            color: #e5e7eb;
+            box-shadow: 0 16px 32px rgba(15, 23, 42, 0.8);
+        }
+
+        .safety-visual h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .safety-visual p {
+            font-size: 13px;
+            opacity: 0.9;
+        }
+
+        .safety-badges {
+            margin-top: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .safety-badge {
+            font-size: 11px;
+            padding: 4px 10px;
+            border-radius: 999px;
+            border: 1px solid rgba(148, 163, 184, 0.9);
+        }
+
+        /* --- PROJECT HIGHLIGHT TEASER --- */
+        .highlight-section {
+            padding: 70px 0 60px;
+            background-color: #ffffff;
+        }
+
         .highlight-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 26px;
-            margin-top: 10px;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+            margin-top: 24px;
         }
 
         .highlight-card {
             background-color: #ffffff;
             border-radius: 18px;
             padding: 20px 18px;
-            text-align: left;
-            box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
             border: 1px solid rgba(226, 232, 240, 0.9);
+            box-shadow: 0 12px 24px rgba(15, 23, 42, 0.06);
         }
 
-        .highlight-number {
-            font-size: 26px;
-            font-weight: 800;
+        .highlight-title {
+            font-size: 16px;
             color: var(--primary-color);
-            margin-bottom: 4px;
+            margin-bottom: 6px;
         }
 
-        .highlight-label {
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
+        .highlight-meta {
+            font-size: 12px;
             color: #6b7280;
             margin-bottom: 4px;
         }
 
-        .highlight-desc {
+        .highlight-card p {
             font-size: 13px;
             color: var(--muted-text);
         }
 
-        /* --- LEADERSHIP / TEAM (minimal placeholder) --- */
-        .team-section {
-            padding: 70px 0 60px;
-            background-color: #ffffff;
-        }
-
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 24px;
-            margin-top: 30px;
-        }
-
-        .team-card {
-            background-color: #ffffff;
-            border-radius: 18px;
-            box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
-            border: 1px solid rgba(226, 232, 240, 0.9);
-            overflow: hidden;
-            text-align: center;
-        }
-
-        .team-photo {
-            height: 180px;
-            background: linear-gradient(135deg, #020617, #0f172a);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #e5e7eb;
-        }
-
-        .team-photo i {
-            font-size: 54px;
-        }
-
-        .team-info {
-            padding: 16px 16px 18px;
-        }
-
-        .team-info h4 {
-            font-size: 17px;
-            color: var(--primary-color);
-            margin-bottom: 2px;
-        }
-
-        .team-info span {
-            font-size: 13px;
-            color: var(--secondary-color);
-            font-weight: 500;
-        }
-
-        .team-note {
-            margin-top: 10px;
-            font-size: 11px;
-            color: #9ca3af;
-        }
-
         /* --- CTA --- */
-        .about-cta {
+        .cta-section {
             background: radial-gradient(circle at top right, rgba(96, 165, 250, 0.18), transparent 60%),
                         linear-gradient(135deg, #020617, #020617 55%, #0b1120);
             color: var(--white);
@@ -589,12 +628,12 @@
             text-align: center;
         }
 
-        .about-cta h2 {
+        .cta-section h2 {
             font-size: 28px;
             margin-bottom: 12px;
         }
 
-        .about-cta p {
+        .cta-section p {
             max-width: 560px;
             margin: 0 auto 24px;
             opacity: 0.9;
@@ -679,13 +718,14 @@
         }
 
         @media (max-width: 992px) {
-            .story-grid {
+            .overview-grid,
+            .safety-grid {
                 grid-template-columns: minmax(0, 1fr);
                 gap: 36px;
             }
 
-            .story-visual img {
-                min-height: 240px;
+            .overview-visual img {
+                min-height: 230px;
             }
         }
 
@@ -717,11 +757,11 @@
 
             .menu-toggle { display: block; }
 
-            .about-hero-inner {
+            .civil-hero-inner {
                 text-align: center;
             }
 
-            .about-hero p {
+            .civil-hero p {
                 margin-left: auto;
                 margin-right: auto;
             }
@@ -761,10 +801,10 @@
                     </div>
                     <div class="nav-links" id="nav-links">
                         <a href="index.html" class="link">Home</a>
-                        <a href="about.html" class="link active">About Us</a>
+                        <a href="about.html" class="link">About Us</a>
                         <a href="services.html" class="link">Services</a>
                         <a href="machinery-indenting.html" class="link">Machinery Indenting</a>
-                        <a href="civil-construction.html" class="link">Civil Construction</a>
+                        <a href="civil-construction.html" class="link active">Civil Construction</a>
                         <a href="industrial-supply.html" class="link">Industrial Supply</a>
                         <a href="projects.html" class="link">Projects</a>
                         <a href="contact.html" class="link">Contact Us</a>
@@ -778,203 +818,259 @@
     </header>
 
     <!-- HERO -->
-    <section class="about-hero">
+    <section class="civil-hero">
         <div class="container">
-            <div class="about-hero-inner">
-                <div class="breadcrumb">Home · About</div>
-                <h1>Driven by Vision. Defined by Quality.</h1>
-                <p>Neo Holdings is a strategic partner in Bangladesh’s industrial journey—bridging global technology with local execution.</p>
+            <div class="civil-hero-inner">
+                <div class="breadcrumb">Home · Civil Construction</div>
+                <h1>Civil &amp; Infrastructure Construction</h1>
+                <p>From roads and bridges to high-rise structures and industrial facilities, Neo Holdings delivers PWD-compliant civil works with engineering precision.</p>
                 <div class="hero-meta-row">
                     <div class="hero-meta-pill">
-                        <i class="ph-fill ph-flag"></i>
-                        PWD &amp; Govt. Enlisted
+                        <i class="ph-fill ph-road-horizon"></i>
+                        Roads &amp; Highways
                     </div>
                     <div class="hero-meta-pill">
-                        <i class="ph-fill ph-globe-hemisphere-east"></i>
-                        Global OEM Partnerships
+                        <i class="ph-fill ph-bridge"></i>
+                        Bridges &amp; Structures
                     </div>
                     <div class="hero-meta-pill">
+                        <i class="ph-fill ph-buildings"></i>
+                        High-rise &amp; Industrial
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OVERVIEW -->
+    <section class="overview-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-subtitle">Division 02</div>
+                <h2>Construction &amp; Civil Engineering</h2>
+                <p>We act as a general contractor and specialist sub-contractor for government and private sector infrastructure projects across Bangladesh.</p>
+            </div>
+
+            <div class="overview-grid">
+                <div class="overview-text">
+                    <h3>Execution-Focused Project Delivery</h3>
+                    <p>Our civil team combines site-tested engineers, experienced supervisors, and reliable subcontractor networks. This allows Neo Holdings to mobilize quickly, maintain quality, and keep to critical paths in complex environments.</p>
+                    <p>Whether it’s a PWD tender, a private real estate development, or an industrial expansion, we engage early in the planning stage to ensure constructability and value engineering.</p>
+
+                    <div class="overview-bullets">
+                        <div class="overview-item">
+                            <i class="ph-fill ph-check-circle"></i>
+                            <span>Capability to manage multiple work fronts across different regions.</span>
+                        </div>
+                        <div class="overview-item">
+                            <i class="ph-fill ph-check-circle"></i>
+                            <span>Experienced in working under traffic, operational factories, and live environments.</span>
+                        </div>
+                        <div class="overview-item">
+                            <i class="ph-fill ph-check-circle"></i>
+                            <span>Close coordination with consultants, PWD engineers, and client-side project managers.</span>
+                        </div>
+                    </div>
+
+                    <div class="overview-highlight">
+                        We focus on safe, compliant, and predictable execution—backed by structured planning and on-ground adaptability.
+                    </div>
+                </div>
+
+                <div class="overview-visual">
+                    <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Civil construction site with crane and workers">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CAPABILITIES -->
+    <section class="capabilities-section" id="capabilities">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-subtitle">Core Services</div>
+                <h2>Civil Work Capabilities</h2>
+                <p>Representative areas where our civil construction division can support your next project or tender.</p>
+            </div>
+
+            <div class="capabilities-grid">
+                <article class="capability-card">
+                    <div class="capability-header">
+                        <div class="capability-icon"><i class="ph ph-road-horizon"></i></div>
+                        <h3>Roads &amp; Highways</h3>
+                    </div>
+                    <p>Construction and rehabilitation of road corridors under challenging traffic and soil conditions.</p>
+                    <ul class="capability-list">
+                        <li>• Earthwork, subgrade and base course</li>
+                        <li>• Rigid &amp; flexible pavement works</li>
+                        <li>• Drainage, culverts &amp; retaining structures</li>
+                    </ul>
+                </article>
+
+                <article class="capability-card">
+                    <div class="capability-header">
+                        <div class="capability-icon"><i class="ph ph-bridge"></i></div>
+                        <h3>Bridges &amp; Structures</h3>
+                    </div>
+                    <p>Structural works for bridges, flyovers, and related civil infrastructure.</p>
+                    <ul class="capability-list">
+                        <li>• Piling, pile caps &amp; piers</li>
+                        <li>• Deck slabs &amp; expansion joints</li>
+                        <li>• Approach roads &amp; embankment protection</li>
+                    </ul>
+                </article>
+
+                <article class="capability-card">
+                    <div class="capability-header">
+                        <div class="capability-icon"><i class="ph ph-buildings"></i></div>
+                        <h3>Residential &amp; Commercial</h3>
+                    </div>
+                    <p>High-rise and mid-rise structures for developers and corporate clients.</p>
+                    <ul class="capability-list">
+                        <li>• RCC frame structures &amp; foundations</li>
+                        <li>• Brickwork, plaster &amp; finishing</li>
+                        <li>• External development &amp; landscaping</li>
+                    </ul>
+                </article>
+
+                <article class="capability-card">
+                    <div class="capability-header">
+                        <div class="capability-icon"><i class="ph ph-factory"></i></div>
+                        <h3>Industrial &amp; PEB Facilities</h3>
+                    </div>
+                    <p>Industrial buildings and pre-engineered steel structures for factories and logistics hubs.</p>
+                    <ul class="capability-list">
+                        <li>• Factory sheds &amp; warehouses</li>
+                        <li>• Utility buildings &amp; control rooms</li>
+                        <li>• Internal roads &amp; heavy duty flooring</li>
+                    </ul>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="process-section" id="process">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-subtitle">How We Execute</div>
+                <h2>Construction Delivery Process</h2>
+                <p>A structured, milestone-based approach that keeps stakeholders aligned and projects on schedule.</p>
+            </div>
+
+            <div class="process-grid">
+                <article class="process-card">
+                    <div class="process-step">01</div>
+                    <h3>Pre-Construction Planning</h3>
+                    <p>Review of drawings, specifications, BOQ and site constraints. Development of work program, resource plans and method statements.</p>
+                </article>
+                <article class="process-card">
+                    <div class="process-step">02</div>
+                    <h3>Mobilization &amp; Site Setup</h3>
+                    <p>Deployment of site team, setting up temporary facilities, safety controls, and survey benchmarks.</p>
+                </article>
+                <article class="process-card">
+                    <div class="process-step">03</div>
+                    <h3>Core Civil Execution</h3>
+                    <p>Execution of foundations, structural works, road layers and finishes under supervision of qualified engineers.</p>
+                </article>
+                <article class="process-card">
+                    <div class="process-step">04</div>
+                    <h3>Quality &amp; Inspections</h3>
+                    <p>Regular testing, documentation, and joint inspections with client/consultant teams.</p>
+                </article>
+                <article class="process-card">
+                    <div class="process-step">05</div>
+                    <h3>Handover &amp; Closeout</h3>
+                    <p>Snag rectification, as-built documentation, and formal handover of completed works.</p>
+                </article>
+            </div>
+
+            <p class="process-note">
+                *We can participate as primary contractor or as a specialized civil sub-contractor depending on project size and structure.
+            </p>
+        </div>
+    </section>
+
+    <!-- SAFETY & COMPLIANCE -->
+    <section class="safety-section" id="safety">
+        <div class="container">
+            <div class="section-header" style="margin-bottom: 26px;">
+                <div class="section-subtitle">Compliance &amp; HSE</div>
+                <h2>Safety &amp; Quality First</h2>
+                <p>We treat safety, compliance, and quality as non-negotiables across every site we operate.</p>
+            </div>
+
+            <div class="safety-grid">
+                <div class="safety-points">
+                    <div class="safety-item">
+                        <i class="ph-fill ph-shield-check"></i>
+                        <span>Site safety inductions and toolbox talks conducted regularly for all workmen.</span>
+                    </div>
+                    <div class="safety-item">
+                        <i class="ph-fill ph-clipboard-text"></i>
+                        <span>Method statements and risk assessments prepared for high-risk activities.</span>
+                    </div>
+                    <div class="safety-item">
                         <i class="ph-fill ph-hard-hat"></i>
-                        Engineering-Led Management
+                        <span>Mandatory PPE usage and supervision by safety representatives.</span>
+                    </div>
+                    <div class="safety-item">
+                        <i class="ph-fill ph-flask"></i>
+                        <span>Material testing for concrete, aggregates and other critical materials as per standards.</span>
+                    </div>
+                </div>
+
+                <div class="safety-visual">
+                    <h3>PWD &amp; Consultant Coordination</h3>
+                    <p>Our teams are accustomed to working under PWD, consultant and third-party QAQC oversight. We maintain clear documentation and transparent communication to support smooth approvals and billing.</p>
+                    <div class="safety-badges">
+                        <span class="safety-badge">PWD Specs</span>
+                        <span class="safety-badge">Standard Test Reports</span>
+                        <span class="safety-badge">Inspection Logbooks</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- COMPANY STORY -->
-    <section class="story-section" id="profile">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-subtitle">Company Profile</div>
-                <h2>Who We Are</h2>
-                <p>Born out of Bangladesh’s accelerating industrial growth, Neo Holdings was created to support mega-projects with reliable engineering, machinery, and supply capabilities.</p>
-            </div>
-
-            <div class="story-grid">
-                <div class="story-text">
-                    <h3>Strategic Partner in National Development</h3>
-                    <p>Neo Holdings operates at the intersection of engineering, trade, and logistics. We are not just “vendors” – we work as long-term partners to public bodies, real estate groups, and industrial conglomerates.</p>
-                    <p>Our portfolio spans complex civil works, import of high-value capital machinery, and the management of intricate supply chains that keep factories and projects running on schedule.</p>
-                    <p>Behind every contract is a multidisciplinary team of engineers, procurement specialists, and logistics professionals who understand both international standards and local realities.</p>
-
-                    <div class="story-highlight">
-                        From concept and tender preparation to execution and after-sales support – Neo Holdings provides a single point of accountability.
-                    </div>
-
-                    <div class="story-meta-row">
-                        <span class="story-meta-pill">Dhaka Headquarters</span>
-                        <span class="story-meta-pill">Serving PWD, Real Estate &amp; FMCG</span>
-                        <span class="story-meta-pill">Multi-division Industrial Group</span>
-                    </div>
-                </div>
-
-                <div class="story-visual">
-                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Neo Holdings Team Meeting">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- MISSION & VISION -->
-    <section class="mv-section" id="mission-vision">
-        <div class="container">
-            <div class="mv-grid">
-                <div class="mv-card">
-                    <h3><i class="ph-fill ph-eye"></i> Our Vision</h3>
-                    <p>To be the most trusted name in Bangladesh’s engineering and supply sector—recognized for integrity, execution excellence, and sustainable growth.</p>
-                </div>
-                <div class="mv-card">
-                    <h3><i class="ph-fill ph-target"></i> Our Mission</h3>
-                    <p>To accelerate national development by delivering world-class construction, ensuring uninterrupted supply of industrial resources, and enabling access to cutting-edge global machinery.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CORE VALUES -->
-    <section class="values-section" id="values">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-subtitle">Core Values</div>
-                <h2>The Principles That Guide Us</h2>
-                <p>Every decision we make is anchored in a clear set of non-negotiable values.</p>
-            </div>
-
-            <div class="values-grid">
-                <article class="value-card">
-                    <div class="value-icon"><i class="ph-fill ph-clipboard-text"></i></div>
-                    <h4>Compliance &amp; Governance</h4>
-                    <p>We strictly follow PWD, government regulations, and international quality standards across all projects and supplies.</p>
-                </article>
-
-                <article class="value-card">
-                    <div class="value-icon"><i class="ph-fill ph-globe"></i></div>
-                    <h4>Global Reach, Local Insight</h4>
-                    <p>Access to Tier-1 manufacturers worldwide, combined with deep understanding of local codes, permits, and practices.</p>
-                </article>
-
-                <article class="value-card">
-                    <div class="value-icon"><i class="ph-fill ph-lightning"></i></div>
-                    <h4>Operational Efficiency</h4>
-                    <p>Streamlined logistics and project management that reduce downtime and keep critical timelines intact.</p>
-                </article>
-
-                <article class="value-card">
-                    <div class="value-icon"><i class="ph-fill ph-handshake"></i></div>
-                    <h4>Long-Term Partnership</h4>
-                    <p>We invest in trust, transparency, and repeat collaboration instead of transactional, one-off contracts.</p>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- HIGHLIGHTS / METRICS (placeholder numbers) -->
+    <!-- PROJECT HIGHLIGHT TEASER -->
     <section class="highlight-section">
         <div class="container">
             <div class="section-header" style="margin-bottom: 26px;">
-                <div class="section-subtitle">Snapshot</div>
-                <h2>What We Stand On</h2>
-                <p>Representative figures that reflect Neo Holdings’ scale and reliability. You can replace these placeholders with real metrics later.</p>
+                <div class="section-subtitle">Representative Work</div>
+                <h2>Sample Civil Projects</h2>
+                <p>Brief examples of the types of projects this division supports. You can later align these with the detailed Projects page.</p>
             </div>
 
             <div class="highlight-grid">
-                <div class="highlight-card">
-                    <div class="highlight-number">10+</div>
-                    <div class="highlight-label">Key Sectors</div>
-                    <div class="highlight-desc">From infrastructure and real estate to FMCG and textiles.</div>
-                </div>
-                <div class="highlight-card">
-                    <div class="highlight-number">50+</div>
-                    <div class="highlight-label">Major Projects</div>
-                    <div class="highlight-desc">Delivered through our combined construction, machinery and supply divisions.</div>
-                </div>
-                <div class="highlight-card">
-                    <div class="highlight-number">24/7</div>
-                    <div class="highlight-label">Support</div>
-                    <div class="highlight-desc">Technical coordination during critical commissioning and handover stages.</div>
-                </div>
-                <div class="highlight-card">
-                    <div class="highlight-number">Nationwide</div>
-                    <div class="highlight-label">Reach</div>
-                    <div class="highlight-desc">Ability to mobilize resources across Bangladesh for urgent requirements.</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- TEAM / LEADERSHIP (lightweight placeholder) -->
-    <section class="team-section">
-        <div class="container">
-            <div class="section-header" style="margin-bottom: 28px;">
-                <div class="section-subtitle">Leadership</div>
-                <h2>Led by Experience</h2>
-                <p>A leadership team with a background across engineering, finance, and supply chain management.</p>
-            </div>
-
-            <div class="team-grid">
-                <div class="team-card">
-                    <div class="team-photo">
-                        <i class="ph ph-user"></i>
-                    </div>
-                    <div class="team-info">
-                        <h4>[Name Placeholder]</h4>
-                        <span>Managing Director</span>
-                        <div class="team-note">Replace with actual profile details.</div>
-                    </div>
-                </div>
-                <div class="team-card">
-                    <div class="team-photo">
-                        <i class="ph ph-user"></i>
-                    </div>
-                    <div class="team-info">
-                        <h4>[Name Placeholder]</h4>
-                        <span>Director, Engineering</span>
-                        <div class="team-note">Can highlight core technical expertise.</div>
-                    </div>
-                </div>
-                <div class="team-card">
-                    <div class="team-photo">
-                        <i class="ph ph-user"></i>
-                    </div>
-                    <div class="team-info">
-                        <h4>[Name Placeholder]</h4>
-                        <span>Head of Procurement</span>
-                        <div class="team-note">Focus on global sourcing &amp; OEM relations.</div>
-                    </div>
-                </div>
+                <article class="highlight-card">
+                    <div class="highlight-title">Regional Road Rehabilitation Package</div>
+                    <div class="highlight-meta">Location: Comilla Region · Client: PWD</div>
+                    <p>Strengthening of existing pavement, new overlays, shoulder work and drainage improvements under traffic.</p>
+                </article>
+                <article class="highlight-card">
+                    <div class="highlight-title">Industrial Warehouse &amp; Yard</div>
+                    <div class="highlight-meta">Location: Savar · Client: FMCG Group</div>
+                    <p>Construction of a PEB warehouse with heavy duty flooring and internal roads for logistics movement.</p>
+                </article>
+                <article class="highlight-card">
+                    <div class="highlight-title">Commercial High-Rise Structure</div>
+                    <div class="highlight-meta">Location: Dhaka · Client: Private Developer</div>
+                    <p>RCC frame structure, basement works and podium levels, completed in coordination with multiple stakeholders.</p>
+                </article>
             </div>
         </div>
     </section>
 
     <!-- CTA -->
-    <section class="about-cta">
+    <section class="cta-section">
         <div class="container">
-            <h2>Want to explore a long-term partnership?</h2>
-            <p>Whether you represent a government department, a developer, or an industrial group, our team is ready to align with your roadmap.</p>
+            <h2>Planning a civil or infrastructure project?</h2>
+            <p>Share your drawings, BOQ or tender reference and our construction team will propose an execution strategy and cost estimate.</p>
             <a href="contact.html" class="btn btn-white">
                 <i class="ph ph-paper-plane-right"></i>
-                Talk to Our Team
+                Talk to the Construction Team
             </a>
         </div>
     </section>
