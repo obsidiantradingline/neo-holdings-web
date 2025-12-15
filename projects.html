@@ -1,1112 +1,906 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="top">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects & Portfolio - Neo Holdings</title>
-    <meta name="description" content="View our portfolio of successful projects in civil construction, heavy machinery installation, and industrial supply across Bangladesh.">
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-
-    <!-- Phosphor Icons -->
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
-
-    <style>
-        /* --- RESET & BASE STYLES (same as index.html) --- */
-        :root {
-            --primary-color: #003366; /* Deep Corporate Blue */
-            --secondary-color: #ff6600; /* Industrial Orange */
-            --text-color: #1f2933;
-            --muted-text: #6b7280;
-            --light-bg: #f4f6f8;
-            --white: #ffffff;
-            --border-color: #e0e0e0;
-            --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.18);
-            --transition: all 0.25s ease;
-            --radius-lg: 16px;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Roboto', sans-serif;
-            color: var(--text-color);
-            line-height: 1.6;
-            background-color: var(--white);
-            overflow-x: hidden;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: var(--transition);
-        }
-
-        ul {
-            list-style: none;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-
-        /* --- BUTTONS --- */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 12px 28px;
-            font-size: 16px;
-            font-weight: 600;
-            border-radius: 999px;
-            cursor: pointer;
-            text-align: center;
-            border: 2px solid transparent;
-            white-space: nowrap;
-        }
-
-        .btn i {
-            font-size: 18px;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--secondary-color), #ff8533);
-            color: var(--white);
-            box-shadow: 0 12px 30px rgba(255, 102, 0, 0.35);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 18px 45px rgba(255, 102, 0, 0.5);
-        }
-
-        .btn-secondary {
-            background-color: transparent;
-            color: var(--white);
-            border-color: rgba(255, 255, 255, 0.4);
-            backdrop-filter: blur(10px);
-        }
-
-        .btn-secondary:hover {
-            background-color: rgba(255, 255, 255, 0.08);
-            border-color: var(--white);
-        }
-
-        .btn-quote {
-            background-color: var(--primary-color);
-            color: var(--white);
-            padding: 8px 18px;
-            border-radius: 999px;
-            font-weight: 500;
-            font-size: 14px;
-            border: 1px solid rgba(0, 0, 0, 0.02);
-        }
-
-        .btn-quote:hover {
-            background-color: #002244;
-            transform: translateY(-1px);
-        }
-
-        .btn-white {
-            background-color: var(--white);
-            color: var(--primary-color);
-            border: 2px solid var(--white);
-        }
-
-        .btn-white:hover {
-            background-color: transparent;
-            color: var(--white);
-        }
-
-        /* --- HEADER & NAVIGATION (same as index.html) --- */
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            padding: 10px 0;
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(16px);
-            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: 900;
-            color: var(--primary-color);
-            letter-spacing: -0.5px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .logo i {
-            font-size: 28px;
-            padding: 6px;
-            border-radius: 12px;
-            background: linear-gradient(135deg, rgba(0, 51, 102, 0.15), rgba(255, 102, 0, 0.18));
-        }
-
-        .logo span.sub {
-            font-size: 11px;
-            font-weight: 500;
-            color: var(--muted-text);
-            text-transform: uppercase;
-            letter-spacing: 0.18em;
-        }
-
-        .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 18px;
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 18px;
-            padding: 6px 10px;
-            border-radius: 999px;
-            background-color: #ffffff;
-        }
-
-        .nav-links a.link {
-            font-weight: 500;
-            font-size: 14px;
-            color: var(--text-color);
-            position: relative;
-            padding: 6px 10px;
-            border-radius: 999px;
-        }
-
-        .nav-links a.link::after {
-            content: "";
-            position: absolute;
-            left: 14px;
-            right: 14px;
-            bottom: 4px;
-            height: 2px;
-            border-radius: 999px;
-            background: linear-gradient(90deg, var(--secondary-color), #ffaa55);
-            opacity: 0;
-            transform: scaleX(0.6);
-            transition: var(--transition);
-        }
-
-        .nav-links a.link:hover {
-            color: var(--primary-color);
-            background-color: rgba(15, 23, 42, 0.03);
-        }
-
-        .nav-links a.link:hover::after {
-            opacity: 1;
-            transform: scaleX(1);
-        }
-
-        .nav-links a.link.active {
-            color: var(--primary-color);
-            background-color: rgba(15, 23, 42, 0.04);
-        }
-
-        .nav-links a.link.active::after {
-            opacity: 1;
-            transform: scaleX(1);
-        }
-
-        /* Mobile Menu Toggle */
-        .menu-toggle {
-            display: none;
-            font-size: 28px;
-            color: var(--primary-color);
-            cursor: pointer;
-        }
-
-        /* --- PAGE HERO (Projects) --- */
-        .page-hero {
-            position: relative;
-            background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.12), transparent 55%),
-                        radial-gradient(circle at bottom right, rgba(255, 102, 0, 0.2), transparent 55%),
-                        linear-gradient(125deg, #020617, #020b35),
-                        url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-position: center;
-            min-height: 360px;
-            display: flex;
-            align-items: center;
-            color: var(--white);
-        }
-
-        .page-hero::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.8));
-        }
-
-        .page-hero-inner {
-            position: relative;
-            max-width: 880px;
-            margin: 0 auto;
-            text-align: left;
-            padding: 50px 0;
-        }
-
-        .breadcrumb {
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 0.18em;
-            opacity: 0.75;
-            margin-bottom: 10px;
-        }
-
-        .page-hero h1 {
-            font-size: clamp(32px, 3.4vw, 44px);
-            font-weight: 800;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-        }
-
-        .page-hero p {
-            font-size: 16px;
-            max-width: 620px;
-            opacity: 0.92;
-            margin-bottom: 20px;
-        }
-
-        .hero-meta-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 16px;
-            font-size: 13px;
-            opacity: 0.9;
-        }
-
-        .hero-meta-pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 6px 12px;
-            border-radius: 999px;
-            border: 1px solid rgba(148, 163, 184, 0.7);
-            background-color: rgba(15, 23, 42, 0.65);
-        }
-
-        .hero-meta-pill i {
-            font-size: 16px;
-            color: #a5b4fc;
-        }
-
-        /* --- SECTION TITLES --- */
-        .section-header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .section-subtitle {
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 0.18em;
-            color: var(--secondary-color);
-            margin-bottom: 6px;
-        }
-
-        .section-header h2 {
-            font-size: 30px;
-            color: var(--primary-color);
-            margin-bottom: 10px;
-        }
-
-        .section-header p {
-            max-width: 640px;
-            margin: 0 auto;
-            font-size: 15px;
-            color: var(--muted-text);
-        }
-
-        .section-header::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 3px;
-            background: linear-gradient(90deg, var(--secondary-color), #ffb380);
-            margin: 18px auto 0;
-            border-radius: 999px;
-        }
-
-        /* --- PROJECTS GALLERY --- */
-        .gallery-section {
-            padding: 80px 0;
-            background-color: var(--light-bg);
-        }
-
-        .gallery-filters {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            flex-wrap: wrap;
-            margin: 30px 0 32px;
-        }
-
-        .filter-chip {
-            padding: 6px 16px;
-            border-radius: 999px;
-            border: 1px solid rgba(148, 163, 184, 0.8);
-            font-size: 13px;
-            font-weight: 500;
-            background-color: #ffffff;
-            cursor: pointer;
-            transition: var(--transition);
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .filter-chip i {
-            font-size: 16px;
-        }
-
-        .filter-chip.active,
-        .filter-chip:hover {
-            background: linear-gradient(135deg, var(--primary-color), #021a3a);
-            color: var(--white);
-            border-color: transparent;
-            box-shadow: 0 10px 26px rgba(15, 23, 42, 0.22);
-        }
-
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 28px;
-        }
-
-        .project-card {
-            background: #ffffff;
-            border-radius: 18px;
-            overflow: hidden;
-            box-shadow: 0 14px 32px rgba(15, 23, 42, 0.08);
-            border: 1px solid rgba(226, 232, 240, 0.9);
-            transition: var(--transition);
-            display: flex;
-            flex-direction: column;
-        }
-
-        .project-card:hover {
-            transform: translateY(-6px) scale(1.01);
-            box-shadow: var(--shadow-soft);
-            border-color: rgba(148, 163, 184, 0.9);
-        }
-
-        .project-image-wrapper {
-            position: relative;
-            height: 220px;
-            overflow: hidden;
-        }
-
-        .project-image-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s ease;
-        }
-
-        .project-card:hover .project-image-wrapper img {
-            transform: scale(1.08);
-        }
-
-        .project-tag-pill {
-            position: absolute;
-            top: 16px;
-            left: 16px;
-            padding: 5px 12px;
-            border-radius: 999px;
-            font-size: 11px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            background: rgba(15, 23, 42, 0.92);
-            color: #e5e7eb;
-            border: 1px solid rgba(148, 163, 184, 0.8);
-        }
-
-        .project-status-pill {
-            position: absolute;
-            bottom: 16px;
-            right: 16px;
-            padding: 5px 12px;
-            border-radius: 999px;
-            font-size: 11px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            background: linear-gradient(135deg, var(--secondary-color), #ff9b4b);
-            color: #111827;
-        }
-
-        .project-content {
-            padding: 20px 22px 18px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .project-title {
-            font-size: 19px;
-            color: var(--primary-color);
-            margin-bottom: 6px;
-            font-weight: 700;
-        }
-
-        .project-content p {
-            font-size: 14px;
-            color: var(--muted-text);
-            margin-bottom: 16px;
-        }
-
-        .project-meta-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 14px;
-            margin-bottom: 12px;
-            font-size: 13px;
-            color: #4b5563;
-        }
-
-        .project-meta-row span {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .project-meta-row i {
-            font-size: 16px;
-            color: var(--secondary-color);
-        }
-
-        .project-footer {
-            border-top: 1px solid rgba(226, 232, 240, 0.9);
-            padding-top: 12px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 12px;
-            color: #6b7280;
-        }
-
-        .project-footer strong {
-            color: var(--primary-color);
-        }
-
-        .project-link {
-            font-size: 13px;
-            font-weight: 500;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            color: var(--primary-color);
-        }
-
-        .project-link i {
-            font-size: 16px;
-        }
-
-        .project-link:hover {
-            color: var(--secondary-color);
-        }
-
-        /* --- CLIENTS SECTION --- */
-        .clients-section {
-            padding: 80px 0 70px;
-            background-color: #ffffff;
-        }
-
-        .client-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 32px;
-            align-items: center;
-            margin-top: 40px;
-        }
-
-        .client-logo {
-            filter: grayscale(100%);
-            opacity: 0.65;
-            transition: var(--transition);
-            display: flex;
-            justify-content: center;
-        }
-
-        .client-logo-inner {
-            text-align: center;
-        }
-
-        .client-logo i {
-            font-size: 44px;
-        }
-
-        .client-logo p {
-            font-weight: 600;
-            font-size: 14px;
-            margin-top: 6px;
-            color: #4b5563;
-        }
-
-        .client-logo:hover {
-            filter: grayscale(0%);
-            opacity: 1;
-            transform: translateY(-3px);
-        }
-
-        /* --- CTA SECTION (reuse from index, dark gradient) --- */
-        .cta {
-            background: radial-gradient(circle at top right, rgba(96, 165, 250, 0.18), transparent 60%),
-                        linear-gradient(135deg, #020617, #020617 55%, #0b1120);
-            color: var(--white);
-            padding: 72px 0 76px;
-            text-align: center;
-        }
-
-        .cta h2 {
-            font-size: 30px;
-            margin-bottom: 18px;
-        }
-
-        .cta p {
-            max-width: 560px;
-            margin: 0 auto 28px;
-            opacity: 0.9;
-            font-size: 15px;
-        }
-
-        /* --- FOOTER (same style family as index) --- */
-        footer {
-            background-color: #020617;
-            color: #9ca3af;
-            padding: 70px 0 22px;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        .footer-col h3 {
-            color: var(--white);
-            font-size: 18px;
-            margin-bottom: 18px;
-            font-weight: 600;
-        }
-
-        .footer-col p {
-            margin-bottom: 14px;
-            font-size: 14px;
-        }
-
-        .footer-col ul li {
-            margin-bottom: 10px;
-        }
-
-        .footer-col ul li a {
-            color: #9ca3af;
-            font-size: 14px;
-        }
-
-        .footer-col ul li a:hover {
-            color: var(--secondary-color);
-            padding-left: 4px;
-        }
-
-        .contact-info li {
-            display: flex;
-            gap: 10px;
-            align-items: flex-start;
-        }
-
-        .contact-info i {
-            color: var(--secondary-color);
-            margin-top: 3px;
-        }
-
-        .copyright {
-            border-top: 1px solid #1f2937;
-            padding-top: 18px;
-            text-align: center;
-            font-size: 13px;
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .copyright-links a {
-            margin-left: 18px;
-            color: #9ca3af;
-            font-size: 13px;
-        }
-
-        .copyright-links a:hover {
-            color: var(--white);
-        }
-
-        /* --- RESPONSIVE --- */
-        @media (max-width: 1100px) {
-            .nav-links {
-                gap: 10px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav-right {
-                gap: 8px;
-            }
-
-            .nav-links {
-                display: none; /* Hidden by default on mobile */
-                flex-direction: column;
-                position: absolute;
-                top: 64px;
-                left: 0;
-                width: 100%;
-                background-color: #ffffff;
-                padding: 14px 0 10px;
-                box-shadow: 0 5px 10px rgba(15, 23, 42, 0.15);
-                text-align: center;
-                border-radius: 0 0 16px 16px;
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .nav-links a {
-                margin: 2px 14px;
-                justify-content: center;
-            }
-
-            .btn-quote {
-                display: none; /* keep header tight on small screens */
-            }
-
-            .menu-toggle { display: block; }
-
-            .page-hero-inner {
-                text-align: center;
-            }
-
-            .page-hero p {
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            .hero-meta-row {
-                justify-content: center;
-            }
-
-            .project-grid {
-                grid-template-columns: minmax(0, 1fr);
-            }
-
-            .copyright {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .copyright-links a {
-                margin: 0 10px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects &amp; Portfolio - Neo Holdings</title>
+  <meta name="description" content="View our portfolio of successful projects in civil construction, heavy machinery installation, and industrial supply across Bangladesh." />
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/@phosphor-icons/web" defer></script>
+
+  <style>
+    :root {
+      --primary-color: #003366;
+      --secondary-color: #ff6600;
+      --text-color: #1f2933;
+      --muted-text: #6b7280;
+      --light-bg: #f4f6f8;
+      --white: #ffffff;
+      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.18);
+      --transition: all 0.25s ease;
+      --radius-lg: 16px;
+      --border: rgba(226, 232, 240, 0.9);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Roboto', sans-serif;
+      color: var(--text-color);
+      line-height: 1.6;
+      background: var(--white);
+      overflow-x: hidden;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: var(--transition);
+    }
+    img {
+      max-width: 100%;
+      display: block;
+    }
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 28px;
+      font-size: 16px;
+      font-weight: 600;
+      border-radius: 999px;
+      cursor: pointer;
+      border: 2px solid transparent;
+      white-space: nowrap;
+    }
+    .btn i {
+      font-size: 18px;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--secondary-color), #ff8533);
+      color: var(--white);
+      box-shadow: 0 12px 30px rgba(255, 102, 0, 0.35);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 45px rgba(255, 102, 0, 0.5);
+    }
+    .btn-white {
+      background: #fff;
+      color: var(--primary-color);
+      border-color: #fff;
+    }
+    .btn-white:hover {
+      background: transparent;
+      color: #fff;
+      border-color: #fff;
+    }
+    .btn-ghost {
+      background: transparent;
+      color: var(--primary-color);
+      border-color: rgba(148, 163, 184, 0.6);
+      padding-inline: 20px;
+      font-size: 14px;
+    }
+    .btn-ghost:hover {
+      background: rgba(15, 23, 42, 0.03);
+      border-color: var(--primary-color);
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      padding: 10px 0;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      position: relative;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-img {
+      height: 50px;
+      width: auto;
+    }
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .logo-text-main {
+      font-size: 22px;
+      font-weight: 900;
+      color: var(--primary-color);
+      letter-spacing: 0.12em;
+    }
+    .logo-text-sub {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted-text);
+    }
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: #fff;
+    }
+    .nav-links a {
+      font-weight: 500;
+      font-size: 14px;
+      color: var(--text-color);
+      position: relative;
+      padding: 6px 10px;
+      border-radius: 999px;
+    }
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 14px;
+      right: 14px;
+      bottom: 4px;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--secondary-color), #ffaa55);
+      opacity: 0;
+      transform: scaleX(0.6);
+      transition: var(--transition);
+    }
+    .nav-links a:hover {
+      color: var(--primary-color);
+      background: rgba(15, 23, 42, 0.03);
+    }
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      opacity: 1;
+      transform: scaleX(1);
+    }
+    .nav-links a.active {
+      color: var(--primary-color);
+      background: rgba(15, 23, 42, 0.04);
+    }
+    .menu-toggle {
+      display: none;
+      font-size: 28px;
+      color: var(--primary-color);
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+
+    /* Page hero */
+    .page-hero {
+      position: relative;
+      background:
+        radial-gradient(circle at top left, rgba(255, 255, 255, 0.12), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(255, 102, 0, 0.2), transparent 55%),
+        linear-gradient(125deg, #020617, #020b35),
+        url("assets/images/hero/projects-hero.jpg");
+      background-size: cover;
+      background-position: center;
+      min-height: 360px;
+      display: flex;
+      align-items: center;
+      color: #fff;
+    }
+    .page-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.8));
+    }
+    .page-hero-inner {
+      position: relative;
+      max-width: 880px;
+      padding: 50px 0;
+    }
+    .breadcrumb {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      opacity: 0.75;
+      margin-bottom: 10px;
+    }
+    .page-hero h1 {
+      font-size: clamp(32px, 3.4vw, 44px);
+      font-weight: 800;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .page-hero p {
+      font-size: 16px;
+      max-width: 640px;
+      opacity: 0.92;
+      margin-bottom: 20px;
+    }
+    .hero-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 13px;
+      opacity: 0.92;
+    }
+    .hero-meta-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: rgba(15, 23, 42, 0.65);
+    }
+    .hero-meta-pill i {
+      font-size: 16px;
+      color: var(--secondary-color);
+    }
+
+    /* Section header */
+    .section-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .section-subtitle {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--secondary-color);
+      margin-bottom: 6px;
+    }
+    .section-header h2 {
+      font-size: 30px;
+      color: var(--primary-color);
+      margin-bottom: 10px;
+    }
+    .section-header p {
+      max-width: 680px;
+      margin: 0 auto;
+      font-size: 15px;
+      color: var(--muted-text);
+    }
+    .section-header::after {
+      content: "";
+      display: block;
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--secondary-color), #ffb380);
+      margin: 18px auto 0;
+      border-radius: 999px;
+    }
+
+    /* Gallery */
+    .gallery-section {
+      padding: 80px 0;
+      background: var(--light-bg);
+    }
+    .gallery-filters {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 28px 0 32px;
+    }
+    .filter-chip {
+      padding: 6px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.8);
+      font-size: 13px;
+      font-weight: 500;
+      background: #fff;
+      cursor: pointer;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .filter-chip i {
+      font-size: 16px;
+    }
+    .filter-chip.active,
+    .filter-chip:hover {
+      background: linear-gradient(135deg, var(--primary-color), #021a3a);
+      color: #fff;
+      border-color: transparent;
+      box-shadow: 0 10px 26px rgba(15, 23, 42, 0.22);
+    }
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 28px;
+    }
+    .project-card {
+      background: #fff;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 14px 32px rgba(15, 23, 42, 0.08);
+      border: 1px solid var(--border);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+    .project-card:hover {
+      transform: translateY(-6px) scale(1.01);
+      box-shadow: var(--shadow-soft);
+      border-color: rgba(148, 163, 184, 0.9);
+    }
+    .project-image-wrapper {
+      position: relative;
+      height: 220px;
+      overflow: hidden;
+    }
+    .project-image-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .project-card:hover .project-image-wrapper img {
+      transform: scale(1.08);
+    }
+    .project-tag-pill {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      background: rgba(15, 23, 42, 0.92);
+      color: #e5e7eb;
+      border: 1px solid rgba(148, 163, 184, 0.8);
+    }
+    .project-status-pill {
+      position: absolute;
+      bottom: 16px;
+      right: 16px;
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      background: linear-gradient(135deg, var(--secondary-color), #ff9b4b);
+      color: #111827;
+    }
+    .project-content {
+      padding: 20px 22px 18px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .project-title {
+      font-size: 19px;
+      color: var(--primary-color);
+      margin-bottom: 6px;
+      font-weight: 700;
+    }
+    .project-content p {
+      font-size: 14px;
+      color: var(--muted-text);
+      margin-bottom: 16px;
+    }
+    .project-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 12px;
+      font-size: 13px;
+      color: #4b5563;
+    }
+    .project-meta-row span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .project-meta-row i {
+      font-size: 16px;
+      color: var(--secondary-color);
+    }
+    .project-footer {
+      border-top: 1px solid var(--border);
+      padding-top: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      font-size: 12px;
+      color: #6b7280;
+    }
+    .project-footer strong {
+      color: var(--primary-color);
+    }
+    .project-link {
+      font-size: 13px;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--primary-color);
+    }
+    .project-link i {
+      font-size: 16px;
+    }
+    .project-link:hover {
+      color: var(--secondary-color);
+    }
+
+    /* Clients */
+    .clients-section {
+      padding: 80px 0 70px;
+      background: #fff;
+    }
+    .associate-list {
+      max-width: 920px;
+      margin: 22px auto 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+    .associate-pill {
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.65);
+      background: rgba(15, 23, 42, 0.02);
+      font-size: 13px;
+      font-weight: 500;
+      color: #374151;
+    }
+    .client-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 22px;
+      align-items: center;
+      margin-top: 36px;
+    }
+    .client-logo {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: #fff;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+      padding: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 92px;
+      transition: var(--transition);
+    }
+    .client-logo:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
+    }
+    .client-logo img {
+      max-height: 48px;
+      width: auto;
+      object-fit: contain;
+      filter: grayscale(10%);
+      opacity: 0.95;
+    }
+    .client-logo:hover img {
+      filter: none;
+      opacity: 1;
+    }
+
+    /* CTA */
+    .cta {
+      background:
+        radial-gradient(circle at top right, rgba(96, 165, 250, 0.18), transparent 60%),
+        linear-gradient(135deg, #020617, #020617 55%, #0b1120);
+      color: #fff;
+      padding: 72px 0 76px;
+      text-align: center;
+    }
+    .cta h2 {
+      font-size: 30px;
+      margin-bottom: 14px;
+    }
+    .cta p {
+      max-width: 640px;
+      margin: 0 auto 24px;
+      opacity: 0.92;
+      font-size: 15px;
+    }
+
+    /* Footer */
+    footer {
+      background: #020617;
+      color: #9ca3af;
+      padding: 40px 0 18px;
+      font-size: 13px;
+    }
+    .footer-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      border-top: 1px solid #1f2937;
+      padding-top: 16px;
+      margin-top: 10px;
+    }
+    .footer-links a {
+      margin-left: 16px;
+      color: #9ca3af;
+    }
+    .footer-links a:hover {
+      color: #fff;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .menu-toggle {
+        display: block;
+      }
+      .nav-links {
+        display: none;
+        position: absolute;
+        right: 0;
+        top: 64px;
+        flex-direction: column;
+        background: #fff;
+        box-shadow: 0 18px 40px rgba(15, 23, 42, 0.18);
+        padding: 10px;
+        border-radius: 14px;
+        width: min(320px, 92vw);
+        z-index: 999;
+      }
+      .nav-links.open {
+        display: flex;
+      }
+      .nav-links a {
+        width: 100%;
+      }
+      .page-hero-inner {
+        text-align: center;
+      }
+      .hero-meta-row {
+        justify-content: center;
+      }
+      .page-hero p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
+
 <body>
+  <!-- HEADER -->
+  <header>
+    <div class="container">
+      <nav>
+        <a href="index.html" class="logo" aria-label="Neo Holdings Home">
+          <img src="assets/images/branding/logo-neo-holdings.png" alt="Neo Holdings Logo" class="logo-img" />
+          <div class="logo-text">
+            <span class="logo-text-main">NEO HOLDINGS</span>
+            <span class="logo-text-sub">CONSTRUCTION, SUPPLY, BUILD</span>
+          </div>
+        </a>
 
-    <!-- HEADER -->
-    <header>
-        <div class="container">
-            <nav>
-                <a href="index.html" class="logo">
-                    <i class="ph-fill ph-buildings"></i>
-                    <div>
-                        Neo Holdings
-                        <div class="sub">Engineering • Indenting • Supply</div>
-                    </div>
-                </a>
-
-                <div class="nav-right">
-                    <div class="menu-toggle" id="mobile-menu">
-                        <i class="ph ph-list"></i>
-                    </div>
-                    <div class="nav-links" id="nav-links">
-                        <a href="index.html" class="link">Home</a>
-                        <a href="about.html" class="link">About Us</a>
-                        <a href="services.html" class="link">Services</a>
-                        <a href="machinery-indenting.html" class="link">Machinery Indenting</a>
-                        <a href="civil-construction.html" class="link">Civil Construction</a>
-                        <a href="industrial-supply.html" class="link">Industrial Supply</a>
-                        <a href="projects.html" class="link active">Projects</a>
-                        <a href="contact.html" class="link">Contact Us</a>
-                    </div>
-                    <a href="contact.html" class="btn-quote">
-                        Request a Quote
-                    </a>
-                </div>
-            </nav>
+        <div class="nav-right">
+          <div class="nav-links" id="navLinks">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="projects.html" class="active">Projects</a>
+            <a href="contact.html" class="btn btn-ghost">Contact</a>
+          </div>
+          <button class="menu-toggle" aria-label="Toggle navigation" id="menuToggle">
+            <i class="ph ph-list"></i>
+          </button>
         </div>
-    </header>
+      </nav>
+    </div>
+  </header>
 
+  <main>
     <!-- PAGE HERO -->
     <section class="page-hero">
-        <div class="container">
-            <div class="page-hero-inner">
-                <div class="breadcrumb">Home · Projects</div>
-                <h1>Projects &amp; Portfolio</h1>
-                <p>From national highways and industrial parks to logistics hubs and power infrastructure, Neo Holdings delivers mission-critical projects across Bangladesh.</p>
-                <div class="hero-meta-row">
-                    <div class="hero-meta-pill">
-                        <i class="ph-fill ph-flag"></i>
-                        PWD &amp; Govt. Infrastructure
-                    </div>
-                    <div class="hero-meta-pill">
-                        <i class="ph-fill ph-factory"></i>
-                        Industrial &amp; FMCG Facilities
-                    </div>
-                    <div class="hero-meta-pill">
-                        <i class="ph-fill ph-globe-hemisphere-east"></i>
-                        Global OEM Machinery
-                    </div>
-                </div>
-            </div>
+      <div class="container">
+        <div class="page-hero-inner">
+          <div class="breadcrumb">Home · Projects</div>
+          <h1>Projects &amp; Portfolio</h1>
+          <p>
+            From national highways and industrial parks to logistics hubs and power infrastructure,
+            Neo Holdings delivers mission-critical projects across Bangladesh.
+          </p>
+          <div class="hero-meta-row">
+            <div class="hero-meta-pill"><i class="ph ph-flag"></i> PWD &amp; Govt. Infrastructure</div>
+            <div class="hero-meta-pill"><i class="ph ph-factory"></i> Industrial &amp; FMCG Facilities</div>
+            <div class="hero-meta-pill"><i class="ph ph-globe-hemisphere-east"></i> Global OEM Machinery</div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- PROJECTS GALLERY -->
-    <section class="gallery-section">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-subtitle">Featured Work</div>
-                <h2>Representative Projects</h2>
-                <p>Below is a curated snapshot of the scale, complexity, and diversity of projects delivered by Neo Holdings across civil, machinery, and industrial supply.</p>
-            </div>
-
-            <!-- Visual filter chips (non-functional placeholder; can be wired with JS later) -->
-            <div class="gallery-filters">
-                <button class="filter-chip active">
-                    <i class="ph ph-grid-four"></i>
-                    All Projects
-                </button>
-                <button class="filter-chip">
-                    <i class="ph ph-crane-tower"></i>
-                    Civil Construction
-                </button>
-                <button class="filter-chip">
-                    <i class="ph ph-gear-six"></i>
-                    Machinery &amp; Power
-                </button>
-                <button class="filter-chip">
-                    <i class="ph ph-truck"></i>
-                    Supply &amp; Logistics
-                </button>
-            </div>
-
-            <div class="project-grid">
-                <!-- Project 1 -->
-                <article class="project-card">
-                    <div class="project-image-wrapper">
-                        <img src="https://images.unsplash.com/photo-1545558014-8692077e9b5c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Highway Construction">
-                        <span class="project-tag-pill">Infrastructure · PWD</span>
-                        <span class="project-status-pill">Completed</span>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Dhaka–Chattogram Highway Expansion</h3>
-                        <p>Turnkey civil works for approach roads, culverts, and drainage systems executed under stringent PWD specifications and traffic management constraints.</p>
-                        <div class="project-meta-row">
-                            <span><i class="ph-fill ph-map-pin"></i> Comilla Corridor</span>
-                            <span><i class="ph-fill ph-calendar-blank"></i> 2023</span>
-                            <span><i class="ph-fill ph-hard-hat"></i> Civil &amp; Road Works</span>
-                        </div>
-                        <div class="project-footer">
-                            <span><strong>Client:</strong> Public Works Department</span>
-                            <a href="#contact" class="project-link">
-                                Discuss similar scope
-                                <i class="ph ph-arrow-up-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Project 2 -->
-                <article class="project-card">
-                    <div class="project-image-wrapper">
-                        <img src="https://images.unsplash.com/photo-1565514020176-db5928d3e913?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Factory Automation">
-                        <span class="project-tag-pill">Machinery · FMCG</span>
-                        <span class="project-status-pill">Commissioned</span>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Meghna Industrial Park – Beverage Line</h3>
-                        <p>End-to-end indenting, import, and on-site installation of fully automated beverage production and bottling lines from Tier-1 global OEMs.</p>
-                        <div class="project-meta-row">
-                            <span><i class="ph-fill ph-map-pin"></i> Narayanganj</span>
-                            <span><i class="ph-fill ph-calendar-blank"></i> 2024</span>
-                            <span><i class="ph-fill ph-gear-six"></i> Process &amp; Automation</span>
-                        </div>
-                        <div class="project-footer">
-                            <span><strong>Client:</strong> Leading FMCG Conglomerate</span>
-                            <a href="#contact" class="project-link">
-                                Explore machinery sourcing
-                                <i class="ph ph-arrow-up-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Project 3 -->
-                <article class="project-card">
-                    <div class="project-image-wrapper">
-                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="High Rise Building">
-                        <span class="project-tag-pill">Supply · High-Rise</span>
-                        <span class="project-status-pill">Ongoing</span>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Gulshan Skyline Tower</h3>
-                        <p>Continuous bulk supply of cement, aggregates, and graded rebar for a 20-storey commercial complex in an urban high-constraint environment.</p>
-                        <div class="project-meta-row">
-                            <span><i class="ph-fill ph-map-pin"></i> Gulshan, Dhaka</span>
-                            <span><i class="ph-fill ph-calendar-blank"></i> 2022 – Present</span>
-                            <span><i class="ph-fill ph-truck"></i> Construction Materials</span>
-                        </div>
-                        <div class="project-footer">
-                            <span><strong>Client:</strong> National Real Estate Developer</span>
-                            <a href="#contact" class="project-link">
-                                Plan your supply chain
-                                <i class="ph ph-arrow-up-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Project 4 -->
-                <article class="project-card">
-                    <div class="project-image-wrapper">
-                        <img src="https://images.unsplash.com/photo-1513828583688-c29a7f99ad13?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Bridge Construction">
-                        <span class="project-tag-pill">Civil · Bridge</span>
-                        <span class="project-status-pill">Completed</span>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Sylhet Regional Bridge Works</h3>
-                        <p>Structural piling, pier construction, and high-performance concrete works for a regional bridge package under government tender.</p>
-                        <div class="project-meta-row">
-                            <span><i class="ph-fill ph-map-pin"></i> Sylhet</span>
-                            <span><i class="ph-fill ph-calendar-blank"></i> 2022</span>
-                            <span><i class="ph-fill ph-hard-hat"></i> Piling &amp; Structure</span>
-                        </div>
-                        <div class="project-footer">
-                            <span><strong>Client:</strong> Roads &amp; Highways / PWD</span>
-                            <a href="#contact" class="project-link">
-                                Share bridge requirements
-                                <i class="ph ph-arrow-up-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Project 5 -->
-                <article class="project-card">
-                    <div class="project-image-wrapper">
-                        <img src="https://images.unsplash.com/photo-1516937941344-00b4e0337589?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Industrial Generator">
-                        <span class="project-tag-pill">Power · RMG</span>
-                        <span class="project-status-pill">Commissioned</span>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Textile Power Substation Upgrade</h3>
-                        <p>Import, testing, and commissioning of 5MW generator sets, transformers, and switchgear to stabilise power for a large textile cluster.</p>
-                        <div class="project-meta-row">
-                            <span><i class="ph-fill ph-map-pin"></i> Gazipur</span>
-                            <span><i class="ph-fill ph-calendar-blank"></i> 2023</span>
-                            <span><i class="ph-fill ph-lightning"></i> Power &amp; Energy</span>
-                        </div>
-                        <div class="project-footer">
-                            <span><strong>Client:</strong> Composite Textile Group</span>
-                            <a href="#contact" class="project-link">
-                                Talk to our power team
-                                <i class="ph ph-arrow-up-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Project 6 -->
-                <article class="project-card">
-                    <div class="project-image-wrapper">
-                        <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Warehouse Construction">
-                        <span class="project-tag-pill">Industrial · PEB</span>
-                        <span class="project-status-pill">Completed</span>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">National FMCG Logistics Hub</h3>
-                        <p>Pre-engineered steel building (PEB) design &amp; construction for a temperature-controlled central warehouse supporting nationwide distribution.</p>
-                        <div class="project-meta-row">
-                            <span><i class="ph-fill ph-map-pin"></i> Savar</span>
-                            <span><i class="ph-fill ph-calendar-blank"></i> 2023</span>
-                            <span><i class="ph-fill ph-warehouse"></i> Warehousing</span>
-                        </div>
-                        <div class="project-footer">
-                            <span><strong>Client:</strong> FMCG Conglomerate</span>
-                            <a href="#contact" class="project-link">
-                                Design a similar hub
-                                <i class="ph ph-arrow-up-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                </article>
-            </div>
+    <section class="gallery-section" id="projects">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-subtitle">Featured Work</div>
+          <h2>Representative Projects</h2>
+          <p>
+            Below is a curated snapshot of the scale, complexity, and diversity of projects delivered by
+            Neo Holdings across civil, machinery, and industrial supply.
+          </p>
         </div>
+        <!-- Filters -->
+        <div class="gallery-filters" role="tablist" aria-label="Project filters">
+          <button type="button" class="filter-chip active" data-filter="all" role="tab">
+            <i class="ph ph-grid-four"></i> All Projects
+          </button>
+          <button type="button" class="filter-chip" data-filter="civil" role="tab">
+            <i class="ph ph-crane-tower"></i> Civil Construction
+          </button>
+          <button type="button" class="filter-chip" data-filter="machinery" role="tab">
+            <i class="ph ph-gear-six"></i> Machinery &amp; Power
+          </button>
+          <button type="button" class="filter-chip" data-filter="supply" role="tab">
+            <i class="ph ph-truck"></i> Supply &amp; Logistics
+          </button>
+        </div>
+        <div class="project-grid" id="projectGrid">
+          <!-- Project 1 -->
+          <article class="project-card" data-category="civil">
+            <div class="project-image-wrapper">
+              <img src="assets/images/projects/highway.jpg" alt="Highway Construction" />
+              <span class="project-tag-pill">Infrastructure · PWD</span>
+              <span class="project-status-pill">Completed</span>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Dhaka–Chattogram Highway Expansion</h3>
+              <p>Turnkey civil works for approach roads, culverts, and drainage systems executed under PWD specifications and traffic management constraints.</p>
+              <div class="project-meta-row">
+                <span><i class="ph-fill ph-map-pin"></i> Comilla Corridor</span>
+                <span><i class="ph-fill ph-calendar-blank"></i> 2023</span>
+                <span><i class="ph-fill ph-hard-hat"></i> Civil &amp; Road Works</span>
+              </div>
+              <div class="project-footer">
+                <span><strong>Client:</strong> Public Works Department</span>
+                <a href="contact.html" class="project-link">Discuss similar scope <i class="ph ph-arrow-up-right"></i></a>
+              </div>
+            </div>
+          </article>
+          <!-- Project 2 -->
+          <article class="project-card" data-category="machinery">
+            <div class="project-image-wrapper">
+              <img src="assets/images/projects/beverage-line.jpg" alt="Factory Automation" />
+              <span class="project-tag-pill">Machinery · FMCG</span>
+              <span class="project-status-pill">Commissioned</span>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Meghna Industrial Park – Beverage Line</h3>
+              <p>End-to-end indenting, import, and on-site installation of fully automated beverage production and bottling lines from Tier-1 global OEMs.</p>
+              <div class="project-meta-row">
+                <span><i class="ph-fill ph-map-pin"></i> Narayanganj</span>
+                <span><i class="ph-fill ph-calendar-blank"></i> 2024</span>
+                <span><i class="ph-fill ph-gear-six"></i> Process &amp; Automation</span>
+              </div>
+              <div class="project-footer">
+                <span><strong>Client:</strong> Leading FMCG Conglomerate</span>
+                <a href="contact.html" class="project-link">Explore machinery sourcing <i class="ph ph-arrow-up-right"></i></a>
+              </div>
+            </div>
+          </article>
+          <!-- Project 3 -->
+          <article class="project-card" data-category="supply">
+            <div class="project-image-wrapper">
+              <img src="assets/images/projects/highrise-supply.jpg" alt="High Rise Building Supply" />
+              <span class="project-tag-pill">Supply · High-Rise</span>
+              <span class="project-status-pill">Ongoing</span>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Gulshan Skyline Tower</h3>
+              <p>Continuous bulk supply of cement, aggregates, and graded rebar for a 20-storey commercial complex in an urban high-constraint environment.</p>
+              <div class="project-meta-row">
+                <span><i class="ph-fill ph-map-pin"></i> Gulshan, Dhaka</span>
+                <span><i class="ph-fill ph-calendar-blank"></i> 2022 – Present</span>
+                <span><i class="ph-fill ph-truck"></i> Construction Materials</span>
+              </div>
+              <div class="project-footer">
+                <span><strong>Client:</strong> National Real Estate Developer</span>
+                <a href="contact.html" class="project-link">Plan your supply chain <i class="ph ph-arrow-up-right"></i></a>
+              </div>
+            </div>
+          </article>
+          <!-- Project 4 -->
+          <article class="project-card" data-category="civil">
+            <div class="project-image-wrapper">
+              <img src="assets/images/projects/bridge.jpg" alt="Bridge Construction" />
+              <span class="project-tag-pill">Civil · Bridge</span>
+              <span class="project-status-pill">Completed</span>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Sylhet Regional Bridge Works</h3>
+              <p>Structural piling, pier construction, and high-performance concrete works for a regional bridge package under government tender.</p>
+              <div class="project-meta-row">
+                <span><i class="ph-fill ph-map-pin"></i> Sylhet</span>
+                <span><i class="ph-fill ph-calendar-blank"></i> 2022</span>
+                <span><i class="ph-fill ph-hard-hat"></i> Piling &amp; Structure</span>
+              </div>
+              <div class="project-footer">
+                <span><strong>Client:</strong> Roads &amp; Highways / PWD</span>
+                <a href="contact.html" class="project-link">Share bridge requirements <i class="ph ph-arrow-up-right"></i></a>
+              </div>
+            </div>
+          </article>
+          <!-- Project 5 -->
+          <article class="project-card" data-category="machinery">
+            <div class="project-image-wrapper">
+              <img src="assets/images/projects/power.jpg" alt="Industrial Generator" />
+              <span class="project-tag-pill">Power · RMG</span>
+              <span class="project-status-pill">Commissioned</span>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Textile Power Substation Upgrade</h3>
+              <p>Import, testing, and commissioning of 5MW generator sets, transformers, and switchgear to stabilise power for a large textile cluster.</p>
+              <div class="project-meta-row">
+                <span><i class="ph-fill ph-map-pin"></i> Gazipur</span>
+                <span><i class="ph-fill ph-calendar-blank"></i> 2023</span>
+                <span><i class="ph-fill ph-lightning"></i> Power &amp; Energy</span>
+              </div>
+              <div class="project-footer">
+                <span><strong>Client:</strong> Composite Textile Group</span>
+                <a href="contact.html" class="project-link">Talk to our power team <i class="ph ph-arrow-up-right"></i></a>
+              </div>
+            </div>
+          </article>
+          <!-- Project 6 -->
+          <article class="project-card" data-category="civil">
+            <div class="project-image-wrapper">
+              <img src="assets/images/projects/warehouse.jpg" alt="Warehouse Construction" />
+              <span class="project-tag-pill">Industrial · PEB</span>
+              <span class="project-status-pill">Completed</span>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">National FMCG Logistics Hub</h3>
+              <p>PEB design &amp; construction for a temperature-controlled central warehouse supporting nationwide distribution and inventory efficiency.</p>
+              <div class="project-meta-row">
+                <span><i class="ph-fill ph-map-pin"></i> Savar</span>
+                <span><i class="ph-fill ph-calendar-blank"></i> 2023</span>
+                <span><i class="ph-fill ph-warehouse"></i> Warehousing</span>
+              </div>
+              <div class="project-footer">
+                <span><strong>Client:</strong> FMCG Conglomerate</span>
+                <a href="contact.html" class="project-link">Design a similar hub <i class="ph ph-arrow-up-right"></i></a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
     </section>
 
-    <!-- CLIENTS / TRUSTED BY -->
-    <section class="clients-section">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-subtitle">Trusted By</div>
-                <h2>Industry &amp; Government Leaders</h2>
-                <p>We work with government bodies, blue-chip conglomerates, and leading developers across Bangladesh.</p>
-            </div>
-
-            <div class="client-grid">
-                <div class="client-logo">
-                    <div class="client-logo-inner">
-                        <i class="ph-fill ph-bank"></i>
-                        <p>PWD</p>
-                    </div>
-                </div>
-                <div class="client-logo">
-                    <div class="client-logo-inner">
-                        <i class="ph-fill ph-buildings"></i>
-                        <p>Bashundhara</p>
-                    </div>
-                </div>
-                <div class="client-logo">
-                    <div class="client-logo-inner">
-                        <i class="ph-fill ph-shopping-cart"></i>
-                        <p>Pran-RFL</p>
-                    </div>
-                </div>
-                <div class="client-logo">
-                    <div class="client-logo-inner">
-                        <i class="ph-fill ph-t-shirt"></i>
-                        <p>Beximco</p>
-                    </div>
-                </div>
-                <div class="client-logo">
-                    <div class="client-logo-inner">
-                        <i class="ph-fill ph-wall"></i>
-                        <p>Navana</p>
-                    </div>
-                </div>
-            </div>
+    <!-- CLIENTS & ASSOCIATES -->
+    <section class="clients-section" id="partners">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-subtitle">Clients &amp; Associates</div>
+          <h2>Trusted Partnerships</h2>
+          <p>
+            Neo Holdings proudly works with respected organizations and industry partners.
+            We value every partnership and aim to be a long-term supply and solution ally.
+          </p>
         </div>
+        <!-- Names list -->
+        <div class="associate-list" aria-label="Clients and associates list">
+          <span class="associate-pill">TEAL</span>
+          <span class="associate-pill">Elite Steels</span>
+          <span class="associate-pill">Janshin Refractory</span>
+          <span class="associate-pill">Consol Construction Chemical &amp; Solution</span>
+          <span class="associate-pill">Nirman Associates</span>
+          <span class="associate-pill">CSD</span>
+          <span class="associate-pill">SS Trade International</span>
+          <span class="associate-pill">Border Guard Bangladesh</span>
+        </div>
+        <!-- Logos grid -->
+        <div class="client-grid" style="margin-top:34px;">
+          <div class="client-logo"><img src="assets/images/clients/logo-elite-steel.png" alt="Elite Steel" /></div>
+          <div class="client-logo"><img src="assets/images/clients/logo-consol.png" alt="Consol Construction Chemicals &amp; Solutions" /></div>
+          <div class="client-logo"><img src="assets/images/clients/logo-nirman.png" alt="Nirman Associates" /></div>
+          <div class="client-logo"><img src="assets/images/clients/logo-csd.png" alt="CSD" /></div>
+          <div class="client-logo"><img src="assets/images/clients/logo-bgb.png" alt="Border Guard Bangladesh" /></div>
+          <div class="client-logo"><img src="assets/images/clients/logo-teal.png" alt="TEAL" /></div>
+          <div class="client-logo"><img src="assets/images/clients/logo-janshin.png" alt="Janshin Refractory" /></div>
+          <div class="client-logo"><img src="assets/images/clients/logo-ss-trade.png" alt="SS Trade International" /></div>
+        </div>
+      </div>
     </section>
 
     <!-- CTA -->
     <section class="cta" id="contact">
-        <div class="container">
-            <h2>Planning a project or tender?</h2>
-            <p>Share your scope, BOQ, or machinery list and our team will propose a tailored execution and supply plan.</p>
-            <a href="contact.html" class="btn btn-white">
-                <i class="ph ph-paper-plane-right"></i>
-                Get in Touch
-            </a>
-        </div>
+      <div class="container">
+        <h2>Planning a project or tender?</h2>
+        <p>Share your scope, BOQ, or machinery list and our team will propose a tailored execution and supply plan.</p>
+        <a href="contact.html" class="btn btn-white">
+          <i class="ph ph-paper-plane-right"></i>
+          Get in Touch
+        </a>
+      </div>
     </section>
+  </main>
 
-    <!-- FOOTER -->
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <!-- Brand Col -->
-                <div class="footer-col">
-                    <h3>Neo Holdings</h3>
-                    <p>Building the backbone of Bangladesh’s industry through engineering excellence, global sourcing, and reliable supply chains.</p>
-                </div>
-
-                <!-- Links Col -->
-                <div class="footer-col">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="services.html">Our Services</a></li>
-                        <li><a href="projects.html">Projects &amp; Partners</a></li>
-                        <li><a href="#">Tender Notices</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
-                    </ul>
-                </div>
-
-                <!-- Contact Col -->
-                <div class="footer-col">
-                    <h3>Contact Us</h3>
-                    <ul class="contact-info">
-                        <li>
-                            <i class="ph-fill ph-map-pin"></i>
-                            <span>Gulshan, Dhaka, Bangladesh</span>
-                        </li>
-                        <li>
-                            <i class="ph-fill ph-phone"></i>
-                            <span>+880 1700-000000</span>
-                        </li>
-                        <li>
-                            <i class="ph-fill ph-envelope-simple"></i>
-                            <span>info@neoholdings.com</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="copyright">
-                <div>&copy; 2025 Neo Holdings. All Rights Reserved.</div>
-                <div class="copyright-links">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
-                </div>
-            </div>
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-bar">
+        <span>© <span id="year"></span> Neo Holdings. All rights reserved.</span>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="services.html">Services</a>
+          <a href="projects.html">Projects</a>
+          <a href="contact.html">Contact</a>
         </div>
-    </footer>
+      </div>
+    </div>
+  </footer>
 
-    <!-- SCRIPTS -->
-    <script>
-        // Mobile menu toggle (same as index.html)
-        const menuToggle = document.getElementById('mobile-menu');
-        const navLinks = document.getElementById('nav-links');
-
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // Mobile nav toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    menuToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => navLinks.classList.remove('open'));
+    });
+    // Project filter
+    const chips = document.querySelectorAll('.filter-chip');
+    const cards = document.querySelectorAll('.project-card');
+    chips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        chips.forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        const filter = chip.getAttribute('data-filter');
+        cards.forEach(card => {
+          const cat = card.getAttribute('data-category');
+          const show = (filter === 'all') || (cat === filter);
+          card.style.display = show ? 'flex' : 'none';
         });
-    </script>
+      });
+    });
+  </script>
 </body>
 </html>

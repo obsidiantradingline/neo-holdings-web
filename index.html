@@ -1,980 +1,805 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="top">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Neo Holdings - Engineering Progress. Powering Industry.</title>
-    <meta name="description" content="Neo Holdings is a premier partner for Bangladesh’s infrastructure, heavy industry, and mega-projects.">
-
-    <!-- Using Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-
-    <!-- Phosphor Icons for modern SVG icons -->
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
-
-    <style>
-        /* --- RESET & BASE STYLES --- */
-        :root {
-            --primary-color: #003366; /* Deep Corporate Blue */
-            --secondary-color: #ff6600; /* Industrial Orange */
-            --text-color: #1f2933;
-            --muted-text: #6b7280;
-            --light-bg: #f4f6f8;
-            --white: #ffffff;
-            --border-color: #e0e0e0;
-            --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.18);
-            --transition: all 0.25s ease;
-            --radius-lg: 16px;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Roboto', sans-serif;
-            color: var(--text-color);
-            line-height: 1.6;
-            background-color: var(--white);
-            overflow-x: hidden;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: var(--transition);
-        }
-
-        ul {
-            list-style: none;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-
-        /* --- BUTTONS --- */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 12px 28px;
-            font-size: 16px;
-            font-weight: 600;
-            border-radius: 999px;
-            cursor: pointer;
-            text-align: center;
-            border: 2px solid transparent;
-            white-space: nowrap;
-        }
-
-        .btn i {
-            font-size: 18px;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--secondary-color), #ff8533);
-            color: var(--white);
-            box-shadow: 0 12px 30px rgba(255, 102, 0, 0.35);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 18px 45px rgba(255, 102, 0, 0.5);
-        }
-
-        .btn-secondary {
-            background-color: transparent;
-            color: var(--white);
-            border-color: rgba(255, 255, 255, 0.4);
-            backdrop-filter: blur(10px);
-        }
-
-        .btn-secondary:hover {
-            background-color: rgba(255, 255, 255, 0.08);
-            border-color: var(--white);
-        }
-
-        .btn-quote {
-            background-color: var(--primary-color);
-            color: var(--white);
-            padding: 8px 18px;
-            border-radius: 999px;
-            font-weight: 500;
-            font-size: 14px;
-            border: 1px solid rgba(0, 0, 0, 0.02);
-        }
-
-        .btn-quote:hover {
-            background-color: #002244;
-            transform: translateY(-1px);
-        }
-
-        .btn-white {
-            background-color: var(--white);
-            color: var(--primary-color);
-            border: 2px solid var(--white);
-        }
-
-        .btn-white:hover {
-            background-color: transparent;
-            color: var(--white);
-        }
-
-        /* --- HEADER & NAVIGATION --- */
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            padding: 10px 0;
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(16px);
-            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: 900;
-            color: var(--primary-color);
-            letter-spacing: -0.5px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .logo i {
-            font-size: 28px;
-            padding: 6px;
-            border-radius: 12px;
-            background: linear-gradient(135deg, rgba(0, 51, 102, 0.15), rgba(255, 102, 0, 0.18));
-        }
-
-        .logo span.sub {
-            font-size: 11px;
-            font-weight: 500;
-            color: var(--muted-text);
-            text-transform: uppercase;
-            letter-spacing: 0.18em;
-        }
-
-        .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 18px;
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 18px;
-            padding: 6px 10px;
-            border-radius: 999px;
-            background-color: #ffffff;
-        }
-
-        .nav-links a.link {
-            font-weight: 500;
-            font-size: 14px;
-            color: var(--text-color);
-            position: relative;
-            padding: 6px 10px;
-            border-radius: 999px;
-        }
-
-        .nav-links a.link::after {
-            content: "";
-            position: absolute;
-            left: 14px;
-            right: 14px;
-            bottom: 4px;
-            height: 2px;
-            border-radius: 999px;
-            background: linear-gradient(90deg, var(--secondary-color), #ffaa55);
-            opacity: 0;
-            transform: scaleX(0.6);
-            transition: var(--transition);
-        }
-
-        .nav-links a.link:hover {
-            color: var(--primary-color);
-            background-color: rgba(15, 23, 42, 0.03);
-        }
-
-        .nav-links a.link:hover::after {
-            opacity: 1;
-            transform: scaleX(1);
-        }
-
-        /* Mobile Menu Toggle */
-        .menu-toggle {
-            display: none;
-            font-size: 28px;
-            color: var(--primary-color);
-            cursor: pointer;
-        }
-
-        /* --- HERO SECTION --- */
-        .hero {
-            position: relative;
-            background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.18), transparent 55%),
-                        radial-gradient(circle at bottom right, rgba(255, 102, 0, 0.22), transparent 55%),
-                        linear-gradient(rgba(0, 21, 51, 0.9), rgba(0, 36, 82, 0.88)),
-                        url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-position: center;
-            height: 85vh;
-            min-height: 640px;
-            display: flex;
-            align-items: center;
-            color: var(--white);
-        }
-
-        .hero::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.6));
-            mix-blend-mode: multiply;
-        }
-
-        .hero-content {
-            position: relative;
-            max-width: 900px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .hero-badge-row {
-            display: inline-flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 13px;
-            padding: 6px 12px;
-            border-radius: 999px;
-            border: 1px solid rgba(148, 163, 184, 0.6);
-            background: rgba(15, 23, 42, 0.6);
-        }
-
-        .hero-badge i {
-            font-size: 16px;
-            color: var(--secondary-color);
-        }
-
-        .hero h1 {
-            font-size: clamp(34px, 4vw, 56px);
-            font-weight: 800;
-            margin-bottom: 20px;
-            line-height: 1.15;
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
-        }
-
-        .hero p {
-            font-size: 18px;
-            margin-bottom: 32px;
-            opacity: 0.92;
-            font-weight: 300;
-            max-width: 780px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .hero-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 14px;
-            flex-wrap: wrap;
-        }
-
-        .hero-metadata {
-            margin-top: 28px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 22px;
-            font-size: 13px;
-            opacity: 0.9;
-        }
-
-        .hero-metadata-item {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .hero-metadata-item i {
-            font-size: 16px;
-            color: #a5b4fc;
-        }
-
-        /* --- INTRO SECTION --- */
-        .intro {
-            padding: 80px 0 60px;
-        }
-
-        .section-title {
-            text-align: center;
-        }
-
-        .section-title h2 {
-            font-size: 32px;
-            color: var(--primary-color);
-            margin-bottom: 8px;
-            font-weight: 700;
-        }
-
-        .section-subtitle {
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 0.18em;
-            color: var(--secondary-color);
-            margin-bottom: 8px;
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 3px;
-            background: linear-gradient(90deg, var(--secondary-color), #ffb380);
-            margin: 18px auto 32px;
-            border-radius: 999px;
-        }
-
-        .intro p {
-            font-size: 17px;
-            color: var(--muted-text);
-            max-width: 900px;
-            margin: 0 auto 14px;
-        }
-
-        /* --- COMPETENCIES (SERVICES) --- */
-        .competencies {
-            padding: 80px 0;
-            background: radial-gradient(circle at top right, #e0f2fe 0, transparent 55%),
-                        radial-gradient(circle at bottom left, #fee2e2 0, transparent 55%),
-                        var(--light-bg);
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 28px;
-            margin-top: 40px;
-        }
-
-        .service-card {
-            background: rgba(255, 255, 255, 0.98);
-            padding: 30px 26px;
-            border-radius: var(--radius-lg);
-            box-shadow: 0 14px 35px rgba(15, 23, 42, 0.08);
-            transition: var(--transition);
-            border: 1px solid rgba(226, 232, 240, 0.9);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .service-card::before {
-            content: "";
-            position: absolute;
-            inset: -40%;
-            background: radial-gradient(circle at top left, rgba(37, 99, 235, 0.06), transparent 55%);
-            opacity: 0;
-            transition: var(--transition);
-        }
-
-        .service-card:hover {
-            transform: translateY(-6px) scale(1.01);
-            box-shadow: var(--shadow-soft);
-            border-color: rgba(148, 163, 184, 0.8);
-        }
-
-        .service-card:hover::before {
-            opacity: 1;
-        }
-
-        .service-icon {
-            position: relative;
-            width: 56px;
-            height: 56px;
-            border-radius: 20px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-            background: radial-gradient(circle at 20% 0, rgba(59, 130, 246, 0.25), transparent 60%),
-                        linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.85));
-            color: #e5e7eb;
-        }
-
-        .service-icon i {
-            font-size: 28px;
-        }
-
-        .service-card h3 {
-            font-size: 20px;
-            margin-bottom: 10px;
-            color: var(--primary-color);
-        }
-
-        .service-card p {
-            color: var(--muted-text);
-            font-size: 15px;
-            line-height: 1.7;
-        }
-
-        /* --- WHY CHOOSE US (TRUST SIGNALS) --- */
-        .why-us {
-            padding: 80px 0;
-            background-color: var(--white);
-        }
-
-        .trust-layout {
-            display: grid;
-            grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-            gap: 40px;
-            align-items: flex-start;
-        }
-
-        .trust-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-            gap: 24px;
-            margin-top: 10px;
-        }
-
-        .trust-item {
-            text-align: left;
-            padding: 18px 18px 18px 16px;
-            border-radius: 14px;
-            border: 1px solid rgba(226, 232, 240, 0.9);
-            background-color: #f9fafb;
-            transition: var(--transition);
-            position: relative;
-        }
-
-        .trust-item::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 18px;
-            bottom: 18px;
-            width: 3px;
-            border-radius: 999px;
-            background: linear-gradient(180deg, var(--secondary-color), #ffb380);
-            opacity: 0.7;
-        }
-
-        .trust-item:hover {
-            background-color: #ffffff;
-            box-shadow: 0 14px 30px rgba(15, 23, 42, 0.08);
-            transform: translateY(-3px);
-        }
-
-        .trust-item h3 {
-            color: var(--primary-color);
-            font-size: 17px;
-            margin-bottom: 6px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .trust-item i {
-            color: var(--secondary-color);
-            font-size: 20px;
-        }
-
-        .trust-item p {
-            font-size: 14px;
-            color: var(--muted-text);
-        }
-
-        .sectors-card {
-            border-radius: 18px;
-            padding: 22px 22px 20px;
-            background: radial-gradient(circle at top left, rgba(59, 130, 246, 0.12), transparent 60%),
-                        #0b1220;
-            color: #e5e7eb;
-        }
-
-        .sectors-card h3 {
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
-
-        .sector-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 8px;
-        }
-
-        .sector-tag {
-            font-size: 12px;
-            padding: 5px 10px;
-            border-radius: 999px;
-            background-color: rgba(15, 23, 42, 0.92);
-            border: 1px solid rgba(148, 163, 184, 0.7);
-        }
-
-        /* --- CTA SECTION --- */
-        .cta {
-            background: radial-gradient(circle at top right, rgba(96, 165, 250, 0.18), transparent 60%),
-                        linear-gradient(135deg, #020617, #020617 55%, #0b1120);
-            color: var(--white);
-            padding: 72px 0 76px;
-            text-align: center;
-        }
-
-        .cta h2 {
-            font-size: 30px;
-            margin-bottom: 18px;
-        }
-
-        .cta p {
-            max-width: 560px;
-            margin: 0 auto 28px;
-            opacity: 0.9;
-        }
-
-        /* --- FOOTER --- */
-        footer {
-            background-color: #020617;
-            color: #9ca3af;
-            padding: 70px 0 22px;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        .footer-col h3 {
-            color: var(--white);
-            font-size: 18px;
-            margin-bottom: 18px;
-            font-weight: 600;
-        }
-
-        .footer-col p {
-            margin-bottom: 14px;
-            font-size: 14px;
-        }
-
-        .footer-col ul li {
-            margin-bottom: 10px;
-        }
-
-        .footer-col ul li a {
-            color: #9ca3af;
-            font-size: 14px;
-        }
-
-        .footer-col ul li a:hover {
-            color: var(--secondary-color);
-            padding-left: 4px;
-        }
-
-        .contact-info li {
-            display: flex;
-            gap: 10px;
-            align-items: flex-start;
-        }
-
-        .contact-info i {
-            color: var(--secondary-color);
-            margin-top: 3px;
-        }
-
-        .copyright {
-            border-top: 1px solid #1f2937;
-            padding-top: 18px;
-            text-align: center;
-            font-size: 13px;
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .copyright-links a {
-            margin-left: 18px;
-            color: #9ca3af;
-            font-size: 13px;
-        }
-
-        .copyright-links a:hover {
-            color: var(--white);
-        }
-
-        /* --- RESPONSIVE MEDIA QUERIES --- */
-        @media (max-width: 1100px) {
-            .nav-links {
-                gap: 10px;
-            }
-        }
-
-        @media (max-width: 992px) {
-            .hero h1 { font-size: 32px; }
-            .hero p { font-size: 16px; }
-            .hero-metadata { gap: 14px; }
-        }
-
-        @media (max-width: 768px) {
-            .nav-right {
-                gap: 8px;
-            }
-
-            .nav-links {
-                display: none; /* Hidden by default on mobile */
-                flex-direction: column;
-                position: absolute;
-                top: 64px;
-                left: 0;
-                width: 100%;
-                background-color: #ffffff;
-                padding: 14px 0 10px;
-                box-shadow: 0 5px 10px rgba(15, 23, 42, 0.15);
-                text-align: center;
-                border-radius: 0 0 16px 16px;
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .nav-links a {
-                margin: 2px 14px;
-                justify-content: center;
-            }
-
-            .btn-quote {
-                display: none; /* keep header tight on small screens */
-            }
-
-            .menu-toggle { display: block; }
-
-            .hero {
-                min-height: 540px;
-                height: auto;
-                padding: 70px 0 60px;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-                width: 100%;
-                max-width: 320px;
-                margin: 0 auto;
-            }
-
-            .hero-buttons a {
-                width: 100%;
-            }
-
-            .trust-layout {
-                grid-template-columns: minmax(0, 1fr);
-            }
-
-            .copyright {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .copyright-links a {
-                margin: 0 10px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neo Holdings - Engineering Progress. Powering Industry.</title>
+  <meta name="description" content="Neo Holdings is a multi-discipline industrial and construction supply company delivering reliable materials, machinery, and technical solutions to Bangladesh’s growing infrastructure and industrial sectors." />
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/@phosphor-icons/web" defer></script>
+
+  <style>
+    :root {
+      --primary-color: #003366;
+      --secondary-color: #ff6600;
+      --text-color: #1f2933;
+      --muted-text: #6b7280;
+      --light-bg: #f4f6f8;
+      --white: #ffffff;
+      --border-color: #e0e0e0;
+      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.18);
+      --transition: all 0.25s ease;
+      --radius-lg: 16px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Roboto', sans-serif;
+      color: var(--text-color);
+      line-height: 1.6;
+      background-color: var(--white);
+      overflow-x: hidden;
+    }
+
+    a { text-decoration: none; color: inherit; transition: var(--transition); }
+    ul { list-style: none; }
+    img { max-width: 100%; height: auto; display: block; }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 28px;
+      font-size: 16px;
+      font-weight: 600;
+      border-radius: 999px;
+      cursor: pointer;
+      text-align: center;
+      border: 2px solid transparent;
+      white-space: nowrap;
+    }
+    .btn i { font-size: 18px; }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--secondary-color), #ff8533);
+      color: var(--white);
+      box-shadow: 0 12px 30px rgba(255, 102, 0, 0.35);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 45px rgba(255, 102, 0, 0.5);
+    }
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--white);
+      border-color: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(12px);
+    }
+    .btn-secondary:hover {
+      background-color: rgba(255, 255, 255, 0.08);
+      border-color: var(--white);
+    }
+    .btn-ghost {
+      background-color: transparent;
+      color: var(--primary-color);
+      border-color: rgba(148, 163, 184, 0.6);
+      padding-inline: 20px;
+      font-size: 14px;
+    }
+    .btn-ghost:hover {
+      background-color: rgba(15, 23, 42, 0.03);
+      border-color: var(--primary-color);
+    }
+    .btn-white {
+      background-color: var(--white);
+      color: var(--primary-color);
+      border-color: var(--white);
+    }
+    .btn-white:hover {
+      background-color: transparent;
+      color: var(--white);
+      border-color: var(--white);
+    }
+
+    /* Header & Nav */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      padding: 10px 0;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      position: relative;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-img {
+      height: 50px;
+      width: auto;
+    }
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .logo-text-main {
+      font-size: 22px;
+      font-weight: 900;
+      color: var(--primary-color);
+      letter-spacing: 0.12em;
+    }
+    .logo-text-sub {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted-text);
+    }
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background-color: #ffffff;
+    }
+    .nav-links a {
+      font-weight: 500;
+      font-size: 14px;
+      color: var(--text-color);
+      position: relative;
+      padding: 6px 10px;
+      border-radius: 999px;
+    }
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 14px;
+      right: 14px;
+      bottom: 4px;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--secondary-color), #ffaa55);
+      opacity: 0;
+      transform: scaleX(0.6);
+      transition: var(--transition);
+    }
+    .nav-links a:hover {
+      color: var(--primary-color);
+      background-color: rgba(15, 23, 42, 0.03);
+    }
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      opacity: 1;
+      transform: scaleX(1);
+    }
+    .nav-links a.active {
+      color: var(--primary-color);
+      background-color: rgba(15, 23, 42, 0.04);
+    }
+    .menu-toggle {
+      display: none;
+      font-size: 28px;
+      color: var(--primary-color);
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      background:
+        radial-gradient(circle at top left, rgba(255, 255, 255, 0.18), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(255, 102, 0, 0.22), transparent 55%),
+        linear-gradient(rgba(0, 21, 51, 0.9), rgba(0, 36, 82, 0.88)),
+        url('assets/images/hero/home-hero.jpg');
+      background-size: cover;
+      background-position: center;
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      color: var(--white);
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.82), rgba(15, 23, 42, 0.7));
+      mix-blend-mode: multiply;
+    }
+    .hero-inner {
+      position: relative;
+      max-width: 980px;
+      margin: 0 auto;
+      text-align: left;
+      padding: 60px 0;
+    }
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.6);
+    }
+    .hero-badge i {
+      font-size: 16px;
+      color: var(--secondary-color);
+    }
+    .hero-title {
+      font-size: clamp(34px, 4vw, 56px);
+      font-weight: 800;
+      margin-bottom: 16px;
+      line-height: 1.12;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .hero-subtitle {
+      font-size: 18px;
+      margin-bottom: 26px;
+      opacity: 0.94;
+      font-weight: 300;
+      max-width: 720px;
+    }
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 26px;
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      font-size: 13px;
+      opacity: 0.9;
+    }
+    .hero-meta-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .hero-meta-item i {
+      font-size: 16px;
+      color: #a5b4fc;
+    }
+
+    /* Sections */
+    .section {
+      padding: 80px 0;
+    }
+    .section-light { background-color: var(--light-bg); }
+    .section-title {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 40px;
+    }
+    .section-kicker {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--secondary-color);
+      margin-bottom: 6px;
+    }
+    .section-title h2 {
+      font-size: 30px;
+      color: var(--primary-color);
+      margin-bottom: 8px;
+    }
+    .section-title p {
+      font-size: 15px;
+      color: var(--muted-text);
+    }
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--secondary-color), #ffb380);
+      margin: 18px auto 0;
+      border-radius: 999px;
+    }
+
+    /* Intro */
+    .intro-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 40px;
+      align-items: center;
+    }
+    .intro-copy p {
+      font-size: 16px;
+      color: var(--muted-text);
+      margin-bottom: 12px;
+    }
+    .intro-points {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-top: 14px;
+    }
+    .intro-point {
+      padding: 14px 16px;
+      border-radius: 14px;
+      background-color: #f9fafb;
+      border: 1px solid rgba(226, 232, 240, 0.9);
+      font-size: 14px;
+      color: #4b5563;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .intro-point i {
+      color: var(--secondary-color);
+      font-size: 18px;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+    .intro-media {
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.2);
+    }
+    .intro-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      max-height: 360px;
+    }
+
+    /* Services Preview */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      margin-top: 24px;
+    }
+    .service-card {
+      background: #ffffff;
+      padding: 24px 22px;
+      border-radius: var(--radius-lg);
+      box-shadow: 0 14px 35px rgba(15, 23, 42, 0.06);
+      border: 1px solid rgba(226, 232, 240, 0.9);
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card:hover {
+      transform: translateY(-4px) scale(1.01);
+      box-shadow: var(--shadow-soft);
+      border-color: rgba(148, 163, 184, 0.9);
+    }
+    .service-icon {
+      position: relative;
+      width: 52px;
+      height: 52px;
+      border-radius: 18px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      background:
+        radial-gradient(circle at 20% 0, rgba(59, 130, 246, 0.25), transparent 60%),
+        linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.85));
+      color: #e5e7eb;
+    }
+    .service-icon i { font-size: 26px; }
+    .service-card h3 {
+      font-size: 18px;
+      color: var(--primary-color);
+      margin-bottom: 6px;
+    }
+    .service-card p {
+      font-size: 14px;
+      color: var(--muted-text);
+      margin-bottom: 10px;
+    }
+    .service-list {
+      font-size: 13px;
+      color: #4b5563;
+    }
+    .service-list li { margin-bottom: 4px; }
+
+    /* Gallery */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+      margin-top: 26px;
+    }
+    .gallery-item {
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 12px 26px rgba(15, 23, 42, 0.16);
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      max-height: 220px;
+      transition: transform 0.6s ease;
+    }
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+    .gallery-label {
+      position: absolute;
+      left: 14px;
+      bottom: 14px;
+      padding: 5px 11px;
+      border-radius: 999px;
+      background-color: rgba(15, 23, 42, 0.86);
+      color: #e5e7eb;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* Clients */
+    .clients-strip {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 26px;
+      margin-top: 26px;
+      align-items: center;
+    }
+    .clients-logo {
+      height: 40px;
+      max-width: 140px;
+      object-fit: contain;
+      filter: grayscale(100%);
+      opacity: 0.7;
+      transition: var(--transition);
+    }
+    .clients-logo:hover {
+      filter: grayscale(0%);
+      opacity: 1;
+      transform: translateY(-2px);
+    }
+
+    /* CTA */
+    .cta {
+      background:
+        radial-gradient(circle at top right, rgba(96, 165, 250, 0.18), transparent 60%),
+        linear-gradient(135deg, #020617, #020617 55%, #0b1120);
+      color: var(--white);
+      padding: 72px 0 76px;
+      text-align: center;
+    }
+    .cta h2 { font-size: 30px; margin-bottom: 14px; }
+    .cta p {
+      max-width: 560px;
+      margin: 0 auto 24px;
+      opacity: 0.9;
+      font-size: 15px;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #020617;
+      color: #9ca3af;
+      padding: 40px 0 18px;
+      font-size: 13px;
+    }
+    .footer-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      border-top: 1px solid #1f2937;
+      padding-top: 16px;
+      margin-top: 10px;
+    }
+    .footer-links a {
+      margin-left: 16px;
+      color: #9ca3af;
+    }
+    .footer-links a:hover { color: var(--white); }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        right: 16px;
+        top: 60px;
+        flex-direction: column;
+        background: #ffffff;
+        box-shadow: 0 18px 40px rgba(15, 23, 42, 0.18);
+        padding: 8px 10px;
+        border-radius: 14px;
+        width: min(320px, 92vw);
+      }
+      .nav-links.open { display: flex; }
+      .menu-toggle { display: block; }
+      .intro-grid { grid-template-columns: minmax(0, 1fr); }
+      .hero-subtitle { max-width: 100%; }
+    }
+  </style>
 </head>
 <body>
 
-    <!-- HEADER -->
-    <header>
-        <div class="container">
-            <nav>
-                <a href="index.html" class="logo">
-                    <i class="ph-fill ph-buildings"></i>
-                    <div>
-                        Neo Holdings
-                        <div class="sub">Engineering • Indenting • Supply</div>
-                    </div>
-                </a>
-
-                <div class="nav-right">
-                    <div class="menu-toggle" id="mobile-menu">
-                        <i class="ph ph-list"></i>
-                    </div>
-                    <div class="nav-links" id="nav-links">
-                        <!-- GLOBAL NAV (as per structure doc) -->
-                        <a href="index.html" class="link">Home</a>
-                        <a href="about.html" class="link">About Us</a>
-                        <a href="services.html" class="link">Services</a>
-                        <a href="machinery-indenting.html" class="link">Machinery Indenting</a>
-                        <a href="civil-construction.html" class="link">Civil Construction</a>
-                        <a href="industrial-supply.html" class="link">Industrial Supply</a>
-                        <a href="projects.html" class="link">Projects</a>
-                        <a href="contact.html" class="link">Contact Us</a>
-                    </div>
-                    <a href="contact.html" class="btn-quote">
-                        Request a Quote
-                    </a>
-                </div>
-            </nav>
+  <!-- HEADER -->
+  <header>
+    <div class="container">
+      <nav>
+        <a href="index.html" class="logo">
+          <img src="assets/images/branding/logo-neo-holdings.png" alt="Neo Holdings Logo" class="logo-img" />
+          <div class="logo-text">
+            <span class="logo-text-main">NEO HOLDINGS</span>
+            <span class="logo-text-sub">CONSTRUCTION, SUPPLY, BUILD</span>
+          </div>
+        </a>
+        <div class="nav-right">
+          <div class="nav-links" id="navLinks">
+            <a href="index.html" class="active">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html" class="btn btn-ghost">Contact</a>
+          </div>
+          <button class="menu-toggle" aria-label="Toggle navigation" id="menuToggle">
+            <i class="ph ph-list"></i>
+          </button>
         </div>
-    </header>
+      </nav>
+    </div>
+  </header>
 
-    <!-- HERO SECTION -->
+  <main id="home">
+    <!-- HERO -->
     <section class="hero">
-        <div class="container hero-content">
-            <div class="hero-badge-row">
-                <span class="hero-badge">
-                    <i class="ph-fill ph-check-circle"></i>
-                    PWD Enlisted & Tender Ready
-                </span>
-                <span class="hero-badge">
-                    <i class="ph-fill ph-bank"></i>
-                    LC & Indenting Support
-                </span>
-                <span class="hero-badge">
-                    <i class="ph-fill ph-globe-hemisphere-east"></i>
-                    Global Tier-1 Manufacturers
-                </span>
-            </div>
-
-            <h1>Engineering Progress.<br>Powering Industry.</h1>
-            <p>The trusted partner for Bangladesh’s mega-projects. From heavy machinery indenting to large-scale construction supply—Neo Holdings delivers end-to-end industrial solutions.</p>
-            <div class="hero-buttons">
-                <a href="services.html" class="btn btn-primary">
-                    <i class="ph ph-stack"></i>
-                    View Our Services
-                </a>
-                <a href="contact.html" class="btn btn-secondary">
-                    <i class="ph ph-file-text"></i>
-                    Contact for Tenders
-                </a>
-            </div>
-
-            <div class="hero-metadata">
-                <div class="hero-metadata-item">
-                    <i class="ph-fill ph-buildings"></i>
-                    Serving PWD, Real Estate & FMCG
-                </div>
-                <div class="hero-metadata-item">
-                    <i class="ph-fill ph-shield-check"></i>
-                    Compliance, HSE & Financial Solvency
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- INTRO SECTION -->
-    <section class="intro" id="about-overview">
-        <div class="container">
-            <div class="section-title">
-                <div class="section-subtitle">Company Overview</div>
-                <h2>A Conglomerate Built on Reliability</h2>
-            </div>
-            <div class="content">
-                <p>In an era of rapid urbanization and industrial growth, Neo Holdings stands as a pillar of strength. We are a multi-disciplinary firm serving the Public Works Department (PWD), top-tier real estate developers, and the FMCG sector.</p>
-                <p>By bridging the gap between global technology and local implementation, we ensure your projects are completed on time, within budget, and to the highest international standards.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- CORE COMPETENCIES (SERVICES) -->
-    <section class="competencies" id="services-overview">
-        <div class="container">
-            <div class="section-title">
-                <div class="section-subtitle">What We Do</div>
-                <h2>Our Core Competencies</h2>
-            </div>
-            <div class="services-grid">
-                <!-- Box 1 -->
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="ph ph-globe-hemisphere-east"></i>
-                    </div>
-                    <h3>Machinery Indenting</h3>
-                    <p>Direct sourcing of heavy earth-moving equipment and industrial automation lines from Tier-1 global manufacturers—covering negotiation, LC opening, and site delivery.</p>
-                </div>
-
-                <!-- Box 2 -->
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="ph ph-crane-tower"></i>
-                    </div>
-                    <h3>Civil Construction</h3>
-                    <p>Turnkey execution of commercial buildings, factories, warehouses, and government infrastructure projects with strict adherence to PWD and safety standards.</p>
-                </div>
-
-                <!-- Box 3 -->
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="ph ph-truck"></i>
-                    </div>
-                    <h3>Industrial Supply Chain</h3>
-                    <p>Seamless procurement and distribution of bulk construction materials, industrial consumables, and FMCG inputs to keep your projects running without interruption.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- WHY CHOOSE US (TRUST SIGNALS) -->
-    <section class="why-us" id="trust">
-        <div class="container">
-            <div class="section-title">
-                <div class="section-subtitle">Why Neo Holdings</div>
-                <h2>Why Industry Leaders Trust Us</h2>
-            </div>
-
-            <div class="trust-layout">
-                <div>
-                    <div class="trust-grid">
-                        <div class="trust-item">
-                            <h3><i class="ph-fill ph-check-circle"></i>Government Enlisted</h3>
-                            <p>Fully compliant with PWD and government tender regulations for construction, indenting, and supply contracts.</p>
-                        </div>
-                        <div class="trust-item">
-                            <h3><i class="ph-fill ph-bank"></i>Financial Strength</h3>
-                            <p>Capable of handling large bank guarantees and LCs for mega-projects, ensuring comfort for both public and private clients.</p>
-                        </div>
-                        <div class="trust-item">
-                            <h3><i class="ph-fill ph-handshake"></i>International Network</h3>
-                            <p>Partners across China, Japan, Germany, and Korea to source authentic machinery and technology at competitive lead times.</p>
-                        </div>
-                        <div class="trust-item">
-                            <h3><i class="ph-fill ph-shield-check"></i>Safety First</h3>
-                            <p>Rigid adherence to Health, Safety, and Environment (HSE) protocols for every site and supply operation.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="sectors-card">
-                    <h3>Sectors We Serve</h3>
-                    <p style="font-size: 14px; opacity: 0.9;">Our track record spans complex and mission-critical projects across Bangladesh’s key growth sectors.</p>
-                    <div class="sector-tags">
-                        <span class="sector-tag">Public Works Department (PWD)</span>
-                        <span class="sector-tag">National Real Estate Developers</span>
-                        <span class="sector-tag">Multinational FMCG Corporations</span>
-                        <span class="sector-tag">Textile &amp; Garment (RMG)</span>
-                    </div>
-                    <p style="font-size: 12px; margin-top: 10px; opacity: 0.8;">
-                        *On the live site, you can showcase client logos and named reference projects here.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA SECTION -->
-    <section class="cta" id="contact-cta">
-        <div class="container">
-            <h2>Ready to start your next project?</h2>
-            <p>Join the leading industries in Bangladesh building their future with Neo Holdings—whether for tenders, indenting, or long-term supply partnerships.</p>
-            <a href="contact.html" class="btn btn-white">
-                <i class="ph ph-paper-plane-right"></i>
-                Get in Touch
+      <div class="container">
+        <div class="hero-inner">
+          <div class="hero-badges">
+            <span class="hero-badge"><i class="ph ph-factory"></i> Industrial &amp; Construction Supply</span>
+            <span class="hero-badge"><i class="ph ph-flask"></i> R&amp;D-led Product Development</span>
+          </div>
+          <h1 class="hero-title">Engineering Progress. Powering Industry.</h1>
+          <p class="hero-subtitle">
+            Neo Holdings is a multi-discipline industrial and construction supply company
+            delivering reliable materials, machinery, and technical solutions to Bangladesh’s
+            growing infrastructure and industrial sectors.
+          </p>
+          <div class="hero-buttons">
+            <a href="services.html" class="btn btn-primary">
+              Explore Services
+              <i class="ph ph-arrow-right"></i>
             </a>
+            <a href="contact.html" class="btn btn-secondary">
+              Talk to Our Team
+            </a>
+          </div>
+          <div class="hero-meta">
+            <div class="hero-meta-item">
+              <i class="ph ph-shield-check"></i>
+              <span>From sourcing and indenting to R&amp;D-led product development.</span>
+            </div>
+            <div class="hero-meta-item">
+              <i class="ph ph-gear-six"></i>
+              <span>We don’t just supply products — we help build outcomes.</span>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <!-- Brand Col -->
-                <div class="footer-col">
-                    <h3>Neo Holdings</h3>
-                    <p>Building the backbone of Bangladesh’s industry through engineering excellence, global sourcing, and reliable supply chains.</p>
-                </div>
-
-                <!-- Links Col -->
-                <div class="footer-col">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="services.html">Our Services</a></li>
-                        <li><a href="#">Tender Notices</a></li>
-                        <li><a href="projects.html">Projects &amp; Partners</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
-                    </ul>
-                </div>
-
-                <!-- Contact Col -->
-                <div class="footer-col">
-                    <h3>Contact Us</h3>
-                    <ul class="contact-info">
-                        <li>
-                            <i class="ph-fill ph-map-pin"></i>
-                            <span>Gulshan, Dhaka, Bangladesh</span>
-                        </li>
-                        <li>
-                            <i class="ph-fill ph-phone"></i>
-                            <span>+880 1700-000000</span>
-                        </li>
-                        <li>
-                            <i class="ph-fill ph-envelope-simple"></i>
-                            <span>info@neoholdings.com</span>
-                        </li>
-                    </ul>
-                </div>
+    <!-- INTRO -->
+    <section class="section">
+      <div class="container intro-grid">
+        <div class="intro-copy">
+          <div class="section-kicker">Neo Holdings at a Glance</div>
+          <h2 style="font-size:24px; color:var(--primary-color); margin-bottom:6px;">
+            Construction. Supply. Build.
+          </h2>
+          <p>
+            Neo Holdings operates across an integrated portfolio of construction and industrial
+            support services. We help projects that demand quality, speed, and performance.
+          </p>
+          <p>
+            Whether you need construction inputs, industrial machinery, or specialized spare
+            parts, we’re ready to support your project from requirement to delivery.
+          </p>
+          <div class="intro-points">
+            <div class="intro-point">
+              <i class="ph ph-crane-tower"></i>
+              <span>Essential construction inputs for large and mid-scale projects — ensuring durability, compliance, and on-time delivery.</span>
             </div>
-
-            <div class="copyright">
-                <div>&copy; 2025 Neo Holdings. All Rights Reserved.</div>
-                <div class="copyright-links">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
-                </div>
+            <div class="intro-point">
+              <i class="ph ph-gear-six"></i>
+              <span>Industrial-grade machinery, equipment, and heavy-use hardware for factories, plants, and demanding environments.</span>
             </div>
+            <div class="intro-point">
+              <i class="ph ph-flask"></i>
+              <span>Spare parts and products developed and tested against real field performance requirements.</span>
+            </div>
+          </div>
         </div>
-    </footer>
+        <div class="intro-media">
+          <img src="assets/images/home/intro-workshop.jpg" alt="Neo Holdings R&amp;D and engineering workshop" />
+        </div>
+      </div>
+    </section>
 
-    <!-- Scripts -->
-    <script>
-        // Simple Mobile Menu Toggle
-        const menuToggle = document.getElementById('mobile-menu');
-        const navLinks = document.getElementById('nav-links');
+    <!-- SERVICES PREVIEW -->
+    <section class="section section-light">
+      <div class="container">
+        <div class="section-title">
+          <div class="section-kicker">What We Do</div>
+          <h2>Construction Supply, Industrial Supply &amp; Product Development</h2>
+          <p>
+            Neo Holdings supports construction, industrial plants, and high-temperature
+            applications with reliable supply and technical alignment.
+          </p>
+        </div>
+        <div class="services-grid">
+          <article class="service-card">
+            <div class="service-icon"><i class="ph ph-crane-tower"></i></div>
+            <h3>Construction Supply</h3>
+            <p>We provide essential construction inputs for large and mid-scale projects — ensuring durability, compliance, and on-time delivery.</p>
+            <ul class="service-list">
+              <li>High-quality materials and project-specific supplies</li>
+              <li>Fast, dependable delivery</li>
+              <li>Trusted supply partnerships</li>
+            </ul>
+          </article>
+          <article class="service-card">
+            <div class="service-icon"><i class="ph ph-factory"></i></div>
+            <h3>Industrial Supply (Machineries)</h3>
+            <p>We source and supply industrial-grade machinery and equipment for factories, plants, and heavy-duty work environments.</p>
+            <ul class="service-list">
+              <li>Industrial machines and tools</li>
+              <li>Engineering equipment</li>
+              <li>Heavy-use, performance-tested hardware</li>
+              <li>Supply solutions tailored to operational needs</li>
+            </ul>
+          </article>
+          <article class="service-card">
+            <div class="service-icon"><i class="ph ph-flask"></i></div>
+            <h3>Product Development &amp; Spare Parts</h3>
+            <p>We develop, assemble, and supply spare parts for diverse industrial sectors — focusing on performance fit, long-life cycles, and availability.</p>
+            <ul class="service-list">
+              <li>Construction &amp; steel and manufacturing</li>
+              <li>Industrial plants &amp; refractory applications</li>
+              <li>Chemical / solutions environments</li>
+            </ul>
+          </article>
+        </div>
+        <div style="text-align:center; margin-top:26px;">
+          <a href="services.html" class="btn btn-primary">View All Services <i class="ph ph-arrow-right"></i></a>
+        </div>
+      </div>
+    </section>
 
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-    </script>
+    <!-- GALLERY -->
+    <section class="section">
+      <div class="container">
+        <div class="section-title">
+          <div class="section-kicker">On the Ground</div>
+          <h2>From engineering desks to active job sites.</h2>
+          <p>
+            We support kilns, furnaces, steel and heavy industries, warehouses, and live civil construction fronts
+            with materials, machinery, and refractory products.
+          </p>
+        </div>
+        <div class="gallery-grid">
+          <figure class="gallery-item">
+            <img src="assets/images/home/gallery-civil.jpg" alt="Civil construction site" />
+            <figcaption class="gallery-label">Civil construction</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/images/home/gallery-highrise.jpg" alt="High-rise project and cranes" />
+            <figcaption class="gallery-label">High-rise &amp; infrastructure</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/images/home/gallery-warehouse.jpg" alt="Industrial warehouse supply" />
+            <figcaption class="gallery-label">Industrial supply chain</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/images/home/gallery-machinery.jpg" alt="Close-up of gears and machinery" />
+            <figcaption class="gallery-label">Machinery &amp; spares</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLIENTS -->
+    <section class="section section-light">
+      <div class="container">
+        <div class="section-title">
+          <div class="section-kicker">Clients &amp; Associates</div>
+          <h2>Partners who trust Neo Holdings.</h2>
+          <p>
+            Neo Holdings proudly works with respected organizations and industry partners, including:
+            TEAL, Elite Steels, Janshin Refractory, Consol Construction Chemical &amp; Solution,
+            Nirman Associates, CSD, SS Trade International, and Border Guard Bangladesh.
+          </p>
+        </div>
+        <div class="clients-strip">
+          <img src="assets/images/clients/logo-elite-steel.png" alt="Elite Steel" class="clients-logo" />
+          <img src="assets/images/clients/logo-consol.png" alt="Consol Construction Chemicals &amp; Solutions" class="clients-logo" />
+          <img src="assets/images/clients/logo-nirman.png" alt="Nirman Associates" class="clients-logo" />
+          <img src="assets/images/clients/logo-csd.png" alt="CSD" class="clients-logo" />
+          <img src="assets/images/clients/logo-bgb.png" alt="Border Guard Bangladesh" class="clients-logo" />
+          <img src="assets/images/clients/logo-teal.png" alt="TEAL" class="clients-logo" />
+          <img src="assets/images/clients/logo-janshin.png" alt="Janshin Refractory" class="clients-logo" />
+          <img src="assets/images/clients/logo-ss-trade.png" alt="SS Trade International" class="clients-logo" />
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+      <div class="container">
+        <h2>Let’s Build Together</h2>
+        <p>
+          Have a project requirement or sourcing need? Reach out to Neo Holdings — where construction and industry
+          meet dependable supply.
+        </p>
+        <div class="hero-buttons" style="justify-content:center;">
+          <a href="contact.html" class="btn btn-primary">
+            Contact Neo Holdings
+            <i class="ph ph-arrow-right"></i>
+          </a>
+          <a href="services.html" class="btn btn-white">View all services</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-bar">
+        <span>© <span id="year"></span> Neo Holdings. All rights reserved.</span>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="services.html">Services</a>
+          <a href="projects.html">Projects</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+    navLinks.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => navLinks.classList.remove('open'));
+    });
+  </script>
 </body>
 </html>

@@ -1,914 +1,387 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="top">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - Neo Holdings</title>
-    <meta name="description" content="Get in touch with Neo Holdings for tenders, machinery indenting, and construction inquiries. Corporate office in Dhaka.">
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-
-    <!-- Phosphor Icons -->
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
-
-    <style>
-        /* --- RESET & BASE STYLES (same design system as index/services/projects) --- */
-        :root {
-            --primary-color: #003366; /* Deep Corporate Blue */
-            --secondary-color: #ff6600; /* Industrial Orange */
-            --text-color: #1f2933;
-            --muted-text: #6b7280;
-            --light-bg: #f4f6f8;
-            --white: #ffffff;
-            --border-color: #e0e0e0;
-            --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.18);
-            --transition: all 0.25s ease;
-            --radius-lg: 16px;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Roboto', sans-serif;
-            color: var(--text-color);
-            line-height: 1.6;
-            background-color: var(--white);
-            overflow-x: hidden;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: var(--transition);
-        }
-
-        ul {
-            list-style: none;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-
-        /* --- BUTTONS --- */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 12px 28px;
-            font-size: 16px;
-            font-weight: 600;
-            border-radius: 999px;
-            cursor: pointer;
-            text-align: center;
-            border: 2px solid transparent;
-            white-space: nowrap;
-        }
-
-        .btn i {
-            font-size: 18px;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--secondary-color), #ff8533);
-            color: var(--white);
-            box-shadow: 0 12px 30px rgba(255, 102, 0, 0.35);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 18px 45px rgba(255, 102, 0, 0.5);
-        }
-
-        .btn-quote {
-            background-color: var(--primary-color);
-            color: var(--white);
-            padding: 8px 18px;
-            border-radius: 999px;
-            font-weight: 500;
-            font-size: 14px;
-            border: 1px solid rgba(0, 0, 0, 0.02);
-        }
-
-        .btn-quote:hover {
-            background-color: #002244;
-            transform: translateY(-1px);
-        }
-
-        .btn-white {
-            background-color: var(--white);
-            color: var(--primary-color);
-            border: 2px solid var(--white);
-        }
-
-        .btn-white:hover {
-            background-color: transparent;
-            color: var(--white);
-        }
-
-        /* --- HEADER & NAV (global) --- */
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            padding: 10px 0;
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(16px);
-            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: 900;
-            color: var(--primary-color);
-            letter-spacing: -0.5px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .logo i {
-            font-size: 28px;
-            padding: 6px;
-            border-radius: 12px;
-            background: linear-gradient(135deg, rgba(0, 51, 102, 0.15), rgba(255, 102, 0, 0.18));
-        }
-
-        .logo span.sub {
-            font-size: 11px;
-            font-weight: 500;
-            color: var(--muted-text);
-            text-transform: uppercase;
-            letter-spacing: 0.18em;
-        }
-
-        .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 18px;
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 18px;
-            padding: 6px 10px;
-            border-radius: 999px;
-            background-color: #ffffff;
-        }
-
-        .nav-links a.link {
-            font-weight: 500;
-            font-size: 14px;
-            color: var(--text-color);
-            position: relative;
-            padding: 6px 10px;
-            border-radius: 999px;
-        }
-
-        .nav-links a.link::after {
-            content: "";
-            position: absolute;
-            left: 14px;
-            right: 14px;
-            bottom: 4px;
-            height: 2px;
-            border-radius: 999px;
-            background: linear-gradient(90deg, var(--secondary-color), #ffaa55);
-            opacity: 0;
-            transform: scaleX(0.6);
-            transition: var(--transition);
-        }
-
-        .nav-links a.link:hover {
-            color: var(--primary-color);
-            background-color: rgba(15, 23, 42, 0.03);
-        }
-
-        .nav-links a.link:hover::after {
-            opacity: 1;
-            transform: scaleX(1);
-        }
-
-        .nav-links a.link.active {
-            color: var(--primary-color);
-            background-color: rgba(15, 23, 42, 0.04);
-        }
-
-        .nav-links a.link.active::after {
-            opacity: 1;
-            transform: scaleX(1);
-        }
-
-        /* Mobile Menu Toggle */
-        .menu-toggle {
-            display: none;
-            font-size: 28px;
-            color: var(--primary-color);
-            cursor: pointer;
-        }
-
-        /* --- CONTACT HERO --- */
-        .contact-hero {
-            position: relative;
-            background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.18), transparent 55%),
-                        radial-gradient(circle at bottom right, rgba(255, 102, 0, 0.22), transparent 55%),
-                        linear-gradient(120deg, #020617, #02132f),
-                        url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-position: center;
-            min-height: 320px;
-            display: flex;
-            align-items: center;
-            color: var(--white);
-        }
-
-        .contact-hero::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(15, 23, 42, 0.78), rgba(15, 23, 42, 0.85));
-        }
-
-        .contact-hero-inner {
-            position: relative;
-            max-width: 880px;
-            margin: 0 auto;
-            padding: 50px 0;
-            text-align: left;
-        }
-
-        .breadcrumb {
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 0.18em;
-            opacity: 0.78;
-            margin-bottom: 10px;
-        }
-
-        .contact-hero h1 {
-            font-size: clamp(32px, 3.2vw, 44px);
-            font-weight: 800;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-        }
-
-        .contact-hero p {
-            font-size: 16px;
-            max-width: 620px;
-            opacity: 0.94;
-            margin-bottom: 18px;
-        }
-
-        .hero-meta-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 14px;
-            font-size: 13px;
-        }
-
-        .hero-meta-pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 6px 12px;
-            border-radius: 999px;
-            border: 1px solid rgba(148, 163, 184, 0.7);
-            background-color: rgba(15, 23, 42, 0.65);
-        }
-
-        .hero-meta-pill i {
-            font-size: 16px;
-            color: #a5b4fc;
-        }
-
-        /* --- CONTACT SECTION --- */
-        .contact-section {
-            padding: 80px 0;
-            background-color: var(--light-bg);
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-            gap: 0;
-            border-radius: 22px;
-            overflow: hidden;
-            background-color: #ffffff;
-            box-shadow: 0 18px 45px rgba(15, 23, 42, 0.14);
-            border: 1px solid rgba(226, 232, 240, 0.9);
-        }
-
-        /* Left: Details */
-        .contact-details {
-            background: radial-gradient(circle at top, rgba(148, 163, 184, 0.3), transparent 55%),
-                        linear-gradient(145deg, #020617, #020c27);
-            color: #e5e7eb;
-            padding: 40px 36px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .contact-details::before {
-            content: '';
-            position: absolute;
-            bottom: -40px;
-            right: -40px;
-            width: 180px;
-            height: 180px;
-            background: radial-gradient(circle, rgba(148, 163, 184, 0.25), transparent 70%);
-        }
-
-        .contact-details h3 {
-            font-size: 22px;
-            margin-bottom: 10px;
-        }
-
-        .contact-details p.lead {
-            margin-bottom: 24px;
-            opacity: 0.9;
-            font-size: 14px;
-        }
-
-        .badge-small {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 0.16em;
-            padding: 4px 10px;
-            border-radius: 999px;
-            border: 1px solid rgba(148, 163, 184, 0.8);
-            margin-bottom: 10px;
-        }
-
-        .badge-small i {
-            font-size: 14px;
-            color: var(--secondary-color);
-        }
-
-        .info-item {
-            display: flex;
-            gap: 14px;
-            margin-bottom: 18px;
-            align-items: flex-start;
-        }
-
-        .info-icon {
-            background: rgba(15, 23, 42, 0.9);
-            width: 42px;
-            height: 42px;
-            border-radius: 999px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            font-size: 22px;
-            color: var(--secondary-color);
-        }
-
-        .info-text h4 {
-            font-size: 14px;
-            margin-bottom: 3px;
-            font-weight: 600;
-            color: #e5e7eb;
-        }
-
-        .info-text p {
-            font-size: 13px;
-            opacity: 0.86;
-            margin-bottom: 2px;
-        }
-
-        .info-text a {
-            color: #e5e7eb;
-            text-decoration: underline;
-            text-decoration-thickness: 1px;
-            text-underline-offset: 3px;
-        }
-
-        .info-text a:hover {
-            color: #f97316;
-        }
-
-        .office-hours {
-            margin-top: 14px;
-            font-size: 12px;
-            opacity: 0.8;
-        }
-
-        /* Right: Form */
-        .contact-form-wrapper {
-            padding: 40px 34px;
-        }
-
-        .contact-form-wrapper h3 {
-            font-size: 22px;
-            color: var(--primary-color);
-            margin-bottom: 6px;
-        }
-
-        .contact-form-wrapper p {
-            font-size: 14px;
-            color: var(--muted-text);
-            margin-bottom: 24px;
-        }
-
-        .form-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 14px 16px;
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
-
-        .form-group.full-width {
-            grid-column: 1 / -1;
-        }
-
-        .form-label {
-            font-weight: 500;
-            color: #4b5563;
-            font-size: 13px;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 10px 13px;
-            border: 1px solid #d1d5db;
-            border-radius: 10px;
-            font-size: 14px;
-            font-family: inherit;
-            transition: var(--transition);
-            background-color: #f9fafb;
-        }
-
-        .form-control:focus {
-            outline: none;
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(0, 51, 102, 0.12);
-            background-color: #ffffff;
-        }
-
-        textarea.form-control {
-            resize: vertical;
-            min-height: 110px;
-        }
-
-        .note-small {
-            font-size: 11px;
-            color: #9ca3af;
-            margin-top: 4px;
-        }
-
-        .submit-row {
-            margin-top: 18px;
-        }
-
-        .submit-row .btn-primary {
-            width: 100%;
-        }
-
-        /* --- MAP SECTION --- */
-        .map-section {
-            width: 100%;
-            height: 420px;
-        }
-
-        .map-section iframe {
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
-
-        /* --- FOOTER --- */
-        footer {
-            background-color: #020617;
-            color: #9ca3af;
-            padding: 70px 0 22px;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        .footer-col h3 {
-            color: var(--white);
-            font-size: 18px;
-            margin-bottom: 18px;
-            font-weight: 600;
-        }
-
-        .footer-col p {
-            margin-bottom: 14px;
-            font-size: 14px;
-        }
-
-        .footer-col ul li {
-            margin-bottom: 10px;
-        }
-
-        .footer-col ul li a {
-            color: #9ca3af;
-            font-size: 14px;
-        }
-
-        .footer-col ul li a:hover {
-            color: var(--secondary-color);
-            padding-left: 4px;
-        }
-
-        .contact-info li {
-            display: flex;
-            gap: 10px;
-            align-items: flex-start;
-        }
-
-        .contact-info i {
-            color: var(--secondary-color);
-            margin-top: 3px;
-        }
-
-        .copyright {
-            border-top: 1px solid #1f2937;
-            padding-top: 18px;
-            text-align: center;
-            font-size: 13px;
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .copyright-links a {
-            margin-left: 18px;
-            color: #9ca3af;
-            font-size: 13px;
-        }
-
-        .copyright-links a:hover {
-            color: var(--white);
-        }
-
-        /* --- RESPONSIVE --- */
-        @media (max-width: 1100px) {
-            .nav-links {
-                gap: 10px;
-            }
-        }
-
-        @media (max-width: 992px) {
-            .contact-grid {
-                grid-template-columns: minmax(0, 1fr);
-            }
-
-            .contact-details,
-            .contact-form-wrapper {
-                padding: 32px 24px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav-right {
-                gap: 8px;
-            }
-
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 64px;
-                left: 0;
-                width: 100%;
-                background-color: #ffffff;
-                padding: 14px 0 10px;
-                box-shadow: 0 5px 10px rgba(15, 23, 42, 0.15);
-                text-align: center;
-                border-radius: 0 0 16px 16px;
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .nav-links a {
-                margin: 2px 14px;
-                justify-content: center;
-            }
-
-            .btn-quote {
-                display: none;
-            }
-
-            .menu-toggle {
-                display: block;
-            }
-
-            .contact-hero-inner {
-                text-align: center;
-            }
-
-            .contact-hero p {
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            .hero-meta-row {
-                justify-content: center;
-            }
-
-            .form-grid {
-                grid-template-columns: minmax(0, 1fr);
-            }
-
-            .copyright {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .copyright-links a {
-                margin: 0 10px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us - Neo Holdings</title>
+  <meta name="description" content="Contact Neo Holdings for construction supply, industrial machinery, sourcing & indenting, and project support." />
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/@phosphor-icons/web" defer></script>
+
+  <style>
+    :root {
+      --primary-color: #003366;
+      --secondary-color: #ff6600;
+      --text-color: #1f2933;
+      --muted-text: #6b7280;
+      --light-bg: #f4f6f8;
+      --white: #ffffff;
+      --border: rgba(226, 232, 240, 0.9);
+      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.18);
+      --radius-lg: 16px;
+      --transition: all 0.25s ease;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Roboto', sans-serif;
+      color: var(--text-color);
+      background: var(--white);
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+    }
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 15px;
+    }
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+      padding: 10px 0;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-img {
+      height: 50px;
+    }
+    .logo-text-main {
+      font-size: 22px;
+      font-weight: 900;
+      color: var(--primary-color);
+      letter-spacing: 0.12em;
+    }
+    .logo-text-sub {
+      font-size: 11px;
+      color: var(--muted-text);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+    .nav-links {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+    .nav-links a {
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 14px;
+    }
+    .nav-links a.active {
+      background: rgba(15, 23, 42, 0.05);
+      color: var(--primary-color);
+    }
+    /* Hero */
+    .page-hero {
+      background:
+        linear-gradient(135deg, rgba(0, 21, 51, 0.9), rgba(0, 36, 82, 0.9)),
+        url("assets/images/hero/contact-hero.jpg");
+      background-size: cover;
+      background-position: center;
+      color: #fff;
+      padding: 80px 0;
+    }
+    .page-hero h1 {
+      font-size: clamp(34px, 4vw, 52px);
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      margin-bottom: 10px;
+    }
+    .page-hero p {
+      max-width: 720px;
+      font-size: 17px;
+      opacity: 0.95;
+    }
+    /* Section */
+    .section {
+      padding: 80px 0;
+    }
+    .section-light {
+      background: var(--light-bg);
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 40px;
+      align-items: flex-start;
+    }
+    /* Info cards */
+    .info-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 22px 20px;
+      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+      margin-bottom: 18px;
+    }
+    .info-card h3 {
+      color: var(--primary-color);
+      font-size: 18px;
+      margin-bottom: 6px;
+    }
+    .info-card p {
+      font-size: 14px;
+      color: var(--muted-text);
+    }
+    .info-row {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      margin-top: 10px;
+    }
+    .info-row i {
+      font-size: 20px;
+      color: var(--secondary-color);
+      margin-top: 2px;
+    }
+    /* Form */
+    .contact-form {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 26px 24px;
+      box-shadow: var(--shadow-soft);
+    }
+    .contact-form h2 {
+      color: var(--primary-color);
+      margin-bottom: 10px;
+    }
+    .contact-form p {
+      color: var(--muted-text);
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+    .form-group {
+      margin-bottom: 14px;
+    }
+    .form-group label {
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 4px;
+      display: block;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      font-family: inherit;
+      font-size: 14px;
+    }
+    .form-group textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 28px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: 600;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--secondary-color), #ff8533);
+      color: #fff;
+    }
+    .btn-primary:hover {
+      opacity: 0.9;
+    }
+    /* CTA */
+    .cta {
+      background: linear-gradient(135deg, #020617, #0b1120);
+      color: #fff;
+      text-align: center;
+      padding: 70px 0;
+    }
+    .cta h2 {
+      font-size: 30px;
+      margin-bottom: 12px;
+    }
+    .cta p {
+      max-width: 620px;
+      margin: auto;
+      opacity: 0.9;
+    }
+    /* Footer */
+    footer {
+      background: #020617;
+      color: #9ca3af;
+      padding: 40px 0 18px;
+      font-size: 13px;
+    }
+    .footer-bar {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      border-top: 1px solid #1f2937;
+      padding-top: 16px;
+    }
+    @media (max-width: 900px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
+
 <body>
-
-    <!-- HEADER -->
-    <header>
-        <div class="container">
-            <nav>
-                <a href="index.html" class="logo">
-                    <i class="ph-fill ph-buildings"></i>
-                    <div>
-                        Neo Holdings
-                        <div class="sub">Engineering • Indenting • Supply</div>
-                    </div>
-                </a>
-
-                <div class="nav-right">
-                    <div class="menu-toggle" id="mobile-menu">
-                        <i class="ph ph-list"></i>
-                    </div>
-                    <div class="nav-links" id="nav-links">
-                        <a href="index.html" class="link">Home</a>
-                        <a href="about.html" class="link">About Us</a>
-                        <a href="services.html" class="link">Services</a>
-                        <a href="machinery-indenting.html" class="link">Machinery Indenting</a>
-                        <a href="civil-construction.html" class="link">Civil Construction</a>
-                        <a href="industrial-supply.html" class="link">Industrial Supply</a>
-                        <a href="projects.html" class="link">Projects</a>
-                        <a href="contact.html" class="link active">Contact Us</a>
-                    </div>
-                    <a href="contact.html" class="btn-quote">
-                        Request a Quote
-                    </a>
-                </div>
-            </nav>
+  <!-- HEADER -->
+  <header>
+    <div class="container">
+      <nav>
+        <a href="index.html" class="logo">
+          <img src="assets/images/branding/logo-neo-holdings.png" class="logo-img" alt="Neo Holdings" />
+          <div>
+            <div class="logo-text-main">NEO HOLDINGS</div>
+            <div class="logo-text-sub">CONSTRUCTION, SUPPLY, BUILD</div>
+          </div>
+        </a>
+        <div class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="services.html">Services</a>
+          <a href="projects.html">Projects</a>
+          <a href="contact.html" class="active">Contact</a>
         </div>
-    </header>
+      </nav>
+    </div>
+  </header>
 
+  <main>
     <!-- HERO -->
-    <section class="contact-hero">
-        <div class="container">
-            <div class="contact-hero-inner">
-                <div class="breadcrumb">Home · Contact</div>
-                <h1>Let’s Discuss Your Requirements</h1>
-                <p>Reach out to our corporate office for tenders, partnership inquiries, or machinery and construction quotations.</p>
-                <div class="hero-meta-row">
-                    <div class="hero-meta-pill">
-                        <i class="ph-fill ph-file-text"></i>
-                        Tender &amp; PWD Packages
-                    </div>
-                    <div class="hero-meta-pill">
-                        <i class="ph-fill ph-gear-six"></i>
-                        Machinery Indenting Queries
-                    </div>
-                    <div class="hero-meta-pill">
-                        <i class="ph-fill ph-truck"></i>
-                        Long-term Supply Contracts
-                    </div>
-                </div>
-            </div>
-        </div>
+    <section class="page-hero">
+      <div class="container">
+        <h1>Contact Neo Holdings</h1>
+        <p>
+          Have a project requirement, machinery inquiry, or sourcing need?
+          Our team is ready to support you from requirement to delivery.
+        </p>
+      </div>
     </section>
 
-    <!-- CONTACT SECTION -->
-    <section class="contact-section">
-        <div class="container">
-            <div class="contact-grid">
-                <!-- LEFT: CONTACT DETAILS -->
-                <aside class="contact-details">
-                    <span class="badge-small">
-                        <i class="ph-fill ph-map-pin"></i>
-                        Corporate Office
-                    </span>
-                    <h3>Dhaka Head Office</h3>
-                    <p class="lead">Visit our headquarters or contact the relevant department directly for faster coordination.</p>
-
-                    <div class="info-item">
-                        <div class="info-icon">
-                            <i class="ph-fill ph-map-pin"></i>
-                        </div>
-                        <div class="info-text">
-                            <h4>Address</h4>
-                            <p>House 12, Road 5, Block B</p>
-                            <p>Gulshan-1, Dhaka-1212</p>
-                            <p>Bangladesh</p>
-                        </div>
-                    </div>
-
-                    <div class="info-item">
-                        <div class="info-icon">
-                            <i class="ph-fill ph-phone-call"></i>
-                        </div>
-                        <div class="info-text">
-                            <h4>Phone</h4>
-                            <p>General: +880 1700-000000</p>
-                            <p>Tender Dept: +880 1700-000001</p>
-                        </div>
-                    </div>
-
-                    <div class="info-item">
-                        <div class="info-icon">
-                            <i class="ph-fill ph-envelope-simple"></i>
-                        </div>
-                        <div class="info-text">
-                            <h4>Email</h4>
-                            <p><a href="mailto:info@neoholdings.com">info@neoholdings.com</a></p>
-                            <p><a href="mailto:tenders@neoholdings.com">tenders@neoholdings.com</a></p>
-                        </div>
-                    </div>
-
-                    <div class="office-hours">
-                        <strong>Office Hours:</strong> Sat–Thu, 9:30 AM – 6:00 PM (GMT+6)  
-                        <br>Closed on Fridays &amp; public holidays.
-                    </div>
-                </aside>
-
-                <!-- RIGHT: CONTACT FORM -->
-                <section class="contact-form-wrapper">
-                    <h3>Send Us a Message</h3>
-                    <p>Share your project scope, BOQ, or basic requirements and our team will respond with a tailored proposal.</p>
-
-                    <form action="#" method="POST">
-                        <div class="form-grid">
-                            <div class="form-group">
-                                <label for="name" class="form-label">Full Name</label>
-                                <input type="text" id="name" name="name" class="form-control" placeholder="Enter your name">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="company" class="form-label">Company / Organization</label>
-                                <input type="text" id="company" name="company" class="form-control" placeholder="Your company name">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="phone" class="form-label">Phone Number</label>
-                                <input type="tel" id="phone" name="phone" class="form-control" placeholder="+880...">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="email" class="form-label">Work Email</label>
-                                <input type="email" id="email" name="email" class="form-control" placeholder="name@company.com">
-                            </div>
-
-                            <div class="form-group full-width">
-                                <label for="service" class="form-label">Service Required</label>
-                                <select id="service" name="service" class="form-control">
-                                    <option value="" disabled selected>Select a service</option>
-                                    <option value="construction">Civil Construction (PWD / Real Estate)</option>
-                                    <option value="machinery">Heavy Machinery Indenting</option>
-                                    <option value="supply">Industrial Supply Chain</option>
-                                    <option value="other">Other / Partnership Inquiry</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group full-width">
-                                <label for="message" class="form-label">Message / Project Details</label>
-                                <textarea id="message" name="message" class="form-control" placeholder="Describe your project, scope, BOQ, or tender reference..."></textarea>
-                                <div class="note-small">
-                                    You can also mention LC size, expected timeline, or location for more accurate responses.
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="submit-row">
-                            <button type="submit" class="btn btn-primary">
-                                <i class="ph ph-paper-plane-right"></i>
-                                Submit Inquiry
-                            </button>
-                        </div>
-                    </form>
-                </section>
+    <!-- CONTACT -->
+    <section class="section section-light">
+      <div class="container contact-grid">
+        <!-- INFO -->
+        <div>
+          <div class="info-card">
+            <h3>Get in Touch</h3>
+            <p>Reach out to Neo Holdings for construction, industrial supply, and project collaboration.</p>
+            <div class="info-row">
+              <i class="ph ph-map-pin"></i>
+              <p>Dhaka, Bangladesh</p>
             </div>
+            <div class="info-row">
+              <i class="ph ph-envelope-simple"></i>
+              <p>info@neoholdings.com</p>
+            </div>
+            <div class="info-row">
+              <i class="ph ph-phone"></i>
+              <p>+880 XXX XXXX XXX</p>
+            </div>
+          </div>
+          <div class="info-card">
+            <h3>Business Focus</h3>
+            <p>
+              Construction Supply · Industrial Machinery · Sourcing &amp; Indenting ·
+              Product Development · Refractory Solutions
+            </p>
+          </div>
         </div>
+        <!-- FORM -->
+        <form class="contact-form">
+          <h2>Send Us a Message</h2>
+          <p>Tell us about your requirement and our team will get back to you.</p>
+          <div class="form-group">
+            <label>Full Name *</label>
+            <input type="text" required />
+          </div>
+          <div class="form-group">
+            <label>Email *</label>
+            <input type="email" required />
+          </div>
+          <div class="form-group">
+            <label>Phone</label>
+            <input type="tel" />
+          </div>
+          <div class="form-group">
+            <label>Service Interest</label>
+            <select>
+              <option>Construction Supply</option>
+              <option>Industrial Supply (Machineries)</option>
+              <option>Product Development / Spare Parts</option>
+              <option>Sourcing &amp; Indenting</option>
+              <option>Design &amp; Construction</option>
+              <option>Refractory Products</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Message *</label>
+            <textarea required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">
+            Send Message
+            <i class="ph ph-paper-plane-right"></i>
+          </button>
+        </form>
+      </div>
     </section>
-
-    <!-- MAP SECTION -->
-    <section class="map-section">
-        <!-- Same Gulshan-centered Google Map as original file -->
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.042792622756!2d90.41132631543187!3d23.78149399350485!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c7a0f6cb3f65%3A0x676579f323565e36!2sGulshan%201%2C%20Dhaka!5e0!3m2!1sen!2sbd!4v1625567890000!5m2!1sen!2sbd" loading="lazy" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <!-- CTA -->
+    <section class="cta">
+      <div class="container">
+        <h2>Let’s Build Together</h2>
+        <p>
+          Neo Holdings is committed to quality you can trust, supply you can rely on, and solutions that perform.
+        </p>
+      </div>
     </section>
-
-    <!-- FOOTER -->
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <!-- Brand Col -->
-                <div class="footer-col">
-                    <h3>Neo Holdings</h3>
-                    <p>Building the backbone of Bangladesh’s industry through engineering excellence, global sourcing, and reliable supply chains.</p>
-                </div>
-
-                <!-- Links Col -->
-                <div class="footer-col">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="services.html">Our Services</a></li>
-                        <li><a href="projects.html">Projects &amp; Partners</a></li>
-                        <li><a href="#">Tender Notices</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
-                    </ul>
-                </div>
-
-                <!-- Contact Col -->
-                <div class="footer-col">
-                    <h3>Contact Us</h3>
-                    <ul class="contact-info">
-                        <li>
-                            <i class="ph-fill ph-map-pin"></i>
-                            <span>Gulshan, Dhaka, Bangladesh</span>
-                        </li>
-                        <li>
-                            <i class="ph-fill ph-phone"></i>
-                            <span>+880 1700-000000</span>
-                        </li>
-                        <li>
-                            <i class="ph-fill ph-envelope-simple"></i>
-                            <span>info@neoholdings.com</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="copyright">
-                <div>&copy; 2025 Neo Holdings. All Rights Reserved.</div>
-                <div class="copyright-links">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- SCRIPTS -->
-    <script>
-        // Mobile menu toggle
-        const menuToggle = document.getElementById('mobile-menu');
-        const navLinks = document.getElementById('nav-links');
-
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-    </script>
+  </main>
+  <footer>
+    <div class="container footer-bar">
+      <span>© <span id="year"></span> Neo Holdings. All rights reserved.</span>
+      <div>
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="projects.html">Projects</a>
+      </div>
+    </div>
+  </footer>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
